@@ -12,31 +12,35 @@
 
 <body>
     <div class="img"></div>
-    <div class="logo">
-        <img src="./img/logo.svg" alt="">
-    </div>
-    <div class="contaner">
+
+    <div class="contaner-2">
         <div class="big-circle"></div>
         <div class="small-circle"></div>
 
         <form action="">
-            <div class="card">
-                <div class="formgroup">
+            <div class="card-2">
+                <div class="formgroup-1">
                     <p>Widespread</p>
                 </div>
-                <div class="formgroup blur">
+                <div class="formgroup-2 blur">
                     <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
                 </div>
-                <div class="formgroup blur">
+                <div class="formgroup-3 blur">
+                    <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                </div>
+                <div class="formgroup-4 blur">
+                    <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                </div>
+                <div class="formgroup-5 blur">
                     <input type="text" name="password" id="" placeholder="Password" autocomplete="off">
                 </div>
-                <div class="formgroup blur">
+
+                <div class="formgroup-6 blur">
                     <input type="submit" name="btnsummit" id="btnsubmit">
                 </div>
-                <div class="formgroup">
-                    <a href="">Forget password?</a>
+                <div class="formgroup-7">
                     <hr>
-                    <p>Don't have an account?<a href="./signup.php"><span> Sign up</span></a>
+                    <p>Have an account?<a href="./"><span> Log in</span></a>
                     </p>
                 </div>
             </div>

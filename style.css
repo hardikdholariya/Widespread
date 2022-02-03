@@ -32,12 +32,25 @@ body {
 }
 
 .contaner {
-    width: 883px;
+    /* width: 883px;
     height: 899px;
-    position: absolute;
+    position: absolute; */
     transform: translate(1%, -50%);
     right: 1%;
     top: 50%;
+}
+
+.contaner-2 {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.contaner,
+.contaner-2 {
+    width: 883px;
+    height: 899px;
+    position: absolute;
 }
 
 .big-circle,
@@ -86,7 +99,8 @@ form {
     align-items: center;
 }
 
-form .card {
+form .card,
+.card-2 {
     margin: 0 auto;
     width: 543px;
     height: 733px;
@@ -104,6 +118,10 @@ form .card {
     z-index: 20;
 }
 
+.card-2 {
+    justify-content: space-evenly;
+}
+
 ::placeholder {
     color: #fff;
     padding: 4px;
@@ -113,6 +131,15 @@ form .card {
     font-size: 64px;
     width: 370px;
     height: 90px;
+}
+
+.card-2 .formgroup-1:first-child p {
+    font-size: 50px;
+    margin: 0;
+}
+
+.card-2 .formgroup-1:first-child p,
+.card .formgroup:first-child p {
     font-family: 'Dancing Script', cursive;
     align-items: center;
     display: flex;
@@ -125,14 +152,6 @@ form .card {
     padding-left: 20px;
     width: 350px;
     height: 63px;
-    border-radius: 20px;
-}
-
-.card .formgroup:nth-of-type(4) input {
-    height: 63px;
-    width: 187px;
-    border-radius: 20px;
-    color: #fff;
 }
 
 .card .formgroup:nth-of-type(5) {
@@ -144,41 +163,55 @@ form .card {
     font-size: 20px;
 }
 
-.card .formgroup input[type="submit"] {
+.formgroup-6 input[type="submit"],
+.formgroup input[type="submit"] {
     cursor: pointer;
+    padding: 0;
+    height: 63px;
+    width: 187px;
 }
 
 .card .formgroup input:focus {
     color: #fff;
 }
 
-.card .formgroup input {
-    color: #fff;
-}
-
 .card .formgroup:nth-of-type(5) a {
     margin: 25px 0 15px;
     color: #fff;
+}
+
+a {
     text-decoration: none;
 }
 
-.card .formgroup:nth-of-type(5) span {
+.card .formgroup:nth-of-type(5) span,
+.formgroup-7 span {
     color: aqua;
 }
 
-.card .formgroup hr {
+hr {
     width: 401px;
     margin: 0;
     color: #fff;
 }
 
-.card .blur input {
+.card-2 .formgroup-7 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.blur input {
     background: linear-gradient( 90deg, #ffffff5c, #ffffff26, #ffffff14, #ffffff00);
     backdrop-filter: blur(170px);
     border: none;
+    color: #fff;
     border-top: 1px solid #fff;
     border-left: 1px solid #fff;
+    border-radius: 20px;
     outline: none;
     font-size: 17px;
     box-shadow: 0px 4px 12px -1px rgba(0, 0, 0, 0.25), inset 0px 0px 2px rgba(255, 255, 255, 0.25);
+    padding-left: 20px;
+    width: 350px;
+    height: 63px;
 }
