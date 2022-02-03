@@ -5,26 +5,180 @@ body {
     box-sizing: border-box;
 }
 
-.login-background {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
+* {
+    box-sizing: border-box;
 }
 
-.login-background img {
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.background {
+.img {
+    background: url(./img/login-background.png) no-repeat center center;
+    min-height: 100vh;
+    background-size: cover;
     position: fixed;
-    z-index: 10;
-    background: rgba(248, 0, 0, 0.05);
-    height: 100%;
     top: 0;
     left: 0;
-    width: 100%;
-    backdrop-filter: blur(40px);
+    right: 0;
+    bottom: 0;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-15%, -50%);
+}
+
+.logo img {
+    width: 600px;
+}
+
+.contaner {
+    width: 883px;
+    height: 899px;
+    position: absolute;
+    transform: translate(1%, -50%);
+    right: 1%;
+    top: 50%;
+}
+
+.big-circle,
+.small-circle,
+.big-circle::before,
+.small-circle::before {
+    position: absolute;
+    background: linear-gradient(149.67deg, rgb(158 0 255 / 74%) 29.27%, rgba(255, 0, 0, 0.67) 99.71%);
+    border-radius: 50%;
+}
+
+.big-circle {
+    width: 350px;
+    height: 350px;
+}
+
+.big-circle::before {
+    content: "";
+    left: 530px;
+    top: 550px;
+    width: 350px;
+    height: 350px;
+}
+
+.small-circle {
+    right: 10%;
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    background: linear-gradient(149.67deg, #9E00FF 29.27%, rgba(255, 0, 0, 0.77) 99.71%);
+}
+
+.small-circle::before {
+    content: "";
+    right: 534px;
+    top: 710px;
+    width: 185px;
+    height: 185px;
+}
+
+form {
+    width: 883px;
+    height: 899px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form .card {
+    margin: 0 auto;
+    width: 543px;
+    height: 733px;
+    box-sizing: border-box;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px;
+    background: linear-gradient( 301deg, #ffffff5c, #ffffff26, #ffffff14, #ffffff00);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-left: 1.5px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    font-family: 'Padauk', sans-serif;
+    z-index: 20;
+}
+
+::placeholder {
+    color: #fff;
+    padding: 4px;
+}
+
+.card .formgroup:first-child p {
+    font-size: 64px;
+    width: 370px;
+    height: 90px;
+    font-family: 'Dancing Script', cursive;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.card .formgroup:nth-of-type(2) input,
+.formgroup:nth-of-type(3) input {
+    margin-bottom: 47px;
+    padding-left: 20px;
+    width: 350px;
+    height: 63px;
+    border-radius: 20px;
+}
+
+.card .formgroup:nth-of-type(4) input {
+    height: 63px;
+    width: 187px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.card .formgroup:nth-of-type(5) {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.card .formgroup input[type="submit"] {
+    cursor: pointer;
+}
+
+.card .formgroup input:focus {
+    color: #fff;
+}
+
+.card .formgroup input {
+    color: #fff;
+}
+
+.card .formgroup:nth-of-type(5) a {
+    margin: 25px 0 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.card .formgroup:nth-of-type(5) span {
+    color: aqua;
+}
+
+.card .formgroup hr {
+    width: 401px;
+    margin: 0;
+    color: #fff;
+}
+
+.card .blur input {
+    background: linear-gradient( 90deg, #ffffff5c, #ffffff26, #ffffff14, #ffffff00);
+    backdrop-filter: blur(170px);
+    border: none;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    outline: none;
+    font-size: 17px;
+    box-shadow: 0px 4px 12px -1px rgba(0, 0, 0, 0.25), inset 0px 0px 2px rgba(255, 255, 255, 0.25);
 }
