@@ -23,16 +23,16 @@
                     <p>Widespread</p>
                 </div>
                 <div class="formgroup-2 blur">
-                    <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                    <input type="text" name="email" id="email" placeholder="email" autocomplete="off">
                 </div>
                 <div class="formgroup-3 blur">
-                    <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                    <input type="text" name="fullname" id="fullname" placeholder="Full name" autocomplete="off">
                 </div>
                 <div class="formgroup-4 blur">
                     <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
                 </div>
                 <div class="formgroup-5 blur">
-                    <input type="text" name="password" id="" placeholder="Password" autocomplete="off">
+                    <input type="text" name="password" id="password" placeholder="Password" autocomplete="off">
                 </div>
 
                 <div class="formgroup-6 blur">
