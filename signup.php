@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
 </head>
 
@@ -24,19 +24,24 @@
                 </div>
                 <div class="formgroup-2 blur">
                     <input type="text" name="email" id="email" placeholder="email" autocomplete="off">
+                    <span class="verror"><img src="./img/times-circle-regular.svg" alt=""></span>
                 </div>
                 <div class="formgroup-3 blur">
                     <input type="text" name="fullname" id="fullname" placeholder="Full name" autocomplete="off">
+                    <span class="verror"><img src="./img/times-circle-regular.svg" alt=""></span>
                 </div>
                 <div class="formgroup-4 blur">
                     <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
+                    <span class="verror"><img src="./img/times-circle-regular.svg" alt=""></span>
+
                 </div>
                 <div class="formgroup-5 blur">
                     <input type="text" name="password" id="password" placeholder="Password" autocomplete="off">
+                    <span class="verror"><img src="./img/times-circle-regular.svg" alt=""></span>
                 </div>
 
                 <div class="formgroup-6 blur">
-                    <input type="submit" name="btnsummit" id="btnsubmit">
+                    <input type="submit" name="btnsummit" id="save-user">
                 </div>
                 <div class="formgroup-7">
                     <hr>
@@ -46,6 +51,8 @@
             </div>
         </form>
     </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./ajax/script.js"></script>
 </body>
 
 </html>
