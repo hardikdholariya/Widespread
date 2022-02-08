@@ -1,0 +1,75 @@
+<?php
+class userValidation
+{
+    private $data = "";
+    private $errors = [];
+    private static $fields = ['email_address', 'name', 'uname', 'pass'];
+    public function __construct($post_data)
+    {
+        $this->data = $post_data;
+    }
+    public function validateForm()
+    {
+        foreach (self::$fields as  $field) {
+            if (!array_key_exists($field, $this->data)) {
+                trigger_error("$field is not present in data.");
+                return;
+            }
+        }
+        $this->validateEmail();
+        $this->validateFullname();
+        $this->validateUsernmae();
+        $this->validatePassword();
+        return $this->errors;
+    }
+    private function validateEmail()
+    {
+        $emailAdders = $this->data['email_address'];
+        if (empty($emailAdders)) {
+            $this->addError('email_address', 'email cannot be empty.');
+        } else {
+            if (!filter_var($emailAdders, FILTER_VALIDATE_EMAIL)) {
+                $this->addError('email_address', 'email not validate .');
+            }
+        }
+    }
+    private function validateFullname()
+    {
+        $fullname = $this->data['name'];
+        if (empty($fullname)) {
+            $this->addError('name', 'full name cannot be empty.');
+        } else {
+            if (!preg_match("/^([a-zA-Z' ]+)$/", $fullname)) {
+                $this->addError('name', 'not enter spacial characters.');
+            }
+        }
+    }
+    private function validateUsernmae()
+    {
+        $uname = trim($this->data['uname']);
+        if (empty($uname)) {
+            $this->addError('uname', 'username cannot be empty.');
+        } else {
+            if (strlen($uname) < 7) {
+                $this->addError('uname', 'more then 7 letters.');
+            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $uname)) {
+                $this->addError('uname', 'not enter spacial characters.');
+            }
+        }
+    }
+    private function validatePassword()
+    {
+        $pwd = trim($this->data['pass']);
+        if (empty($pwd)) {
+            $this->addError('pass', 'password cannot be empty.');
+        } else {
+            if (!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $pwd)) {
+                $this->addError('pass', 'password wrong.');
+            }
+        }
+    }
+    private function addError($key, $value)
+    {
+        $this->errors[$key] = $value;
+    }
+}
