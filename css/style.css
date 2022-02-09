@@ -37,14 +37,16 @@ body {
     top: 50%;
 }
 
-.contaner-2 {
+.contaner-2,
+.dob {
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
 }
 
 .contaner,
-.contaner-2 {
+.contaner-2,
+.dob {
     width: 883px;
     height: 899px;
     position: absolute;
@@ -52,8 +54,10 @@ body {
 
 .big-circle,
 .small-circle,
+.circle-dob,
 .big-circle::before,
-.small-circle::before {
+.small-circle::before,
+.circle-dob::before {
     position: absolute;
     background: linear-gradient(149.67deg, rgb(158 0 255 / 74%) 29.27%, rgba(255, 0, 0, 0.67) 99.71%);
     border-radius: 50%;
@@ -72,7 +76,8 @@ body {
     height: 350px;
 }
 
-.small-circle {
+.small-circle,
+.circle-dob {
     right: 10%;
     width: 185px;
     height: 185px;
@@ -80,12 +85,22 @@ body {
     background: linear-gradient(149.67deg, #9E00FF 29.27%, rgba(255, 0, 0, 0.77) 99.71%);
 }
 
-.small-circle::before {
+.small-circle::before,
+.circle-dob::before {
     content: "";
     right: 534px;
     top: 710px;
     width: 185px;
     height: 185px;
+}
+
+.circle-dob {
+    right: 0;
+}
+
+.circle-dob::before {
+    right: 375px;
+    top: 364px;
 }
 
 form {
@@ -97,7 +112,8 @@ form {
 }
 
 form .card,
-.card-2 {
+.card-2,
+.dob form {
     margin: 0 auto;
     width: 543px;
     height: 733px;
@@ -112,7 +128,7 @@ form .card,
     border-left: 1.5px solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(15px);
     font-family: 'Padauk', sans-serif;
-    z-index: 20;
+    z-index: 10;
 }
 
 .card-2 {
@@ -161,7 +177,8 @@ form .card,
 }
 
 .formgroup-6 input[type="submit"],
-.formgroup input[type="submit"] {
+.formgroup input[type="submit"],
+.dob form input[type="submit"] {
     cursor: pointer;
     padding: 0;
     height: 63px;
@@ -210,6 +227,7 @@ hr {
     text-align: center;
 }
 
+form input,
 .blur input {
     background: linear-gradient( 90deg, #ffffff5c, #ffffff26, #ffffff14, #ffffff00);
     backdrop-filter: blur(170px);
@@ -225,4 +243,38 @@ hr {
     padding-right: 48px;
     width: 350px;
     height: 63px;
+}
+
+.dob {
+    width: 565px;
+    height: 540px;
+}
+
+.dob form {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+}
+
+.dob form img {
+    width: 150px;
+    margin-bottom: 17px;
+}
+
+.flatpickr-month {
+    border-radius: 20px;
+}
+
+.flatpickr-calendar.animate.open.arrowTop.arrowLeft {
+    border-radius: 20px;
+    width: 355px;
+}
+
+.flatpickr-innerContainer {
+    justify-content: space-evenly;
 }

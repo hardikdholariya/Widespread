@@ -16,6 +16,7 @@ class userValidation
                 return;
             }
         }
+
         $this->validateEmail();
         $this->validateFullname();
         $this->validateUsernmae();
@@ -68,8 +69,36 @@ class userValidation
             }
         }
     }
+
     private function addError($key, $value)
     {
         $this->errors[$key] = $value;
+    }
+}
+class userDateValidation
+{
+    private $data = "";
+    private static $fieldDate = ['dob'];
+    private $errorDate = [];
+    public function __construct($post_data)
+    {
+        $this->data = $post_data;
+    }
+    public function validateForm()
+    {
+        if (!array_key_exists(self::$fieldDate, $this->data)) {
+            trigger_error(self::$fieldDate . "is not present in data.");
+            return;
+        }
+
+        $this->validateDate();
+        return $this->errorDate;
+    }
+    private function validateDate()
+    {
+        $date = $this->data['dob'];
+        if (empty($date)) {
+            $this->errorDate['dob'] = 'date cannot be empty.';
+        }
     }
 }
