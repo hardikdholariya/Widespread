@@ -30,7 +30,7 @@ $(document).ready(function() {
                 if (key[1] in json) {
                     $("#error-1").attr("src", "./img/times-circle-regular.svg");
                 } else {
-                    $("#error-1").attr("src", "./img/check-circle-regular.svg");
+                    $("#error-1").attr("src", "./img/check-cicle-regular.svg");
                 }
                 if (key[2] in json) {
                     $("#error-2").attr("src", "./img/times-circle-regular.svg");
@@ -70,9 +70,10 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 if (data != "[]1") {
-                    $("#error-4").attr("src", "./img/times-circle-regular.svg");
+                    $("#error-4").attr("src", "./img/false.svg");
+
                 } else {
-                    $("#error-4").attr("src", "./img/check-circle-regular.svg");
+                    $("#error-4").attr("src", "./img/true.svg");
                 }
             }
         });
