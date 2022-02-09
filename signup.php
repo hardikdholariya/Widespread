@@ -56,8 +56,10 @@
             <div class="circle-dob"></div>
             <form action="" method="post" class="dobsubmit">
                 <img src="./img/cake.svg" alt="">
-                <input type="datetime-local" placeholder="Date of Birth" name="dob" id="dob">
-                <span class="verror"><img id="error-4" src="" alt=""></span>
+                <div class="errordob">
+                    <input type="datetime-local" placeholder="Date of Birth" name="dob" id="dob">
+                    <span class="verror"><img id="error-4" src="" alt=""></span>
+                </div>
                 <input type="submit" name="subimtdob" id="subimtdob" value="submit">
             </form>
         </div>

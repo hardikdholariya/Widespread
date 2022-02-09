@@ -86,9 +86,12 @@ class userDateValidation
     }
     public function validateForm()
     {
-        if (!array_key_exists(self::$fieldDate, $this->data)) {
-            trigger_error(self::$fieldDate . "is not present in data.");
-            return;
+        foreach (self::$fieldDate as  $field) {
+
+            if (!array_key_exists($field, $this->data)) {
+                trigger_error($field . "is not present in data.");
+                return;
+            }
         }
 
         $this->validateDate();
@@ -98,7 +101,7 @@ class userDateValidation
     {
         $date = $this->data['dob'];
         if (empty($date)) {
-            $this->errorDate['dob'] = 'date cannot be empty.';
+            $this->errorDate['dob'] = false;
         }
     }
 }

@@ -258,12 +258,27 @@ form input,
     left: 50%;
     transform: translate(-50%, -50%);
     flex-direction: column;
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
 }
 
 .dob form img {
     width: 150px;
-    margin-bottom: 17px;
+    /* margin-bottom: 17px; */
+}
+
+.dob .dobsubmit .errordob {
+    position: relative;
+}
+
+.errordob .verror {
+    position: absolute;
+    top: 17px;
+    right: 11px;
+    width: 30px;
+}
+
+.errordob .verror img {
+    width: 30px;
 }
 
 .flatpickr-month {
