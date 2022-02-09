@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+    <link rel="stylesheet" type="text/css" href="./css/themes/dark.css">
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
 </head>
@@ -63,10 +63,22 @@
                 <input type="submit" name="subimtdob" id="subimtdob" value="submit">
             </form>
         </div>
+
+        <div class="otp_verification">
+            <div class="circle-dob"></div>
+            <form action="" method="post" class="dobsubmit">
+                <img src="./img/mail.png" alt="">
+                <div class="errordob">
+                    <input type="text" placeholder="OTP" name="otp" id="otp">
+                    <span class="verror"><img id="error-5" src="" alt=""></span>
+                </div>
+                <input type="submit" name="subimtotp" id="subimtotp" value="submit">
+            </form>
+        </div>
     </div>
     <script src="./js/jquery.js"></script>
     <script src="./ajax/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./js/flatpickr.js"></script>
     <script>
         flatpickr("input[type=datetime-local]", {});
     </script>

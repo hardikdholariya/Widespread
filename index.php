@@ -26,11 +26,11 @@
                 </div>
                 <div class="formgroup blur">
                     <input type="text" name="username" id="username" placeholder="Username" autocomplete="off">
-                    <span class="verror"><img src="./img/times-circle-regular.svg" alt=""></span>
+                    <span class="verror"><img src="./img/false.svg" alt=""></span>
                 </div>
                 <div class="formgroup blur">
                     <input type="text" name="password" id="" placeholder="Password" autocomplete="off">
-                    <span class="verror"><img src="./img/times-circle-regular.svg" alt=""></span>
+                    <span class="verror"><img src="./img/false.svg" alt=""></span>
                 </div>
                 <div class="formgroup blur">
                     <input type="submit" name="btnsummit" id="btnsubmit">

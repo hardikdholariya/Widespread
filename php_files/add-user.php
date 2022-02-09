@@ -1,5 +1,6 @@
 <?php
 require("../classes/signup-class.php");
+require("../database/database.php");
 
 $email = $_POST['email_address'];
 $fullname = $_POST['name'];
@@ -8,12 +9,11 @@ $password = $_POST['pass'];
 
 $validation = new userValidation($_POST);
 $errors = $validation->validateForm();
-echo json_encode($errors);
+$json =  json_encode($errors);
+echo $json;
 
-//dob validation
-$date = $_POST['dob'];
-$dateValidation = new userDateValidation($_POST);
-$errorDate = $dateValidation->validateForm();
-if ($errorDate == false) {
-    echo "1";
+if (count($errors) == 0) {
+    $data = new Database();
+    $value = ['email' => $email, 'fullname' => $fullname, 'username' => $username, 'password' => $password];
+    $data->insert("user", $value);
 }

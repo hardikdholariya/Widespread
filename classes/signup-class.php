@@ -53,7 +53,7 @@ class userValidation
         } else {
             if (strlen($uname) < 7) {
                 $this->addError('uname', 'more then 7 letters.');
-            } else if (preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $uname)) {
+            } else if ((preg_match("/[\'^£$%&*()}{@#~?><>,|=+¬-]/", $uname)) || (preg_match("/[A-Z]/", $uname))) {
                 $this->addError('uname', 'not enter spacial characters.');
             }
         }

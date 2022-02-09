@@ -38,7 +38,8 @@ body {
 }
 
 .contaner-2,
-.dob {
+.dob,
+.otp_verification {
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
@@ -46,7 +47,8 @@ body {
 
 .contaner,
 .contaner-2,
-.dob {
+.dob,
+.otp_verification {
     width: 883px;
     height: 899px;
     position: absolute;
@@ -55,9 +57,11 @@ body {
 .big-circle,
 .small-circle,
 .circle-dob,
+.circle-otp,
 .big-circle::before,
 .small-circle::before,
-.circle-dob::before {
+.circle-dob::before,
+.circle-otp::before {
     position: absolute;
     background: linear-gradient(149.67deg, rgb(158 0 255 / 74%) 29.27%, rgba(255, 0, 0, 0.67) 99.71%);
     border-radius: 50%;
@@ -77,7 +81,8 @@ body {
 }
 
 .small-circle,
-.circle-dob {
+.circle-dob,
+.circle-otp {
     right: 10%;
     width: 185px;
     height: 185px;
@@ -86,7 +91,8 @@ body {
 }
 
 .small-circle::before,
-.circle-dob::before {
+.circle-dob::before,
+.circle-otp::before {
     content: "";
     right: 534px;
     top: 710px;
@@ -94,11 +100,13 @@ body {
     height: 185px;
 }
 
-.circle-dob {
+.circle-dob,
+.circle-otp {
     right: 0;
 }
 
-.circle-dob::before {
+.circle-dob::before,
+.circle-otp::before {
     right: 375px;
     top: 364px;
 }
@@ -113,7 +121,8 @@ form {
 
 form .card,
 .card-2,
-.dob form {
+.dob form,
+.otp_verification form {
     margin: 0 auto;
     width: 543px;
     height: 733px;
@@ -178,7 +187,8 @@ form .card,
 
 .formgroup-6 input[type="submit"],
 .formgroup input[type="submit"],
-.dob form input[type="submit"] {
+.dob form input[type="submit"],
+.otp_verification form input[type="submit"] {
     cursor: pointer;
     padding: 0;
     height: 63px;
@@ -245,12 +255,14 @@ form input,
     height: 63px;
 }
 
-.dob {
+.dob,
+.otp_verification {
     width: 565px;
     height: 540px;
 }
 
-.dob form {
+.dob form,
+.otp_verification form {
     width: 400px;
     height: 400px;
     position: absolute;
@@ -261,12 +273,14 @@ form input,
     justify-content: space-evenly;
 }
 
-.dob form img {
+.dob form img,
+.otp_verification form img {
     width: 150px;
     /* margin-bottom: 17px; */
 }
 
-.dob .dobsubmit .errordob {
+.dob .dobsubmit .errordob,
+.otp_verification .dobsubmit .errordob {
     position: relative;
 }
 
