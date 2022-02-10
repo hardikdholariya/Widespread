@@ -228,6 +228,33 @@ class Database
         }
     }
 
+    // count row of data
+    public function count($table, $rows = "*", $join = null, $where = null)
+    {
+        // Check to see if the table exists
+        if ($this->tableExists($table)) {
+            // Create query from the variables passed to the function
+            $sql = "SELECT $rows FROM $table";
+            if ($join != null) {
+                $sql .= " JOIN $join";
+            }
+            if ($where != null) {
+                $sql .= " WHERE $where";
+            }
+            $query = $this->mysqli->query($sql);
+
+            if ($query) {
+                return $query->num_rows;
+                // Query was successful
+            } else {
+                array_push($this->result, $this->mysqli->error);
+                return false; // No rows were returned
+            }
+        } else {
+            return false; // Table does not exist
+        }
+    }
+
     // Public function to return the data to the user
     public function getResult()
     {

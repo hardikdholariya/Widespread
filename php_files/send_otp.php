@@ -1,27 +1,18 @@
 <?php
-require_once("../database/database.php");
-$data = new Database();
-$result = $data->select('user');
-// $result = mysqli_query($connection, "SELECT * FROM tbl_user WHERE email='" . $email . "' ");
 
-echo $data->num_rows;
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
+    // $email = "hardikdholariya05@gmail.com";
 
-    // $result = $data->select('user');
-    // $result = mysqli_query($connection, "SELECT * FROM tbl_user WHERE email='" . $email . "' ");
-
-    // echo $count = $data->num_rows;
-
+    $count = $data->count('user', '*', null, "email='{$email}'");
 
     if ($count > 0) {
         $otp = rand(11111, 99999); //generate otp randomly
-        $sql = "UPDATE tbl_user SET otp='$otp' WHERE email='$email'";
-        mysqli_query($connection, $sql);
+
+        $send_otp = ['otp' => $otp];
+        $data->update('user', $send_otp, "email = '{$email}'");
 
         $otp_code = "Your otp verification code is " . $otp;
-
-        $_SESSION["USER_EMAIL"] = $email; //set current user email in $_SESSION[] method
 
         require_once('../smtp/PHPMailerAutoload.php');
 
@@ -45,11 +36,13 @@ if (isset($_POST['email'])) {
         ));
 
         if ($mail->send()) {
-            echo "send";
+            array_push($error, "send");
         } else {
-            echo "Mailer Error" . $mail->ErrorInfo;
+            array_push($error, "Mailer Error");
         }
     } else {
-        echo "wrong_email";
+        array_push($error, "wrong_email");
     }
+} else {
+    array_push($error, "not set");
 }

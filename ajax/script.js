@@ -54,6 +54,7 @@ $(document).ready(function() {
         e.preventDefault();
         var dob = $("#dob").val();
         var email = $("#email").val();
+        $(this).val("Wait..");
         $.ajax({
             type: "POST",
             url: "./php_files/datevalidation.php",
@@ -62,7 +63,10 @@ $(document).ready(function() {
                 dob: dob
             },
             success: function(data) {
-                if (data != 1) {
+                console.log(data);
+                let jsondob = $.parseJSON(data);
+                console.log(jsondob);
+                if (jsondob[0] == 1) {
                     $("#error-4").attr("src", "./img/false.svg");
                 } else {
                     $("#error-4").attr("src", "./img/true.svg");
@@ -76,20 +80,22 @@ $(document).ready(function() {
     // otp
     $("#subimtotp").on("click", function(e) {
         e.preventDefault();
-        var dob = $("#dob").val();
+        var otp = $("#otp").val();
         var email = $("#email").val();
         $.ajax({
             type: "POST",
-            url: "./php_files/datevalidation.php",
+            url: "./php_files/check_otp.php",
             data: {
                 email: email,
-                dob: dob
+                otp: otp
             },
             success: function(data) {
-                if (data != 1) {
-                    $("#error-4").attr("src", "./img/false.svg");
+                console.log(data);
+                if (data == "invalid") {
+                    $("#error-5").attr("src", "./img/false.svg");
                 } else {
-                    $("#error-4").attr("src", "./img/true.svg");
+                    $("#error-5").attr("src", "./img/true.svg");
+                    window.location = "./";
                 }
             }
         });
