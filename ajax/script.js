@@ -2,7 +2,6 @@ $(document).ready(function() {
     // $(".contaner-2").hide();
     $(".dob").hide();
     $(".otp_verification").hide();
-
     $("#save-user").on("click", function(e) {
         e.preventDefault();
         var email = $("#email").val();
@@ -54,7 +53,6 @@ $(document).ready(function() {
         e.preventDefault();
         var dob = $("#dob").val();
         var email = $("#email").val();
-        $(this).val("Wait..");
         $.ajax({
             type: "POST",
             url: "./php_files/datevalidation.php",
@@ -63,12 +61,12 @@ $(document).ready(function() {
                 dob: dob
             },
             success: function(data) {
-                console.log(data);
                 let jsondob = $.parseJSON(data);
-                console.log(jsondob);
+                $(this).val("Wait..");
                 if (jsondob[0] == 1) {
                     $("#error-4").attr("src", "./img/false.svg");
                 } else {
+                    $("#emailError").html(jsondob[1]);
                     $("#error-4").attr("src", "./img/true.svg");
                     $(".dob").hide();
                     $(".otp_verification").show();
@@ -90,7 +88,6 @@ $(document).ready(function() {
                 otp: otp
             },
             success: function(data) {
-                console.log(data);
                 if (data == "invalid") {
                     $("#error-5").attr("src", "./img/false.svg");
                 } else {

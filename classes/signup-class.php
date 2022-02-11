@@ -31,6 +31,17 @@ class userValidation
         } else {
             if (!filter_var($emailAdders, FILTER_VALIDATE_EMAIL)) {
                 $this->addError('email_address', 'email not validate .');
+            } else {
+                $data = new Database;
+                $countRole = $data->count('user', '*', null, "email='{$emailAdders}' AND role=0");
+                $count = $data->count('user', '*', null, "email='{$emailAdders}'");
+                if ($countRole > 0) {
+                    $data->delete('user', "email='{$emailAdders}' AND role=0");
+                } else {
+                    if ($count > 0) {
+                        $this->addError('email_address', 'email not validate .');
+                    }
+                }
             }
         }
     }
@@ -55,6 +66,12 @@ class userValidation
                 $this->addError('uname', 'more then 7 letters.');
             } else if ((preg_match("/[\'^£$%&*()}{@#~?><>,|=+¬-]/", $uname)) || (preg_match("/[A-Z]/", $uname))) {
                 $this->addError('uname', 'not enter spacial characters.');
+            } else {
+                $data = new Database;
+                $count = $data->count('user', '*', null, "username='{$uname}'");
+                if ($count > 0) {
+                    $this->addError('uname', 'not valid.');
+                }
             }
         }
     }

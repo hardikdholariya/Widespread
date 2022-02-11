@@ -1,6 +1,6 @@
 <?php
-require("../classes/signup-class.php");
-require("../database/database.php");
+require_once("../classes/signup-class.php");
+require_once("../database/database.php");
 
 $email = $_POST['email_address'];
 $fullname = $_POST['name'];
@@ -14,6 +14,6 @@ echo $json;
 
 if (count($errors) == 0) {
     $data = new Database();
-    $value = ['email' => $email, 'fullname' => $fullname, 'username' => $username, 'password' => $password];
+    $value = ['email' => $email, 'fullname' => $fullname, 'username' => $username, 'password' => md5($password)];
     $data->insert("user", $value);
 }

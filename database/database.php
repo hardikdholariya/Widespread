@@ -34,7 +34,10 @@ class Database
         if ($this->tableExists($table)) {
             // Seperate $params's Array KEYs and VALUEs and Convert them to String Value
             $table_columns = implode(', ', array_keys($params));
-            $table_value = implode("', '", $params);
+            // array_map('myslq_real_escape_string', $params)
+            // $this->mysqli->mysqli_escape_string($params);
+            $escaped_values = array_map(array($this->mysqli, 'real_escape_string'), array_values($params));
+            $table_value = implode("', '", $escaped_values);
 
             $sql = "INSERT INTO $table ($table_columns) VALUES ('$table_value')";
             // Make the query to insert to the database

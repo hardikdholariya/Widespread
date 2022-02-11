@@ -18,7 +18,7 @@
             <div class="big-circle"></div>
             <div class="small-circle"></div>
 
-            <form action="" method="POST">
+            <form action="" method="POST" autocomplete="off">
                 <div class="card-2">
                     <div class="formgroup-1">
                         <p>Widespread</p>
@@ -36,7 +36,7 @@
                         <span class="verror"> <img id="error-2" src="" alt=""></span>
                     </div>
                     <div class="formgroup-5 blur">
-                        <input type="text" name="password" id="password" placeholder="Password" autocomplete="off">
+                        <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
                         <span class="verror"><img id="error-3" src="" alt=""></span>
                     </div>
 
@@ -68,6 +68,7 @@
             <div class="circle-dob"></div>
             <form action="" method="post" class="dobsubmit">
                 <img src="./img/mail.png" alt="">
+                <p id="emailError"></p>
                 <div class="errordob">
                     <input type="text" placeholder="OTP" name="otp" id="otp">
                     <span class="verror"><img id="error-5" src="" alt=""></span>

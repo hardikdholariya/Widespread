@@ -36,13 +36,13 @@ if (isset($_POST['email'])) {
         ));
 
         if ($mail->send()) {
-            array_push($error, "send");
+            array_push($error, "Send OTP Your Email");
         } else {
-            array_push($error, "Mailer Error");
+            array_push($error, "Sorry, Mailer Error");
         }
     } else {
-        array_push($error, "wrong_email");
+        array_push($error, "Wrong Email");
     }
 } else {
-    array_push($error, "not set");
+    array_push($error, "wrong Email");
 }
