@@ -65,7 +65,7 @@
         </div>
 
         <div class="otp_verification">
-            <div class="circle-dob"></div>
+            <div class="circle-otp"></div>
             <form action="" method="post" class="dobsubmit">
                 <img src="./img/mail.png" alt="">
                 <p id="emailError"></p>
@@ -74,7 +74,9 @@
                     <span class="verror"><img id="error-5" src="" alt=""></span>
                 </div>
                 <input type="submit" name="subimtotp" id="subimtotp" value="submit">
+                <a href="" class="resend">Resend OTP</a>
             </form>
+
         </div>
     </div>
     <script src="./js/jquery.js"></script>

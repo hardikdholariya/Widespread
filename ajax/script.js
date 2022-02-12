@@ -51,9 +51,9 @@ $(document).ready(function() {
 
     $("#subimtdob").on("click", function(e) {
         e.preventDefault();
+        $(this).val("Wait..");
         var dob = $("#dob").val();
         var email = $("#email").val();
-        $(this).val("Wait..");
         $.ajax({
             type: "POST",
             url: "./php_files/datevalidation.php",
@@ -94,6 +94,23 @@ $(document).ready(function() {
                     $("#error-5").attr("src", "./img/true.svg");
                     window.location = "./login.php";
                 }
+            }
+        });
+    });
+
+
+    $(".resend").on("click", function(e) {
+        e.preventDefault();
+        var email = $("#email").val();
+        $.ajax({
+            type: "POST",
+            url: "./php_files/resendOtp.php",
+            data: {
+                email: email,
+            },
+            success: function(data) {
+                let jsonresend = $.parseJSON(data);
+                $("#emailError").html(jsonresend[0]);
             }
         });
     });

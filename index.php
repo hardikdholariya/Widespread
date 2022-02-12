@@ -3,9 +3,7 @@ session_start();
 require_once("./database/database.php");
 $data = new Database();
 
-// echo $data->session();
 if ($data->session() == false) {
-
     header("location:login.php");
 }
 ?>

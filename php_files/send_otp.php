@@ -1,6 +1,6 @@
 <?php
-
 if (isset($_POST['email'])) {
+    date_default_timezone_set("Asia/Kolkata");
     $email = $_POST['email'];
     // $email = "hardikdholariya05@gmail.com";
 
@@ -9,7 +9,7 @@ if (isset($_POST['email'])) {
     if ($count > 0) {
         $otp = rand(11111, 99999); //generate otp randomly
 
-        $send_otp = ['otp' => $otp];
+        $send_otp = ['otp' => $otp, 'otp_datetime' => date("Y-m-d H:i:s")];
         $data->update('user', $send_otp, "email = '{$email}'");
 
         $otp_code = "Your otp verification code is " . $otp;
