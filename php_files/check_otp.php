@@ -11,7 +11,7 @@ if (isset($_POST["otp"])) {
 
 	if ($count > 0) {
 
-		$data->update('user', ['otp' => '', 'role' => 1], "email = '{$email}'");
+		$data->update('user', ['otp' => '', 'verify' => 1], "email = '{$email}'");
 
 		echo "valid";
 	} else {

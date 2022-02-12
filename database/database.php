@@ -9,7 +9,7 @@ class Database
     private $db_name = "widespread";
 
 
-    private $mysqli = "";
+    public $mysqli = "";
     private $result = array();
     private $conn = false;
 
@@ -258,6 +258,40 @@ class Database
         }
     }
 
+    // session
+    public function login($username, $pass)
+    {
+        $username = $this->mysqli->real_escape_string($username);
+        $pass = $this->mysqli->real_escape_string($pass);
+        $sql = "SELECT * FROM user WHERE username='$username' AND password='$pass' AND verify=1";
+        $check = $this->mysqli->query($sql);
+        $query = $check->fetch_array(MYSQLI_ASSOC);
+        $result = $check->num_rows;
+        if ($result == 1) {
+            // session_start();
+            $_SESSION['login'] = true;
+            $_SESSION['id'] = $query['id'];
+            return true;
+        } else {
+            array_push($this->result, $this->mysqli->error);
+            return false;
+        }
+    }
+
+    public function session()
+    {
+        if (isset($_SESSION['login'])) {
+            return $_SESSION['login'];
+        } else {
+            return false;
+        }
+    }
+
+    public function logout()
+    {
+        $_SESSION['login'] = false;
+        session_destroy();
+    }
     // Public function to return the data to the user
     public function getResult()
     {

@@ -53,6 +53,7 @@ $(document).ready(function() {
         e.preventDefault();
         var dob = $("#dob").val();
         var email = $("#email").val();
+        $(this).val("Wait..");
         $.ajax({
             type: "POST",
             url: "./php_files/datevalidation.php",
@@ -62,7 +63,6 @@ $(document).ready(function() {
             },
             success: function(data) {
                 let jsondob = $.parseJSON(data);
-                $(this).val("Wait..");
                 if (jsondob[0] == 1) {
                     $("#error-4").attr("src", "./img/false.svg");
                 } else {
@@ -92,7 +92,7 @@ $(document).ready(function() {
                     $("#error-5").attr("src", "./img/false.svg");
                 } else {
                     $("#error-5").attr("src", "./img/true.svg");
-                    window.location = "./";
+                    window.location = "./login.php";
                 }
             }
         });

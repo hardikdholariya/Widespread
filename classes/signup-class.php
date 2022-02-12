@@ -33,10 +33,10 @@ class userValidation
                 $this->addError('email_address', 'email not validate .');
             } else {
                 $data = new Database;
-                $countRole = $data->count('user', '*', null, "email='{$emailAdders}' AND role=0");
+                $countRole = $data->count('user', '*', null, "email='{$emailAdders}' AND verify=0");
                 $count = $data->count('user', '*', null, "email='{$emailAdders}'");
                 if ($countRole > 0) {
-                    $data->delete('user', "email='{$emailAdders}' AND role=0");
+                    $data->delete('user', "email='{$emailAdders}' AND verify=0");
                 } else {
                     if ($count > 0) {
                         $this->addError('email_address', 'email not validate .');
