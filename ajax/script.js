@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    // $(".contaner-2").hide();
     $(".dob").hide();
     $(".otp_verification").hide();
+    $(".contaner-3").hide();
     $("#save-user").on("click", function(e) {
         e.preventDefault();
         var email = $("#email").val();
@@ -98,7 +98,7 @@ $(document).ready(function() {
         });
     });
 
-
+    // resend
     $(".resend").on("click", function(e) {
         e.preventDefault();
         var email = $("#email").val();
@@ -111,6 +111,86 @@ $(document).ready(function() {
             success: function(data) {
                 let jsonresend = $.parseJSON(data);
                 $("#emailError").html(jsonresend[0]);
+            }
+        });
+    });
+
+    // email
+    $(".contaner-4 .card .blur #email").on("blur", function(e) {
+        e.preventDefault();
+        var email = $("#email").val();
+        $.ajax({
+            type: "POST",
+            url: "./php_files/forgotpassemail.php",
+            data: {
+                email: email
+            },
+            success: function(data) {
+                console.log(data);
+                let jsonemail = $.parseJSON(data);
+
+                console.log(jsonemail);
+                if (jsonemail[0] != 1) {
+                    $("#error-6").attr("src", "./img/false.svg");
+                } else {
+                    $(".p").html(jsonemail[1]);
+                    $("#error-6").attr("src", "./img/true.svg");
+
+                }
+            }
+        });
+    });
+
+    $("#fbtnsubmit").on("click", function(e) {
+        e.preventDefault();
+        var otp = $("#fotp").val();
+        var email = $("#email").val();
+        $.ajax({
+            type: "POST",
+            url: "./php_files/check_otp.php",
+            data: {
+                email: email,
+                otp: otp
+            },
+            success: function(data) {
+                console.log(data);
+                if (data == "invalid") {
+                    $("#error-7").attr("src", "./img/false.svg");
+                    if (email == "") {
+                        $("#error-6").attr("src", "./img/false.svg");
+                    }
+                } else {
+                    $("#error-7").attr("src", "./img/true.svg");
+                    $(".contaner-4").hide();
+                    $(".contaner-3").show();
+                }
+            }
+        });
+    });
+
+    $("#fpassbtn").on("click", function(e) {
+        e.preventDefault();
+        var pass = $("#password").val();
+        var cPass = $("#cpassword").val();
+        var email = $("#email").val();
+        $.ajax({
+            type: "POST",
+            url: "./php_files/passConfirmPass.php",
+            data: {
+                password: pass,
+                cPassword: cPass,
+                email: email
+            },
+            success: function(data) {
+                console.log(email);
+                if (data == 1) {
+                    $("#error-8").attr("src", "./img/true.svg");
+                    $("#error-9").attr("src", "./img/true.svg");
+                    window.location = "./";
+                } else {
+                    $("#error-8").attr("src", "./img/false.svg");
+                    $("#error-9").attr("src", "./img/false.svg");
+                }
             }
         });
     });

@@ -2,12 +2,11 @@
 if (isset($_POST['email'])) {
     date_default_timezone_set("Asia/Kolkata");
     $email = $_POST['email'];
-    // $email = "hardikdholariya05@gmail.com";
 
     $count = $data->count('user', '*', null, "email='{$email}'");
 
     if ($count > 0) {
-        $otp = rand(11111, 99999); //generate otp randomly
+        $otp = rand(111111, 999999); //generate otp randomly
 
         $send_otp = ['otp' => $otp, 'otp_datetime' => date("Y-m-d H:i:s")];
         $data->update('user', $send_otp, "email = '{$email}'");

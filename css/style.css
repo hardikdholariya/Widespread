@@ -37,7 +37,23 @@ body {
     top: 50%;
 }
 
+.contaner-3 .card .formgroup img,
+.contaner-4 .card .formgroup img {
+    width: 200px;
+    margin-top: 15px;
+}
+
+.card .p,
+.card .p1 {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contaner-4,
 .contaner-2,
+.contaner-3,
 .dob,
 .otp_verification {
     transform: translate(-50%, -50%);
@@ -47,11 +63,18 @@ body {
 
 .contaner,
 .contaner-2,
+.contaner-3,
+.contaner-4,
 .dob,
 .otp_verification {
     width: 883px;
     height: 899px;
     position: absolute;
+}
+
+.contaner-4 .card .formgroup:nth-of-type(5) {
+    margin-top: 55px;
+    text-decoration: underline;
 }
 
 .big-circle,
@@ -90,6 +113,15 @@ body {
     background: linear-gradient(149.67deg, #9E00FF 29.27%, rgba(255, 0, 0, 0.77) 99.71%);
 }
 
+.contaner-3 .small-circle {
+    right: 0;
+}
+
+.contaner-3 .small-circle::before {
+    right: 514px;
+    top: 645px;
+}
+
 .small-circle::before,
 .circle-dob::before,
 .circle-otp::before {
@@ -114,8 +146,6 @@ body {
 }
 
 .circle-dob::before {
-    /* right: 450px;
-    top: 440px; */
     right: 379px;
     top: 355px;
 }
@@ -131,6 +161,20 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.contaner-3 form {
+    width: 700px;
+    height: 830px;
+}
+
+.contaner-3 {
+    width: 700px;
+    height: 830px;
+}
+
+.contaner-3 form .card {
+    height: 607px;
 }
 
 form .card,
@@ -307,19 +351,26 @@ form input,
 }
 
 .dob .dobsubmit .errordob,
-.otp_verification .dobsubmit .errordob {
+.otp_verification .dobsubmit .errordob,
+.contaner-3 .card .blur .verror,
+.contaner-4 .card .blur .verror {
     position: relative;
 }
 
-.errordob .verror {
+.errordob .verror,
+.contaner-3 .card .formgroup .verror,
+.contaner-4 .card .formgroup .verror {
     position: absolute;
     top: 17px;
     right: 11px;
     width: 30px;
 }
 
-.errordob .verror img {
+.errordob .verror img,
+.contaner-4 .card .formgroup .verror img,
+.contaner-3 .card .formgroup .verror img {
     width: 30px;
+    margin: 0;
 }
 
 .flatpickr-month {
@@ -346,4 +397,14 @@ form input,
     color: #fff;
     text-decoration: underline;
     font-size: 18px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }

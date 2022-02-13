@@ -1,6 +1,7 @@
 <?php
-require_once("../classes/signup-class.php");
 require_once("../database/database.php");
+$data = new Database();
+require_once("../classes/signup-class.php");
 
 $email = $_POST['email_address'];
 $fullname = $_POST['name'];

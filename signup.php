@@ -70,7 +70,7 @@
                 <img src="./img/mail.png" alt="">
                 <p id="emailError"></p>
                 <div class="errordob">
-                    <input type="text" placeholder="OTP" name="otp" id="otp">
+                    <input type="number" placeholder="OTP" name="otp" id="otp">
                     <span class="verror"><img id="error-5" src="" alt=""></span>
                 </div>
                 <input type="submit" name="subimtotp" id="subimtotp" value="submit">

@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
 
                 <div class="formgroup">
-                    <a href="./forgetpassword.php">Forget password?</a>
+                    <a href="./forgotpassword.php">Forgot password?</a>
                     <hr>
                     <p>Don't have an account?<a href="./signup.php"><span> Sign up</span></a>
                     </p>
