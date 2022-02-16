@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 * {
@@ -84,13 +85,15 @@ body {
 .big-circle::before,
 .small-circle::before,
 .circle-dob::before,
-.circle-otp::before {
+.circle-otp::before,
+.big-circle-2 {
     position: absolute;
     background: linear-gradient(149.67deg, rgb(158 0 255 / 74%) 29.27%, rgba(255, 0, 0, 0.67) 99.71%);
     border-radius: 50%;
 }
 
-.big-circle {
+.big-circle,
+.big-circle::before {
     width: 350px;
     height: 350px;
 }
@@ -99,13 +102,18 @@ body {
     content: "";
     left: 530px;
     top: 550px;
-    width: 350px;
-    height: 350px;
+}
+
+.big-circle-2 {
+    display: none;
+    right: 0;
+    bottom: 0;
 }
 
 .small-circle,
 .circle-dob,
-.circle-otp {
+.circle-otp,
+.big-circle-2 {
     right: 10%;
     width: 185px;
     height: 185px;
@@ -156,7 +164,7 @@ body {
 }
 
 form {
-    width: 883px;
+    /* width: 883px; */
     height: 899px;
     display: flex;
     justify-content: center;
@@ -181,7 +189,7 @@ form .card,
 .card-2,
 .dob form,
 .otp_verification form {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 543px;
     height: 733px;
     box-sizing: border-box;

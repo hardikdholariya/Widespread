@@ -1,0 +1,357 @@
+/* @media only screen and (max-width: 1368px){ */
+
+
+/* @media only screen and (max-width: 1112px){ */
+
+
+/* @media only screen and (max-width: 1280px){ */
+
+
+/* @media only screen and (max-width: 1024px){ */
+
+
+/* @media only screen and (max-width: 1023px) { */
+
+
+/* @media only screen and (min-device-width: 1921px)and (max-device-width: 2560px) {
+     .contaner {
+         transform: translate(-8%, -50%);
+         right: 8%;
+         top: 50%;
+     }
+ } */
+
+@media only screen and (max-width: 1600px) {
+    .contaner {
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+    }
+    .logo {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .small-circle {
+        display: none;
+    }
+    .big-circle,
+    .big-circle::before {
+        /* display: none; */
+        width: 270px;
+        height: 270px;
+    }
+    .big-circle::before {
+        content: "";
+        left: 468px;
+        top: 665px;
+    }
+    .contaner,
+    .contaner-2,
+    .contaner-3,
+    .contaner-4,
+    .dob,
+    .otp_verification {
+        width: 700px;
+    }
+    .contaner form .card {
+        width: 60%;
+        height: 60%;
+    }
+    .card-2 .formgroup-1:first-child p,
+    .card .formgroup:first-child p {
+        font-size: 50px;
+        margin: 20px 0 20px 0;
+    }
+    .card .formgroup:nth-of-type(2) input,
+    .formgroup:nth-of-type(3) input {
+        margin-bottom: 26px;
+        /* padding-left: 20px; */
+        width: 322px;
+        height: 54px;
+    }
+    .formgroup-6 input[type="submit"],
+    .formgroup input[type="submit"],
+    .dob form input[type="submit"],
+    .otp_verification form input[type="submit"] {
+        height: 56px;
+        width: 126px;
+    }
+    hr {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .contaner {
+        width: 90%;
+    }
+    .contaner form {
+        width: 100%;
+        height: 100%;
+    }
+    .big-circle-2 {
+        display: block;
+        bottom: 0;
+        right: 0;
+    }
+    .big-circle::before {
+        display: none;
+    }
+    .big-circle,
+    .big-circle::before,
+    .big-circle-2 {
+        width: 230px;
+        height: 230px;
+    }
+    form .card {
+        width: 70%;
+        /* height: 100%; */
+    }
+    .card .formgroup:first-child p {
+        font-size: 54px;
+    }
+    hr {
+        width: 325px;
+    }
+    /* .contaner-2 .big-circle {
+        display: none;
+    } */
+}
+
+@media only screen and (max-width: 769px) {
+    .big-circle {
+        display: none;
+    }
+    .contaner-2 .big-circle,
+    .contaner-2 .big-circle::before {
+        display: block;
+    }
+    .logo {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .logo img {
+        width: 627px;
+        height: 429px;
+        object-fit: cover;
+        object-position: 20% 10%;
+    }
+    .big-circle-2 {
+        display: none;
+    }
+    .contaner {
+        height: 82%;
+    }
+    .contaner form {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    form .card {
+        width: 70%;
+        height: 90%;
+    }
+    .card .formgroup:first-child p {
+        font-size: 50px;
+    }
+    .card .formgroup:nth-of-type(2) input,
+    .formgroup:nth-of-type(3) input {
+        width: 100%;
+    }
+    .formgroup-6 input[type="submit"],
+    .formgroup input[type="submit"],
+    .dob form input[type="submit"],
+    .otp_verification form input[type="submit"] {
+        width: 115px;
+        height: 60px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .logo img {
+        width: 476px;
+        height: 298px;
+    }
+    .contaner {
+        height: 65%;
+    }
+    .contaner-2 {
+        width: 420px;
+    }
+    .card .formgroup:first-child p {
+        font-size: 45px;
+        margin: 15px 0 15px 0;
+    }
+    .card .formgroup:nth-of-type(2) input,
+    .formgroup:nth-of-type(3) input {
+        margin-bottom: 20px;
+        height: 70%;
+    }
+    .card .formgroup:nth-of-type(2),
+    .card .formgroup:nth-of-type(3) {
+        width: 70%;
+        height: 15%;
+    }
+    .formgroup-6 input[type="submit"],
+    .formgroup input[type="submit"],
+    .dob form input[type="submit"],
+    .otp_verification form input[type="submit"] {
+        height: 55px;
+        margin-top: 10px;
+    }
+    form input,
+    .blur input {
+        font-size: 15px;
+    }
+    .card .formgroup:nth-of-type(5) {
+        font-size: 15px;
+    }
+    hr {
+        width: 100%;
+    }
+    .card-2 {
+        width: 490px;
+        height: 620px;
+    }
+    .contaner-2 .big-circle::before {
+        display: none;
+    }
+    .contaner-2 .big-circle {
+        clip-path: polygon(49% 24%, 66% 68%, 100% 0, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0 0, 35% 69%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+    }
+}
+
+
+/* @media only screen and (max-height: 769px) and (max-width: 1024px) {
+    .contaner {
+        height: 100%;
+    }
+    .contaner form {
+        height: 100%;
+    }
+    .contaner form .card {
+        width: 89%;
+        height: 70%;
+    }
+    .big-circle,
+    .big-circle-2 {
+        display: none;
+    }
+    .logo {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .logo img {
+        width: 506px;
+        height: 330px;
+        object-fit: cover;
+        object-position: 20% 10%;
+    }
+} */
+
+@media only screen and (max-width: 426px) {
+    .contaner {
+        width: 100%;
+    }
+    .contaner-2 {
+        width: 355px;
+    }
+    .contaner form .card {
+        width: 90%;
+        height: 457px;
+    }
+    .logo img {
+        width: 400px;
+        height: 270px;
+    }
+    .formgroup-6 input[type="submit"],
+    .contaner form .card .formgroup input[type="submit"],
+    .dob form input[type="submit"],
+    .otp_verification form input[type="submit"] {
+        width: 95px;
+        height: 47px;
+    }
+    input#btnsubmit {
+        margin-bottom: 0px;
+    }
+    form input,
+    .blur input {
+        width: 269px;
+        height: 49px;
+    }
+    .contaner-2 .big-circle {
+        width: 340px;
+        height: 340px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .logo img {
+        width: 283px;
+        height: 184px;
+    }
+    .card .formgroup:first-child p {
+        width: 100%;
+        margin: 10px 0 10px 0;
+    }
+    .contaner-2 {
+        width: 314px;
+    }
+    .card-2 {
+        height: 507px;
+    }
+    .card-2 .formgroup-7 {
+        font-size: 15px;
+    }
+    .contaner-2 .big-circle {
+        width: 300px;
+        height: 300px;
+    }
+    .card-2 .formgroup-1:first-child p,
+    .card .formgroup:first-child p {
+        font-size: 35px;
+        margin: 20px 0 20px 0;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .contaner form .card {
+        height: 400px;
+    }
+    form input,
+    .blur input {
+        width: 221px;
+        height: 40px;
+        border-radius: 13px;
+    }
+    .card-2 {
+        height: 415px;
+        width: 260px;
+    }
+    .contaner-2 .big-circle {
+        width: 225px;
+        height: 225px;
+    }
+    .formgroup-6 input[type="submit"],
+    .contaner form .card .formgroup input[type="submit"],
+    .dob form input[type="submit"],
+    .otp_verification form input[type="submit"] {
+        height: 37px;
+    }
+}

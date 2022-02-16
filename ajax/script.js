@@ -1,7 +1,11 @@
 $(document).ready(function() {
-    $(".dob").hide();
+
+    $(".contaner-2").hide();
+    // $(".dob").show();
     $(".otp_verification").hide();
     $(".contaner-3").hide();
+
+
     $("#save-user").on("click", function(e) {
         e.preventDefault();
         var email = $("#email").val();
@@ -161,8 +165,8 @@ $(document).ready(function() {
                     }
                 } else {
                     $("#error-7").attr("src", "./img/true.svg");
-                    $(".contaner-4").hide();
-                    $(".contaner-3").show();
+                    // $(".contaner-4").hide();
+                    // $(".contaner-3").show();
                 }
             }
         });
