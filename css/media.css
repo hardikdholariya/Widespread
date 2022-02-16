@@ -55,6 +55,9 @@
     .otp_verification {
         width: 700px;
     }
+    .dob {
+        width: 565px;
+    }
     .contaner form .card {
         width: 60%;
         height: 60%;
@@ -232,6 +235,9 @@
         width: 400px;
         height: 400px;
     }
+    .dob {
+        width: 440px;
+    }
 }
 
 
@@ -299,6 +305,28 @@
         width: 340px;
         height: 340px;
     }
+    .dob form {
+        width: 314px;
+        height: 338px;
+    }
+    .dob {
+        width: 365px;
+        height: 400px;
+    }
+    .small-circle,
+    .circle-dob,
+    .circle-otp,
+    .big-circle-2,
+    .small-circle::before,
+    .circle-dob::before,
+    .circle-otp::before {
+        width: 100px;
+        height: 100px;
+    }
+    .circle-dob::before {
+        right: 265px;
+        top: 300px;
+    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -328,6 +356,12 @@
         font-size: 35px;
         margin: 20px 0 20px 0;
     }
+    .dob {
+        width: 330px;
+    }
+    .circle-dob::before {
+        right: 235px;
+    }
 }
 
 @media only screen and (max-width: 320px) {
@@ -353,5 +387,15 @@
     .dob form input[type="submit"],
     .otp_verification form input[type="submit"] {
         height: 37px;
+    }
+    .circle-dob::before {
+        right: 165px;
+    }
+    .dob form {
+        width: 250px;
+        height: 305px;
+    }
+    .dob {
+        width: 265px;
     }
 }
