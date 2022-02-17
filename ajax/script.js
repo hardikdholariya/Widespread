@@ -1,8 +1,9 @@
 $(document).ready(function() {
 
     $(".contaner-2").hide();
-    // $(".dob").show();
-    $(".otp_verification").hide();
+    $(".dob").hide();
+    // $(".otp_verification").hide();
+    $(".otp_verification").show();
     $(".contaner-3").hide();
 
 

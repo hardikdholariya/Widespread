@@ -51,8 +51,7 @@
     .contaner-2,
     .contaner-3,
     .contaner-4,
-    .dob,
-    .otp_verification {
+    .dob {
         width: 700px;
     }
     .dob {
@@ -84,6 +83,9 @@
     hr {
         width: 100%;
     }
+    .otp_verification {
+        width: 635px;
+    }
 }
 
 @media only screen and (max-width: 900px) {
@@ -110,7 +112,6 @@
     }
     form .card {
         width: 70%;
-        /* height: 100%; */
     }
     .card .formgroup:first-child p {
         font-size: 54px;
@@ -118,9 +119,25 @@
     hr {
         width: 325px;
     }
-    /* .contaner-2 .big-circle {
-        display: none;
-    } */
+    .otp_verification {
+        width: 640px;
+    }
+    .contaner-4,
+    .contaner-4 form {
+        width: 630px;
+        height: 840px;
+    }
+    .contaner-4 form .card {
+        height: 668px;
+    }
+    .contaner-4 .small-circle {
+        display: block;
+        right: 0;
+    }
+    .small-circle::before {
+        right: 440px;
+        top: 655px;
+    }
 }
 
 @media only screen and (max-width: 769px) {
@@ -175,6 +192,12 @@
     .otp_verification form input[type="submit"] {
         width: 115px;
         height: 60px;
+    }
+    .otp_verification {
+        width: 580px;
+    }
+    .circle-otp::before {
+        right: 395px;
     }
 }
 
@@ -235,41 +258,61 @@
         width: 400px;
         height: 400px;
     }
-    .dob {
+    .dob,
+    .otp_verification {
         width: 440px;
+        height: 465px;
+    }
+    .dob form,
+    .otp_verification form {
+        width: 335px;
+        height: 360px;
+    }
+    .dob form input,
+    .otp_verification form input {
+        width: 279px;
+        height: 51px;
+    }
+    .circle-dob,
+    .circle-dob::before,
+    .circle-otp,
+    .circle-otp::before {
+        width: 135px;
+        height: 135px;
+    }
+    .circle-dob::before,
+    .circle-otp::before {
+        right: 305px;
+        top: 330px;
+    }
+    .contaner-4,
+    .contaner-4 form {
+        width: 490px;
+        height: 770px;
+    }
+    .contaner-4 .card .formgroup img {
+        width: 130px;
+    }
+    .card .p {
+        font-size: 15px;
+    }
+    .contaner-4 form .card {
+        height: 545px;
+    }
+    .contaner-4 .card .formgroup:nth-of-type(5) {
+        margin-top: 25px;
+    }
+    hr {
+        width: 200px;
+    }
+    .contaner-4 .small-circle {
+        right: 40px;
+    }
+    .small-circle::before {
+        right: 230px;
+        top: 563px;
     }
 }
-
-
-/* @media only screen and (max-height: 769px) and (max-width: 1024px) {
-    .contaner {
-        height: 100%;
-    }
-    .contaner form {
-        height: 100%;
-    }
-    .contaner form .card {
-        width: 89%;
-        height: 70%;
-    }
-    .big-circle,
-    .big-circle-2 {
-        display: none;
-    }
-    .logo {
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .logo img {
-        width: 506px;
-        height: 330px;
-        object-fit: cover;
-        object-position: 20% 10%;
-    }
-} */
 
 @media only screen and (max-width: 426px) {
     .contaner {
@@ -305,11 +348,13 @@
         width: 340px;
         height: 340px;
     }
-    .dob form {
+    .dob form,
+    .otp_verification form {
         width: 314px;
         height: 338px;
     }
-    .dob {
+    .dob,
+    .otp_verification {
         width: 365px;
         height: 400px;
     }
@@ -323,7 +368,8 @@
         width: 100px;
         height: 100px;
     }
-    .circle-dob::before {
+    .circle-dob::before,
+    .circle-otp::before {
         right: 265px;
         top: 300px;
     }
@@ -356,10 +402,12 @@
         font-size: 35px;
         margin: 20px 0 20px 0;
     }
-    .dob {
+    .dob,
+    .otp_verification {
         width: 330px;
     }
-    .circle-dob::before {
+    .circle-dob::before,
+    .circle-otp::before {
         right: 235px;
     }
 }
@@ -388,14 +436,26 @@
     .otp_verification form input[type="submit"] {
         height: 37px;
     }
-    .circle-dob::before {
-        right: 165px;
-    }
-    .dob form {
+    .dob form,
+    .otp_verification form {
         width: 250px;
         height: 305px;
     }
-    .dob {
+    .dob,
+    .otp_verification {
         width: 265px;
+    }
+    .dob form input,
+    .otp_verification form input {
+        width: 220px;
+        height: 40px;
+    }
+    .dob form img,
+    .otp_verification form img {
+        width: 115px;
+    }
+    .circle-dob::before,
+    .circle-otp::before {
+        right: 165px;
     }
 }
