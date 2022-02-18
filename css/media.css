@@ -21,6 +21,10 @@
      }
  } */
 
+
+/* --background: hsl(var(--second-hue), 32%, 90%, .8);
+ --background-light: hsl(var(--second-hue), 32%, 16%, .8); */
+
 @media only screen and (max-width: 1600px) {
     .contaner {
         transform: translate(-50%, -50%);
@@ -81,10 +85,51 @@
         width: 126px;
     }
     hr {
-        width: 100%;
+        width: 200px;
     }
     .otp_verification {
         width: 635px;
+    }
+    .contaner-4,
+    .contaner-4 form {
+        width: 540px;
+        height: 676px;
+    }
+    .contaner-4 form .card {
+        height: 555px;
+        width: 400px;
+    }
+    .contaner-4 .card .formgroup img {
+        width: 130px;
+    }
+    .contaner-4 .card .formgroup:nth-of-type(5) {
+        margin-top: 25px;
+    }
+    .contaner-4 .small-circle,
+    .contaner-3 .small-circle {
+        display: block;
+        right: 0;
+    }
+    .small-circle::before {
+        content: "";
+        right: 355px;
+        top: 490px;
+    }
+    .contaner-4 .card .formgroup .verror {
+        top: 13px;
+    }
+    .contaner-3 form .card {
+        height: 515px;
+        width: 410px;
+    }
+    .contaner-3,
+    .contaner-3 form {
+        width: 500px;
+        height: 560px;
+    }
+    .contaner-3 .small-circle::before {
+        right: 315px;
+        top: 375px;
     }
 }
 
@@ -137,6 +182,18 @@
     .small-circle::before {
         right: 440px;
         top: 655px;
+    }
+    .contaner-3 form .card {
+        height: 520px;
+    }
+    .contaner-3,
+    .contaner-3 form {
+        height: 655px;
+        width: 615px;
+    }
+    .contaner-3 .small-circle::before {
+        top: 470px;
+        right: 430px;
     }
 }
 
@@ -198,6 +255,12 @@
     }
     .circle-otp::before {
         right: 395px;
+    }
+    .contaner-4 .card .formgroup .verror {
+        top: 14px;
+    }
+    .contaner-3 .card .formgroup .verror {
+        top: 13px;
     }
 }
 
@@ -312,6 +375,14 @@
         right: 230px;
         top: 563px;
     }
+    .contaner-3,
+    .contaner-3 form {
+        width: 450px;
+    }
+    .contaner-3 .small-circle::before {
+        /* top: 470px; */
+        right: 265px;
+    }
 }
 
 @media only screen and (max-width: 426px) {
@@ -373,6 +444,80 @@
         right: 265px;
         top: 300px;
     }
+    .contaner-4,
+    .contaner-4 form {
+        width: 350px;
+        height: 530px;
+    }
+    .contaner-4 form .card {
+        height: 460px;
+    }
+    .contaner-4 form .card .formgroup input[type="submit"] {
+        height: 35px;
+    }
+    .contaner-4 form .card .formgroup input {
+        border-radius: 10px;
+    }
+    .resend {
+        font-size: 15px;
+    }
+    .card .p {
+        font-size: 12px;
+    }
+    .contaner-4 .small-circle {
+        right: 0;
+    }
+    .contaner-4 form .card {
+        width: 80%;
+    }
+    .small-circle::before {
+        right: 250px;
+        top: 430px;
+    }
+    .verror img,
+    .contaner-3 .card .formgroup .verror img {
+        width: 25px;
+    }
+    .verror,
+    .contaner-3 .card .formgroup .verror {
+        top: 9px;
+        right: 10px;
+        width: 25px;
+    }
+    .contaner-3 .card .formgroup .verror {
+        top: 11px;
+    }
+    .contaner-2 .blur .verror {
+        top: 13px;
+        right: 7px;
+    }
+    .errordob .verror {
+        top: 13px;
+        right: 5px;
+    }
+    form input,
+    .blur input {
+        padding-left: 15px;
+        padding-right: 40px;
+    }
+    .contaner-3,
+    .contaner-3 form {
+        width: 370px;
+    }
+    .contaner-3 form .card {
+        width: 85%;
+    }
+    .contaner-3 form .card .formgroup:nth-of-type(2) input,
+    .contaner-3 form .formgroup:nth-of-type(3) input {
+        height: 60%;
+    }
+    .contaner-3 form .card .formgroup input[type="submit"] {
+        height: 45px;
+    }
+    .contaner-3 .small-circle::before {
+        top: 555px;
+        right: 270px;
+    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -409,6 +554,31 @@
     .circle-dob::before,
     .circle-otp::before {
         right: 235px;
+    }
+    .contaner-3 .card .formgroup img {
+        width: 150px;
+    }
+    .contaner-3 form .card {
+        height: 425px;
+    }
+    .contaner-3 form .card .formgroup:nth-of-type(2) input,
+    .contaner-3 form .formgroup:nth-of-type(3) input {
+        height: 70%;
+    }
+    .contaner-3 form .card .formgroup input {
+        border-radius: 15px;
+    }
+    .contaner-3 form .card {
+        width: 300px;
+    }
+    .contaner-3,
+    .contaner-3 form {
+        width: 325px;
+        height: 530px;
+    }
+    .contaner-3 .small-circle::before {
+        top: 430px;
+        right: 220px;
     }
 }
 
@@ -457,5 +627,69 @@
     .circle-dob::before,
     .circle-otp::before {
         right: 165px;
+    }
+    .contaner-4,
+    .contaner-4 form {
+        width: 293px;
+        height: 435px;
+    }
+    .contaner-4 form .card {
+        height: 365px;
+    }
+    .contaner-4 .card .formgroup img {
+        width: 75px;
+    }
+    .card .p {
+        font-size: 10px;
+    }
+    .contaner-4 .card .formgroup input[type="submit"] {
+        height: 35px;
+        width: 75px;
+    }
+    .contaner-4 .card .formgroup input {
+        font-size: 10px;
+    }
+    .resend {
+        font-size: 10px;
+    }
+    hr {
+        width: 150px;
+    }
+    .contaner-4 .card .formgroup:nth-of-type(2),
+    .contaner-4 .card .formgroup:nth-of-type(3) {
+        width: 65%;
+        height: 13%;
+    }
+    .contaner-4 .small-circle {
+        right: 0;
+    }
+    .small-circle::before {
+        right: 192px;
+        top: 335px;
+    }
+    /* .contaner-4 .card .formgroup  */
+    .verror img,
+    .errordob .verror img {
+        width: 20px;
+    }
+    /* .contaner-4 .card .formgroup */
+    .verror {
+        top: 6px;
+    }
+    .contaner-2 .blur .verror,
+    .errordob .verror {
+        top: 10px;
+        right: 0px;
+    }
+    .contaner-3 .card .formgroup .verror {
+        right: 5px;
+    }
+    .contaner-3 .card .formgroup .verror img {
+        width: 25px;
+    }
+    form input,
+    .blur input {
+        padding-left: 10px;
+        padding-right: 40px;
     }
 }
