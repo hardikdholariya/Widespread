@@ -18,7 +18,7 @@ html {
 
 /* Firefox */
 
-body {
+* {
     scrollbar-width: auto;
     scrollbar-color: #5c5c5c #0b111e;
 }
@@ -26,15 +26,15 @@ body {
 
 /* Chrome, Edge, and Safari */
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 15px;
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: #0b111e;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #5c5c5c;
     border-radius: 20px;
     border: 2px solid #0b111e;
@@ -112,83 +112,35 @@ a {
     width: 0;
 }
 
-section {
+
+/* section-1 */
+
+section,
+.scrollBtn .horizontal-scroll,
+.horizontal-scroll .storys-container,
+.storys-container .story-circle,
+.story-circle .story-img {
     display: flex;
-    align-items: center;
     justify-content: center;
+}
+
+section {
+    align-items: center;
     position: relative;
     margin-top: 20px;
 }
 
-
-/* section .story {
-    background-color: aqua;
-    display: flex;
-    grid-auto-flow: column;
-    grid-auto-columns: 5rem;
-    grid-gap: 2rem;
-    width: 600px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    border: 1px solid #000;
-    padding: 2rem;
-}
-
-section .story .user {
-    display: grid;
-    grid-gap: 0.5rem;
-    margin: 0;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s ease-in;
-}
-
-section .story .user .userImg {
-    display: inline-block;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 3px solid rgb(255, 5, 174);
-}
-
-section .story .user .userImg img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    clip-path: circle(42%);
-}
-
-section .story:last-child::after {
-    content: '';
-    position: absolute;
-    width: 2rem;
-    height: 100%;
-    right: -2rem;
-}
-
-section .story .user .userName {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 0.9rem;
-} */
-
 section .scrollBtn {
-    width: 600px;
-    height: 80px;
+    width: 614px;
+    height: 118px;
     position: relative;
 }
 
-.horizontal-scroll {
-    width: 600px;
-    height: 80px;
+section .scrollBtn .horizontal-scroll {
+    height: 100%;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -197,16 +149,16 @@ section .scrollBtn {
     overflow-x: scroll;
 }
 
-.horizontal-scroll::-webkit-scrollbar {
+section .scrollBtn .horizontal-scroll::-webkit-scrollbar {
     display: none;
 }
 
-.horizontal-scroll {
+section .scrollBtn .horizontal-scroll {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-.btn-scroll {
+section .scrollBtn .btn-scroll {
     background-color: #fff;
     color: #999;
     box-shadow: 0 0 10px #999;
@@ -217,10 +169,20 @@ section .scrollBtn {
     z-index: 1;
     cursor: pointer;
     transition: 1s;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
-.storys-container {
-    display: flex;
+.btn-1 {
+    left: 0;
+}
+
+.btn-2 {
+    right: 0;
+}
+
+.scrollBtn .horizontal-scroll .storys-container {
     flex-direction: row;
     justify-content: flex-start;
     align-content: center;
@@ -229,27 +191,35 @@ section .scrollBtn {
     transition: 0.5s all ease-out;
 }
 
-.story-circle {
-    width: 60px;
-    height: 60px;
+.storys-container .story-circle {
     margin: 15px 10px;
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    height: 93px;
+    width: 72px;
+}
+
+.story-img {
+    width: 66px;
+    height: 66px;
     border-radius: 50%;
+    align-items: center;
     background-color: #d800ff;
 }
 
 .story-circle img {
-    width: 52px;
-    height: 52px;
+    display: block;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 2px solid #fff;
 }
 
-section .userAccount {
-    width: 360px;
-    height: 90px;
-    background-color: aqua;
-    margin-left: 20px;
+.story-circle .userName {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

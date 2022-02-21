@@ -44,123 +44,124 @@ if ($data->session() == false) {
     <div class="empty"></div>
     <section>
         <div class="scrollBtn">
-            <button class="btn-scroll" id="btn-scroll-left" onclick="scrollHorizontally(1)"><i class="fa-solid fa-caret-left"></i></button>
-            <button class="btn-scroll" id="btn-scroll-right" onclick="scrollHorizontally(-1)"><i class="fa-solid fa-caret-right"></i></button>
-            <div class="horizontal-scroll">
+            <button class="btn-scroll btn-1" id="btn-scroll-left" onclick="scrollHorizontally(1)"><i class="fa-solid fa-caret-left"></i></button>
 
+            <button class="btn-scroll btn-2" id="btn-scroll-right" onclick="scrollHorizontally(-1)"><i class="fa-solid fa-caret-right"></i></button>
+            <div class="horizontal-scroll">
                 <div class="storys-container">
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
-                    <div class="story-circle"><img src="./img/mail.png" alt=""></div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/mail.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardiksdfsdfsdfsdfsdfsd
+                        </div>
+                    </div>
+
+
 
                 </div>
             </div>
         </div>
 
-
-        <!-- <div class="story">
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardikdhoarioyua
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-            <div class="user">
-                <div class="userImg">
-                    <img src="./img/true.svg" alt="">
-                </div>
-                <div class="userName">
-                    hardik
-                </div>
-            </div>
-
-        </div> -->
-        <div class="userAccount"></div>
     </section>
 
 
