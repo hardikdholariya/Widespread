@@ -52,7 +52,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -61,7 +61,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -70,7 +70,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -78,7 +78,7 @@ if ($data->session() == false) {
                     </div>
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -86,16 +86,7 @@ if ($data->session() == false) {
                     </div>
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -104,7 +95,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -113,7 +104,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -122,7 +113,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -131,7 +122,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -140,7 +131,7 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardik
@@ -149,19 +140,39 @@ if ($data->session() == false) {
 
                     <div class="story-circle">
                         <div class="story-img">
-                            <img src="./img/mail.png" alt="">
+                            <img src="./img/login-background.png" alt="">
+                        </div>
+                        <div class="userName">
+                            hardik
+                        </div>
+                    </div>
+
+                    <div class="story-circle">
+                        <div class="story-img">
+                            <img src="./img/login-background.png" alt="">
                         </div>
                         <div class="userName">
                             hardiksdfsdfsdfsdfsdfsd
                         </div>
                     </div>
 
-
-
                 </div>
             </div>
         </div>
 
+
+        <div class="posts">
+            <div class="user">
+                <div class="userImg">
+                    <img src="./img/login-background.png" alt="">
+                </div>
+                <div class="AccountName">
+                    _.i.m.h.a.r.d.i.k._
+                </div>
+                <div class="more">...</div>
+            </div>
+
+        </div>
     </section>
 
 

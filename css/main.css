@@ -5,6 +5,7 @@ html {
     box-sizing: border-box;
     /* background-color: #3E236D; */
     /* background-color: hsl(219, 48%, 8%); */
+    overflow-x: hidden;
 }
 
 * {
@@ -47,6 +48,7 @@ html {
     justify-content: center;
     align-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .nva_bar header {
@@ -119,7 +121,8 @@ section,
 .scrollBtn .horizontal-scroll,
 .horizontal-scroll .storys-container,
 .storys-container .story-circle,
-.story-circle .story-img {
+.story-circle .story-img,
+section .scrollBtn .btn-scroll {
     display: flex;
     justify-content: center;
 }
@@ -128,19 +131,22 @@ section {
     align-items: center;
     position: relative;
     margin-top: 20px;
+    flex-direction: column;
 }
 
 section .scrollBtn {
     width: 614px;
     height: 118px;
     position: relative;
+    margin-bottom: 24px;
 }
 
 section .scrollBtn .horizontal-scroll {
     height: 100%;
-    background: #fff;
+    background-color: hsl(219, 32%, 16%, .8);
+    backdrop-filter: blur(20px);
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 15px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -158,10 +164,17 @@ section .scrollBtn .horizontal-scroll {
     scrollbar-width: none;
 }
 
+.fa-caret-right:before,
+.fa-caret-left:before {
+    color: #ff00c8;
+}
+
 section .scrollBtn .btn-scroll {
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #cfcfcf;
+    backdrop-filter: blur(20px);
     color: #999;
-    box-shadow: 0 0 10px #999;
+    /* box-shadow: 0 0 10px #999; */
     padding: 5px 8px;
     border: 0;
     border-radius: 50%;
@@ -213,7 +226,7 @@ section .scrollBtn .btn-scroll {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
 }
 
 .story-circle .userName {
@@ -222,4 +235,8 @@ section .scrollBtn .btn-scroll {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: #fff;
 }
+
+
+/* posts */
