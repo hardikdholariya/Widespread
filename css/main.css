@@ -120,7 +120,8 @@ section {
     margin-top: 20px;
 }
 
-section .story {
+
+/* section .story {
     background-color: aqua;
     display: flex;
     grid-auto-flow: column;
@@ -132,15 +133,6 @@ section .story {
     border: 1px solid #000;
     padding: 2rem;
 }
-
-
-/* section .story .user {
-    width: 60px;
-    height: 60px;
-    background-color: #fff;
-    border-radius: 50%;
-    margin: 0 5px 0 5px;
-} */
 
 section .story .user {
     display: grid;
@@ -182,6 +174,77 @@ section .story .user .userName {
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 0.9rem;
+} */
+
+section .scrollBtn {
+    width: 600px;
+    height: 80px;
+    position: relative;
+}
+
+.horizontal-scroll {
+    width: 600px;
+    height: 80px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.horizontal-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.btn-scroll {
+    background-color: #fff;
+    color: #999;
+    box-shadow: 0 0 10px #999;
+    padding: 5px 8px;
+    border: 0;
+    border-radius: 50%;
+    margin: 0 5px;
+    z-index: 1;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.storys-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    position: absolute;
+    left: 0;
+    transition: 0.5s all ease-out;
+}
+
+.story-circle {
+    width: 60px;
+    height: 60px;
+    margin: 15px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #d800ff;
+}
+
+.story-circle img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid #fff;
 }
 
 section .userAccount {
