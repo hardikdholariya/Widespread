@@ -4,21 +4,9 @@ require_once("./database/database.php");
 $data = new Database();
 
 if ($data->session()) {
-    header("location:login.php");
+    header("location:./");
 }
-$loginError = '';
-$data = new Database();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_REQUEST['username'];
-    $password = md5($_REQUEST['password']);
 
-    $login = $data->login($username, $password);
-    if ($login) {
-        header("location:./");
-    } else {
-        $loginError = "<p id='errorLogin'>please Your check Username and password.</p>";
-    }
-}
 ?>
 
 <!DOCTYPE html>

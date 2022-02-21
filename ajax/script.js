@@ -84,14 +84,17 @@ $(document).ready(function() {
         e.preventDefault();
         var otp = $("#otp").val();
         var email = $("#email").val();
+        var username = $("#username").val();
         $.ajax({
             type: "POST",
             url: "./php_files/check_otp.php",
             data: {
                 email: email,
-                otp: otp
+                otp: otp,
+                username: username
             },
             success: function(data) {
+                // console.log(data);
                 if (data == "invalid") {
                     $("#error-5").attr("src", "./img/false.svg");
                 } else {

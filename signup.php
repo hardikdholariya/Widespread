@@ -1,3 +1,13 @@
+<?php
+session_start();
+require_once("./database/database.php");
+$data = new Database();
+
+if ($data->session()) {
+    header("location: ./");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

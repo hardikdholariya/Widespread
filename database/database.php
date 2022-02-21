@@ -216,7 +216,7 @@ class Database
     }
 
     // Private function to check if table exists for use with queries
-    private function tableExists($table)
+    public function tableExists($table)
     {
         $sql = "SHOW TABLES FROM $this->db_name LIKE '$table'";
         $tableInDb = $this->mysqli->query($sql);
@@ -277,6 +277,16 @@ class Database
         }
     }
 
+    public function createTable($sql)
+    {
+        $query = $this->mysqli->query($sql);
+        if ($query) {
+            return true; // Query was successful
+        } else {
+            array_push($this->result, $this->mysqli->error);
+            return false; // No rows were returned
+        }
+    }
     public function session()
     {
         if (isset($_SESSION['login'])) {

@@ -4,8 +4,9 @@ require_once("./database/database.php");
 $data = new Database();
 
 if ($data->session()) {
-    header("location:login.php");
+    header("location: ./");
 }
+
 $loginError = '';
 $data = new Database();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" id="password" placeholder="Password">
                 </div>
                 <div class="formgroup blur">
-                    <input type="submit" name="btnsummit" id="btnsubmit">
+                    <input type="submit" name="btnsummit" id="btnsubmit" value="submit">
                 </div>
                 <?php
                 echo $loginError;
