@@ -4,8 +4,32 @@ html {
     padding: 0;
     box-sizing: border-box;
     /* background-color: #3E236D; */
+    background-color: #f88077;
     /* background-color: hsl(219, 48%, 8%); */
+    /* background-image: url(../img/login-background.png); */
     overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f00, #f0f);
+    clip-path: circle(20% at right 70%);
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#2196f2, #e91e63);
+    clip-path: circle(20% at 10% 10%);
 }
 
 * {
@@ -41,6 +65,15 @@ html {
     border: 2px solid #0b111e;
 }
 
+a {
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+    font-size: 16px;
+}
+
 .nva_bar,
 .nva_bar header,
 .nva_bar .menu {
@@ -48,14 +81,23 @@ html {
     justify-content: center;
     align-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 10;
 }
 
 .nva_bar header {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 980px;
+    height: 82.5px;
     top: 1rem;
+}
+
+.nva_bar header .logo p {
+    font-family: 'Dancing Script', cursive;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    color: #fff;
 }
 
 .nva_bar header .logo img {
@@ -75,7 +117,6 @@ html {
     background-position: 10px 5px;
     background-size: 25px;
     background-repeat: no-repeat;
-    font-size: 16px;
     font-weight: bold;
     padding: 3px 12px 0 40px;
 }
@@ -86,27 +127,33 @@ html {
 
 .nva_bar header,
 .nva_bar .menu {
-    background-color: hsl(219, 32%, 16%, .8);
+    background-color: hsl(219, 80%, 16%, .5);
+    backdrop-filter: blur(40px);
     position: fixed;
     border-radius: 4rem;
     padding: 1rem 2.25rem;
-    backdrop-filter: blur(20px);
 }
 
 .nva_bar .menu {
     bottom: 1rem;
-    width: 285px;
-    justify-content: space-evenly;
+    height: 5rem;
+    width: 320px;
+    justify-content: space-between;
 }
 
-a {
-    height: 37px;
-    width: 37px;
-    margin: 0 6px 0 6px;
+.menu a {
+    /* height: 30px; */
+    font-size: 1.25rem;
+    padding: .4rem;
+    display: flex;
+    /* background: #d800ff; */
+    color: #fff;
+    border-radius: 5rem;
 }
 
-.nva_bar .menu img {
-    width: 40px;
+.menu .active_link {
+    color: #fff;
+    background: linear-gradient(180deg, #d800ff, #d800ff33);
 }
 
 .empty {
@@ -138,14 +185,15 @@ section .scrollBtn {
     width: 614px;
     height: 118px;
     position: relative;
-    margin-bottom: 24px;
+    margin-bottom: 45px;
 }
 
 section .scrollBtn .horizontal-scroll {
     height: 100%;
-    background-color: hsl(219, 32%, 16%, .8);
-    backdrop-filter: blur(20px);
-    border: 1px solid #ddd;
+    background: linear-gradient(180deg, hsl(219deg 100% 50% / 50%), #df00cd73);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    /* border: 1px solid #ddd; */
     border-radius: 15px;
     flex-direction: row;
     justify-content: space-between;
@@ -153,6 +201,7 @@ section .scrollBtn .horizontal-scroll {
     position: relative;
     overflow-y: hidden;
     overflow-x: scroll;
+    z-index: 1;
 }
 
 section .scrollBtn .horizontal-scroll::-webkit-scrollbar {
@@ -179,7 +228,7 @@ section .scrollBtn .btn-scroll {
     border: 0;
     border-radius: 50%;
     margin: 0 5px;
-    z-index: 1;
+    z-index: 2;
     cursor: pointer;
     transition: 1s;
     position: absolute;
@@ -210,6 +259,7 @@ section .scrollBtn .btn-scroll {
     align-items: center;
     height: 93px;
     width: 72px;
+    cursor: pointer;
 }
 
 .story-img {
@@ -217,7 +267,29 @@ section .scrollBtn .btn-scroll {
     height: 66px;
     border-radius: 50%;
     align-items: center;
-    background-color: #d800ff;
+    background: linear-gradient(77deg, #00ffa1, #ff001f);
+    animation: 2s linear 1s infinite loading;
+}
+
+
+/* .loading {} */
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loadingno {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
 .story-circle img {
@@ -226,7 +298,7 @@ section .scrollBtn .btn-scroll {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    /* border: 2px solid #fff; */
+    animation: 2s linear 1s infinite loadingno;
 }
 
 .story-circle .userName {
@@ -240,3 +312,152 @@ section .scrollBtn .btn-scroll {
 
 
 /* posts */
+
+.posts {
+    width: 614px;
+    color: #fff;
+    padding: 15px;
+    border-radius: 20px;
+    background: linear-gradient(316deg, hsl(219deg 100% 50% / 50%), #df00cd73);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    margin-bottom: 60px;
+    z-index: 1;
+}
+
+.posts,
+.posts .header,
+.posts .header .userContender,
+.posts .footer,
+.footer .lms,
+.footer .comment_post form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 17px;
+}
+
+.posts .header {
+    flex-direction: row;
+    height: 70px;
+}
+
+.posts .header .userContender {
+    flex-direction: row;
+    width: 544px;
+    justify-content: flex-start;
+}
+
+.userContender .userImg {
+    margin: 15px;
+    background: linear-gradient(77deg, #00ffa1, #ff001f);
+    border-radius: 50%;
+    animation: 2s linear 1s infinite loading;
+}
+
+.userContender .userImg img {
+    display: block;
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    animation: 2s linear 1s infinite loadingno;
+}
+
+.header .more {
+    font-size: xx-large;
+    width: 55px;
+}
+
+.header .more a {
+    color: #fff;
+}
+
+.middle {
+    display: flex;
+    width: 100%;
+    background: #000;
+    border-radius: 15px;
+}
+
+.middle img {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    min-height: 300px;
+    max-height: 450px;
+    border-radius: 15px;
+}
+
+.footer {
+    width: 100%;
+}
+
+.footer .lms {
+    width: 100%;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.footer .lms i {
+    margin: 0 8px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.posts .footer .comments {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 3px 10px;
+}
+
+.posts .footer .comments a {
+    color: #fff;
+}
+
+.footer .comment_post {
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+}
+
+.footer .comment_post form {
+    justify-content: space-between;
+    flex-direction: row;
+    height: 100%;
+}
+
+form input {
+    border: 0;
+    height: 100%;
+    background-color: #ffff;
+}
+
+.comment_post form .postBtn {
+    font-size: 15px;
+    padding-right: 10px;
+    font-weight: bold;
+    color: #2C9AF4;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+}
+
+.comment_post form input:focus {
+    color: #3E236D;
+}
+
+.footer .comment_post form .post_com {
+    background: url(../img/emoji/face-grin-solid.svg);
+    background-repeat: no-repeat;
+    width: 100%;
+    background-color: #fff;
+    background-size: 25px;
+    background-position: 8px 5px;
+    border-radius: 10px 0 0 10px;
+    padding-left: 40px;
+    font-weight: bold;
+}
