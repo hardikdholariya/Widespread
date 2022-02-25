@@ -30,6 +30,7 @@ if (isset($_POST["otp"])) {
 			if ($data->createTable($sql)) {
 				$folder = "{$username}";
 				mkdir("../users/" . $folder);
+				mkdir("../users/" . $folder . "/upload");
 				$fp = fopen("../users/" . $folder . "/index.php", "w");
 				$content = "<?php echo 'hello'; ?>";
 				fwrite($fp, $content);

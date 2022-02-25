@@ -21,7 +21,7 @@ if ($data->session() == false) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
 
 </head>
 
@@ -41,7 +41,7 @@ if ($data->session() == false) {
             <a href="" class="active_link"><i class='bx bx-home'></i></a>
             <a href=""><i class='bx bx-message'></i></a>
             <a href=""><i class='bx bx-heart' style='color:#ffffff'></i></a>
-            <a href=""><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
+            <a href="" class="post"><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
             <a href=""><i class='bx bx-user' style='color:#ffffff'></i></a>
         </div>
     </div>
@@ -524,43 +524,14 @@ if ($data->session() == false) {
 
         </div>
     </section>
+    <?php
+    include_once("./post.php");
 
-
+    ?>
 
     <h1>Welcome <a href="./logout.php">log out</a></h1>
 
-    <script>
-        let currentScrollPosition = 0;
-        let scrollAmount = 320;
-
-        const sCont = document.querySelector(".storys-container");
-        const hScroll = document.querySelector(".horizontal-scroll");
-        const btnScrollLeft = document.querySelector("#btn-scroll-left");
-        const btnScrollRight = document.querySelector("#btn-scroll-right");
-
-        btnScrollLeft.style.opacity = "0";
-
-        let maxScroll = -sCont.offsetWidth + hScroll.offsetWidth;
-
-        function scrollHorizontally(val) {
-            currentScrollPosition += (val * scrollAmount);
-
-            if (currentScrollPosition >= 0) {
-                currentScrollPosition = 0
-                btnScrollLeft.style.opacity = "0";
-            } else {
-                btnScrollLeft.style.opacity = "1";
-            }
-            if (currentScrollPosition <= maxScroll) {
-                currentScrollPosition = maxScroll;
-                btnScrollRight.style.opacity = "0";
-            } else {
-                btnScrollRight.style.opacity = "1";
-            }
-            sCont.style.left = currentScrollPosition + "px";
-        }
-    </script>
-
+    <script src="./js/action.js?v=<?php echo time(); ?>"></script>
 </body>
 
 </html>

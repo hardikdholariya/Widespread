@@ -269,7 +269,7 @@ class Database
         if ($result == 1) {
             // session_start();
             $_SESSION['login'] = true;
-            $_SESSION['id'] = $query['id'];
+            $_SESSION['id'] = $query['username'];
             return true;
         } else {
             array_push($this->result, $this->mysqli->error);
