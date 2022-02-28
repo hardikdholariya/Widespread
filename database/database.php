@@ -38,7 +38,7 @@ class Database
 
             $table_value = implode("', '", $escaped_values);
 
-            $sql = "INSERT INTO $table ($table_columns) VALUES ('$table_value')";
+            $sql = "INSERT INTO `{$table}` ($table_columns) VALUES ('$table_value')";
 
             if ($this->mysqli->query($sql)) {
                 array_push($this->result, $this->mysqli->insert_id);
@@ -63,7 +63,7 @@ class Database
                 $args[] = "$key = '{$this->mysqli->real_escape_string($value)}'";
             }
 
-            $sql = "UPDATE $table SET " . implode(', ', $args);
+            $sql = "UPDATE `{$table}` SET " . implode(', ', $args);
             if ($where != null) {
                 $sql .= " WHERE $where";
             }
@@ -85,7 +85,7 @@ class Database
     {
         // Check to see if table exists
         if ($this->tableExists($table)) {
-            $sql = "DELETE FROM $table";  // Create query to delete rows
+            $sql = "DELETE FROM `{$table}`";  // Create query to delete rows
             if ($where != null) {
                 $sql .= " WHERE $where";
             }
@@ -108,7 +108,7 @@ class Database
         // Check to see if the table exists
         if ($this->tableExists($table)) {
             // Create query from the variables passed to the function
-            $sql = "SELECT $rows FROM $table";
+            $sql = "SELECT $rows FROM `{$table}`";
             if ($join != null) {
                 $sql .= " JOIN $join";
             }
@@ -127,6 +127,8 @@ class Database
                 $start = ($page - 1) * $limit;
                 $sql .= " LIMIT $start,$limit";
             }
+
+            // echo $sql;
 
             $query = $this->mysqli->query($sql);
 
@@ -149,7 +151,7 @@ class Database
         if ($this->tableExists($table)) {
             if ($limit != null) {
                 // select count() query for pagination
-                $sql = "SELECT COUNT(*) FROM $table";
+                $sql = "SELECT COUNT(*) FROM `{$table}`";
                 if ($join != null) {
                     $sql .= " JOIN $join";
                 }
@@ -236,7 +238,7 @@ class Database
         // Check to see if the table exists
         if ($this->tableExists($table)) {
             // Create query from the variables passed to the function
-            $sql = "SELECT $rows FROM $table";
+            $sql = "SELECT $rows FROM `{$table}`";
             if ($join != null) {
                 $sql .= " JOIN $join";
             }
@@ -262,7 +264,7 @@ class Database
     {
         $username = $this->mysqli->real_escape_string($username);
         $pass = $this->mysqli->real_escape_string($pass);
-        $sql = "SELECT * FROM user WHERE username='$username' AND password='$pass' AND verify=1";
+        $sql = "SELECT * FROM `user` WHERE username='$username' AND password='$pass' AND verify=1";
         $check = $this->mysqli->query($sql);
         $query = $check->fetch_array(MYSQLI_ASSOC);
         $result = $check->num_rows;
@@ -324,7 +326,21 @@ class Database
 } //Class Close
 
 
-// $data = new Database();
+
+
+// session_start();
+
+// $obj = new Database();
+// $folder = $_SESSION['id'];
+// $ImgName = 'cropped1645860748.png';
+// $obj->select($folder, 'id', null, "posts = '{$ImgName}'", null, null);
+// $result = $obj->getResult();
+
+// echo $result[0]['id'];
+
+// $value = ['posts' => $ImgName];
+
+// $data->insert($folder, $value);
 // $date = '2020-01-21';
 // $email = "hardikdholariya@gmail.com";
 // $value = ['dob' => $date];

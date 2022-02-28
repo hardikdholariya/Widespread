@@ -16,12 +16,14 @@ if (isset($_POST["otp"])) {
 		if ($data->tableExists($username) == false) {
 			$sql = "CREATE TABLE `$username` (
 				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
-				`posts` varchar(50) NOT NULL,
+				`posts` varchar(200) NOT NULL,
+				`caption` varchar(500) NOT NULL,
 				`likes` int(50) NOT NULL,
 				`comment` int(50) NOT NULL,
 				`share` int(100) NOT NULL,
 				PRIMARY KEY(id),
-				INDEX(posts),
+				UNIQUE(posts),
+				INDEX(caption),
 				INDEX(likes),
 				INDEX(comment),
 				INDEX(share)

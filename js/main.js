@@ -6,7 +6,7 @@ window.onload = function() {
     var container = document.querySelector('.img-container');
     var image = container.getElementsByTagName('img').item(0);
     var actions = document.getElementById('actions');
-
+    var commnet = document.getElementsByTagName('textarea');
     var options = {
         aspectRatio: 16 / 9,
         viewMode: 1,
@@ -101,6 +101,7 @@ window.onload = function() {
         var result;
         var input;
         var data;
+        var caption = $("#caption").val();
 
         if (!cropper) {
             return;
@@ -188,15 +189,19 @@ window.onload = function() {
                         // Bootstrap's Modal
                         var base64data = result.toDataURL(uploadedImageType);
                         var imgName = uploadedImageName;
+                        // var caption = $("#caption").value;
+
                         $.ajax({
                             url: "upload.php",
                             method: "POST",
                             data: {
                                 image: base64data,
-                                imgname: imgName
+                                imgname: imgName,
+                                caption: caption
                             },
                             success: function(data) {
                                 console.log(data);
+                                $("#myForm").trigger("reset");
                             }
                         });
                     }

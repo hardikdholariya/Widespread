@@ -14,7 +14,7 @@ if ($data->session() == false) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>username</title>
+    <title>Widespread</title>
     <link rel="stylesheet" href="./css/main.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
@@ -26,26 +26,9 @@ if ($data->session() == false) {
 </head>
 
 <body>
-    <div class="img"></div>
-    <div class="nva_bar">
-        <header>
-            <div class="logo">
-                <p>Widespread</p>
-                <!-- <img src="./img/nav_bar-logo.png" alt="logo"> -->
-            </div>
-            <div class="search">
-                <input type="text" name="search" id="search" placeholder="Search..">
-            </div>
-        </header>
-        <div class="menu">
-            <a href="" class="active_link"><i class='bx bx-home'></i></a>
-            <a href=""><i class='bx bx-message'></i></a>
-            <a href=""><i class='bx bx-heart' style='color:#ffffff'></i></a>
-            <a href="" class="post"><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
-            <a href=""><i class='bx bx-user' style='color:#ffffff'></i></a>
-        </div>
-    </div>
-    <div class="empty"></div>
+    <?php
+    require_once("./header.php");
+    ?>
     <section>
         <div class="scrollBtn">
             <button class="btn-scroll btn-1" id="btn-scroll-left" onclick="scrollHorizontally(1)"><i class="fa-solid fa-caret-left"></i></button>
@@ -530,7 +513,7 @@ if ($data->session() == false) {
     ?>
 
     <h1>Welcome <a href="./logout.php">log out</a></h1>
-
+    <script src="./js/jquery.js"></script>
     <script src="./js/action.js?v=<?php echo time(); ?>"></script>
 </body>
 

@@ -90,7 +90,7 @@
                     </div>
 
 
-                    <form action="" method="post" class="crop_comment">
+                    <form method="post" class="crop_comment" id="myForm">
 
                         <textarea name="caption" placeholder="Write a caption..." id="caption"></textarea>
 
