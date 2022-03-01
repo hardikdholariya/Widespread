@@ -18,6 +18,7 @@
 <body>
     <?php
     require_once("./header.php");
+    include_once("./post.php");
     ?>
 
 </body>

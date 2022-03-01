@@ -1,12 +1,3 @@
-<?php
-session_start();
-require_once("./database/database.php");
-$data = new Database();
-
-if ($data->session() == false) {
-    header("location:login.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +6,8 @@ if ($data->session() == false) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widespread</title>
+    <link rel="icon" type="image/x-icon" href="./img/ioc/logo.ico?v=<?php echo time(); ?>">
+
     <link rel="stylesheet" href="./css/main.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
@@ -26,6 +19,7 @@ if ($data->session() == false) {
 </head>
 
 <body>
+
     <?php
     require_once("./header.php");
     ?>
@@ -509,7 +503,6 @@ if ($data->session() == false) {
     </section>
     <?php
     include_once("./post.php");
-
     ?>
 
     <h1>Welcome <a href="./logout.php">log out</a></h1>

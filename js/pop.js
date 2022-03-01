@@ -5,7 +5,9 @@ $(document).ready(function() {
     $(".post").on('click', function(e) {
         e.preventDefault();
         $(".backgroundB").show();
+        $(".post").addClass('active_link');
     });
+
     $(".close").on('click', function(e) {
         e.preventDefault();
         $(".backgroundB").hide();

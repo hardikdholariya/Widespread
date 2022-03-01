@@ -43,6 +43,24 @@ input {
     font-size: 16px;
 }
 
+.animation {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #ff00c8, #4001ff);
+    clip-path: circle(100% at 50% 0%);
+    /* clip-path: circle(0% at 50% 94%); */
+    z-index: 1000;
+    transition: 0.5s ease-out;
+}
+
+.is-active {
+    left: 0%;
+    clip-path: circle(0% at 50% 94%);
+}
+
 .nva_bar,
 .nva_bar header,
 .nva_bar .menu {
@@ -121,7 +139,7 @@ input {
     border-radius: 5rem;
 }
 
-.menu #active_link {
+.menu .active_link {
     color: #fff;
     background: linear-gradient(180deg, #d800ff, #d800ff33);
 }
