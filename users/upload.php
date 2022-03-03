@@ -10,5 +10,16 @@ if ($_FILES["file"]["name"] != '') {
     move_uploaded_file($_FILES["file"]["tmp_name"], $location);
     require_once("../database/database.php");
     $data = new Database;
-    $data->update('user', ['profileImg' => $name], "username='{$folder}'");
+    $data->select('user', 'profileImg', null, "username='{$folder}'");
+    $result = $data->getResult();
+    $profileImg = $result[0]['profileImg'];
+
+    $data = new Database;
+
+    if (empty($profileImg)) {
+        $data->update('user', ['profileImg' => $name], "username='{$folder}'");
+    } else {
+        $unlink = unlink("./{$folder}/profileImg/" . $profileImg);
+        $data->update('user', ['profileImg' => $name], "username='{$folder}'");
+    }
 }

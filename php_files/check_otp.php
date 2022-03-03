@@ -14,7 +14,7 @@ if (isset($_POST["otp"])) {
 
 		$data->update('user', ['otp' => 'w', 'verify' => 1], "email = '{$email}'");
 		if ($data->tableExists($username) == false) {
-			$sql = "CREATE TABLE `$username` (
+			$sql = "CREATE TABLE `$data->mysqli->real_escape_string($username)` (
 				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
 				`posts` varchar(200) NOT NULL,
 				`caption` varchar(500) NOT NULL,

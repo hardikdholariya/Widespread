@@ -1,3 +1,7 @@
+<?php
+require_once("../../database/database.php");
+$data = new Database;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,17 +24,28 @@
 
 <body>
 
-
     <div class="profile">
         <div class="profileDetail">
+
             <label for="file" class="userimg">
-                <img src="../../img/icon/user.jpg" alt="username" id="foo">
+                <?php
+                $folder = $data->mysqli->real_escape_string($_SESSION['id']);
+                $data->select('user', 'profileImg,followers,following,fullname', null, "username = '{$folder}'", null, null);
+                $result = $data->getResult();
+
+                $profileImg = $result[0]['profileImg'];
+                if (!empty($profileImg)) { ?>
+                    <img src="./profileImg/<?php echo $profileImg; ?>" alt="User Profile" id="foo">
+                <?php } else { ?>
+                    <img src="../../img/icon/user.jpg" alt="User Profile" id="foo">
+                <?php } ?>
                 <input type="file" name="file" id="file" accept="image/*" style="display: none;">
             </label>
+
             <div class="userDetail">
                 <div class="ues">
                     <div class="username">
-                        <h2>widespread_.p.h_</h2>
+                        <h2><?php echo $folder; ?></h2>
                     </div>
                     <div class="editProfile">
                         <button class="edit">Edit Profile</button>
@@ -44,21 +59,34 @@
 
                 <div class="pff">
                     <div class="imgPost">
-                        <span>0</span>
+                        <?php
+                        $posts = $data->count($folder, 'posts');
+                        ?>
+                        <span><?php echo $posts; ?></span>
                         <p>Posts</p>
                     </div>
                     <div class="followers">
-                        <span>0</span>
+                        <?php
+                        $following = $result[0]['followers'];
+                        ?>
+                        <span><?php echo $following; ?></span>
                         <p>followers</p>
                     </div>
                     <div class="following">
-                        <span>0</span>
+                        <?php
+                        $following = $result[0]['following'];
+                        ?>
+                        <span><?php echo $following; ?></span>
                         <p>following</p>
                     </div>
                 </div>
                 <div class="userFullName">
-                    <h3>widespread</h3>
+                    <?php
+                    $userFullName = $result[0]['fullname'];
+                    ?>
+                    <h3><?php echo $userFullName; ?></h3>
                 </div>
+
             </div>
 
         </div>
@@ -68,30 +96,14 @@
             <span>POSTS</span>
         </div>
         <div class="postImg">
-            <div class="pImg">
-                <img src="../../img/mail.png" alt="">
-            </div>
-            <div class="pImg">
-                <img src="../../img/cake.svg" alt="">
-            </div>
-            <div class="pImg">
-                <img src="../../img/background-index.jpg" alt="">
-            </div>
-            <div class="pImg">
-                <img src="../../img/background-index.jpg" alt="">
-            </div>
-            <div class="pImg">
-                <img src="../../img/background-index.jpg" alt="">
-            </div>
-            <div class="pImg">
-                <img src="../../img/background-index.jpg" alt="">
-            </div>
-            <div class="pImg">
-                <img src="../../img/background-index.jpg" alt="">
-            </div>
-            <div class="pImg">
-                <img src="../../img/background-index.jpg" alt="">
-            </div>
+            <?php
+            $data->select($folder, 'posts', null, null, 'id DESC');
+            $result = $data->getResult();
+            foreach ($result as $row) { ?>
+                <div class="pImg">
+                    <img src="<?php echo "./upload/" . $row['posts'] ?>" alt="post">
+                </div>
+            <?php } ?>
         </div>
     </div>
     <script src="../../js/jquery.js"></script>
