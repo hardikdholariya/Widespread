@@ -1,6 +1,3 @@
-<?php
-require_once("./session.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,9 +17,9 @@ require_once("./session.php");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="css/cropper.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../css/cropper.css?v=<?php echo time(); ?>">
 
-    <link rel="stylesheet" href="css/main.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../css/main.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -133,22 +130,17 @@ require_once("./session.php");
                             </span>
                         </label>
                     </div>
-
-
                 </div>
             </div>
-
-
-
         </div>
     </div>
 
 
     <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
-    <script src="./js/pop.js?v=<?php echo time(); ?>"></script>
-    <script src="./js/jquery.js"></script>
-    <script src="js/cropper.js"></script>
-    <script src="js/main.js?v=<?php echo time(); ?> "></script>
+    <script src="../../js/pop.js?v=<?php echo time(); ?>"></script>
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/cropper.js"></script>
+    <script src="../main.js?v=<?php echo time(); ?>"></script>
 </body>
 
 </html>

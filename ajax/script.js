@@ -202,6 +202,21 @@ $(document).ready(function() {
         });
     });
 
-
+    $('#file').change(function(e) {
+        e.preventDefault();
+        var form_data = new FormData();
+        var f = document.getElementById("file").files[0];
+        form_data.append("file", f);
+        $.ajax({
+            url: "../upload.php",
+            method: "POST",
+            data: form_data,
+            contentType: false,
+            processData: false,
+            // success: function(data) {
+            //     $("#foo").attr("src", data);
+            // }
+        });
+    });
 
 });

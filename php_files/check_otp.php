@@ -33,8 +33,9 @@ if (isset($_POST["otp"])) {
 				$folder = "{$username}";
 				mkdir("../users/" . $folder);
 				mkdir("../users/" . $folder . "/upload");
+				mkdir("../users/" . $folder . "/profileImg");
 				$fp = fopen("../users/" . $folder . "/index.php", "w");
-				$content = "<?php echo 'hello'; ?>";
+				$content = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../profile.php"); ?>';
 				fwrite($fp, $content);
 				fclose($fp);
 			}

@@ -19,6 +19,7 @@ if ($data->session()) {
     <title>Login</title>
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/media.css?v=<?php echo time(); ?>">
+    <link rel="icon" type="image/x-icon" href="./img/ioc/logo.ico?v=<?php echo time(); ?>">
 
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
 </head>

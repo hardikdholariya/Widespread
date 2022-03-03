@@ -2,45 +2,46 @@
 require_once("./database/database.php");
 session_start();
 if (isset($_POST['image'])) {
-    $data = $_POST['image'];
-    $Iname = $_POST['imgname'];
-    $caption = $_POST['caption'];
-    // basename($Iname)
-    $image_array_1 = explode(";", $data);
+  $data = $_POST['image'];
+  $Iname = $_POST['imgname'];
+  $caption = $_POST['caption'];
+  // basename($Iname)
+  $image_array_1 = explode(";", $data);
 
-    $image_array_2 = explode(",", $image_array_1[1]);
+  $image_array_2 = explode(",", $image_array_1[1]);
 
-    $data = base64_decode($image_array_2[1]);
-
-    $Iname = strrev($Iname);
-    $imgPath = explode('.', $Iname);
-
-    $ImgName = strrev($imgPath[1]) . time() . '.' . strrev($imgPath[0]);
-    $folder = $_SESSION['id'];
-    $image_name = "./users/{$folder}/upload/{$ImgName}";
-
-    file_put_contents($image_name, $data);
-
-    $data = new Database();
-    $value = ['posts' => $ImgName, 'caption' => $caption];
-    $data->insert($folder, $value);
+  echo $data = base64_decode($image_array_2[1]);
 
 
-    $data = new Database();
+  $Iname = strrev($Iname);
+  $imgPath = explode('.', $Iname);
 
-    $data->select($folder, 'id', null, "posts = '{$ImgName}'", null, null);
-    $result = $data->getResult();
+  $ImgName = strrev($imgPath[1]) . time() . '.' . strrev($imgPath[0]);
+  $folder = $_SESSION['id'];
+  $image_name = "./users/{$folder}/upload/{$ImgName}";
 
-    $id = $result[0]['id'];
-    // echo $select;
+  file_put_contents($image_name, $data);
 
-    $postTableName = $folder . 'postcommentid_' . $id;
-    $sql = "CREATE TABLE `$postTableName` (
+  $data = new Database();
+  $value = ['posts' => $ImgName, 'caption' => $caption];
+  $data->insert($folder, $value);
+
+
+  $data = new Database();
+
+  $data->select($folder, 'id', null, "posts = '{$ImgName}'", null, null);
+  $result = $data->getResult();
+
+  $id = $result[0]['id'];
+  // echo $select;
+
+  $postTableName = $folder . 'postcommentid_' . $id;
+  $sql = "CREATE TABLE `$postTableName` (
         `id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
         `comment` varchar(60) NOT NULL,
         PRIMARY KEY(id),
         INDEX(comment)
       )";
 
-    $data->createTable($sql);
+  $data->createTable($sql);
 }

@@ -1,3 +1,8 @@
+<?php
+// include("../header.php");
+// include("../post.php");
+// include("../profile.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +10,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/header.css?v=<?php echo time(); ?>">
-    <link rel="icon" type="image/x-icon" href="./img/ioc/logo.ico?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href=".././header.css?v=<?php time() ?>">
+    <link rel="icon" type="image/x-icon" href="./../../img/logo.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
 </head>
 
 <body>
@@ -23,15 +34,17 @@
             </div>
         </header>
         <div class="menu">
-            <a href="./" id="Widespread"><i class='bx bx-home'></i></a>
+            <a href="../../" id="Widespread"><i class='bx bx-home'></i></a>
 
-            <a href="./message.php" id="message"><i class='bx bx-message'></i></a>
+            <a href="../../message.php" id="message"><i class='bx bx-message'></i></a>
 
-            <a href="./like.php" id="like"><i class='bx bx-heart' style='color:#ffffff'></i></a>
+            <a href="../../like.php" id="like"><i class='bx bx-heart' style='color:#ffffff'></i></a>
 
             <a href="" class="post" id="post"><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
-
-            <a href="./users/widespread_.p.h_/" id="profile"><i class='bx bx-user' style='color:#ffffff'></i></a>
+            <?php
+            $id = "widespread_.p.h_";
+            ?>
+            <a href="./" id="<?php echo $id; ?>"><i class='bx bx-user' style='color:#ffffff'></i></a>
         </div>
     </div>
     <div class="empty"></div>
@@ -40,9 +53,10 @@
 <?php
 $loc = basename($_SERVER['REQUEST_URI'], '.php');
 ?>
-<script src="./js/jquery.js"></script>
+<script src="../../js/jquery.js"></script>
 <script>
     const loc = "<?= $loc ?>";
+    console.log(loc);
     const animation = document.querySelector(".animation");
     for (i = 0; i < 5; i++) {
         var target = document.querySelectorAll(".menu a")[i];
