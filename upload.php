@@ -1,6 +1,5 @@
 <?php
 require_once("./database/database.php");
-session_start();
 if (isset($_POST['image'])) {
   $data = $_POST['image'];
   $Iname = $_POST['imgname'];
@@ -17,7 +16,7 @@ if (isset($_POST['image'])) {
   $imgPath = explode('.', $Iname);
 
   $ImgName = strrev($imgPath[1]) . time() . '.' . strrev($imgPath[0]);
-  $folder = $_SESSION['id'];
+  $folder = $_COOKIE['id'];
   $image_name = "./users/{$folder}/upload/{$ImgName}";
 
   file_put_contents($image_name, $data);

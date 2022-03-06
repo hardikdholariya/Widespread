@@ -14,7 +14,7 @@ if (isset($_POST["otp"])) {
 
 		$data->update('user', ['otp' => 'w', 'verify' => 1], "email = '{$email}'");
 		if ($data->tableExists($username) == false) {
-			$sql = "CREATE TABLE `$data->mysqli->real_escape_string($username)` (
+			$sql = "CREATE TABLE `$username` (
 				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
 				`posts` varchar(200) NOT NULL,
 				`caption` varchar(500) NOT NULL,
@@ -27,9 +27,24 @@ if (isset($_POST["otp"])) {
 				INDEX(likes),
 				INDEX(comment),
 				INDEX(share)
+			  ) ";
+			$following = $username . "following";
+			$sql1 =  "CREATE TABLE `$following` (
+				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
+				`following` varchar(200) NOT NULL,
+				PRIMARY KEY(id),
+				INDEX(`following`)
 			  )";
 
-			if ($data->createTable($sql)) {
+			$followers = $username . "followers";
+			$sql2 =  "CREATE TABLE `$followers` (
+				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
+				`followers` varchar(200) NOT NULL,
+				PRIMARY KEY(id),
+				INDEX(`followers`)
+			  )";
+
+			if ($data->createTable($sql) && $data->createTable($sql1) && $data->createTable($sql2)) {
 				$folder = "{$username}";
 				mkdir("../users/" . $folder);
 				mkdir("../users/" . $folder . "/upload");

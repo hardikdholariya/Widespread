@@ -1,8 +1,3 @@
-<?php
-// include("../header.php");
-// include("../post.php");
-// include("../profile.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +37,9 @@
 
             <a href="" class="post" id="post"><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
             <?php
-            $id = "widespread_.p.h_";
+            $id =  $_COOKIE['id'];
             ?>
-            <a href="./" id="<?php echo $id; ?>"><i class='bx bx-user' style='color:#ffffff'></i></a>
+            <a href="../<?php echo $id; ?>" id="<?php echo $id; ?>"><i class='bx bx-user' style='color:#ffffff'></i></a>
         </div>
     </div>
     <div class="empty"></div>
@@ -56,12 +51,18 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
 <script src="../../js/jquery.js"></script>
 <script>
     const loc = "<?= $loc ?>";
-    console.log(loc);
     const animation = document.querySelector(".animation");
     for (i = 0; i < 5; i++) {
         var target = document.querySelectorAll(".menu a")[i];
+        // console.log(loc);
         if (target.id == loc) {
             target.className = "active_link";
+            setTimeout(() => {
+                $(".animation").addClass('is-active');
+            }, 500);
+        } else if (loc == 'index') {
+
+        } else {
             setTimeout(() => {
                 $(".animation").addClass('is-active');
             }, 500);

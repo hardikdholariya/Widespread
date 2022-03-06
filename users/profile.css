@@ -45,10 +45,11 @@ p {
 }
 
 .profileDetail .userimg img {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     height: 100%;
     width: 150px;
+    border: 2px solid;
     border-radius: 50%;
 }
 
@@ -64,11 +65,13 @@ p {
 
 .userDetail .ues {
     margin-bottom: 20px;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 .ues .username h2 {
     color: #fff;
-    min-width: 175px;
+    max-width: 175px;
     font-weight: 100;
     display: block;
     overflow: hidden;
@@ -76,12 +79,16 @@ p {
     white-space: nowrap;
 }
 
+.ues .editProfile .follow {
+    background: #00e8ffd1;
+}
+
 .ues .editProfile button {
-    margin-left: 20px;
+    margin-left: 10px;
     border: none;
     background: #fff;
     height: 35px;
-    width: 105px;
+    width: 95px;
     font-size: 16px;
     font-weight: bold;
     border-radius: 10px;
@@ -187,4 +194,72 @@ h3 {
     height: 245px;
     border-radius: 10px;
     background-color: #fff;
+}
+
+#unfollow_pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: hsl(0deg 0% 24% / 30%);
+    z-index: 20;
+    /* width: 120%; */
+}
+
+#unfollow_pop #upop {
+    margin: 20px auto;
+    padding: 20px;
+    width: 370px;
+    min-height: 270px;
+    max-height: 430px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background: linear-gradient(316deg, hsl(219deg 100% 50%), rgb(223 0 205));
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    font-family: 'Padauk', sans-serif;
+    font-weight: bold;
+}
+
+#upop .unfollowimg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#upop .unfollowimg img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 130px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+#upop .unfollowimg .unfollow_username {
+    margin: 20px auto;
+    color: #fff;
+    font-weight: 100;
+}
+
+#upop .cu button {
+    margin-left: 10px;
+    border: none;
+    background: #fff;
+    height: 35px;
+    width: 95px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
 }

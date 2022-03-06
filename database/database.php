@@ -67,6 +67,7 @@ class Database
             if ($where != null) {
                 $sql .= " WHERE $where";
             }
+            // echo $sql;
             // Make query to database
             if ($this->mysqli->query($sql)) {
                 array_push($this->result, $this->mysqli->affected_rows);
@@ -195,7 +196,7 @@ class Database
                 }
                 $output .= "</ul>";
 
-                echo $output;
+                // echo $output;
             } else {
                 return false; // If Limit is null
             }
@@ -246,7 +247,6 @@ class Database
                 $sql .= " WHERE $where";
             }
             $query = $this->mysqli->query($sql);
-
             if ($query) {
                 return $query->num_rows;
                 // Query was successful
@@ -270,8 +270,11 @@ class Database
         $result = $check->num_rows;
         if ($result == 1) {
             // session_start();
-            $_SESSION['login'] = true;
-            $_SESSION['id'] = $query['username'];
+
+            setcookie("login", true, time() + (86400 * 30), "/");
+            setcookie("id", $query['username'], time() + (86400 * 30), "/");
+            // $_SESSION['login'] = true;
+            // $_SESSION['id'] = $query['username'];
             return true;
         } else {
             array_push($this->result, $this->mysqli->error);
@@ -291,8 +294,9 @@ class Database
     }
     public function session()
     {
-        if (isset($_SESSION['login'])) {
-            return $_SESSION['login'];
+
+        if (isset($_COOKIE['login'])) {
+            return $_COOKIE['login'];
         } else {
             return false;
         }
@@ -300,8 +304,8 @@ class Database
 
     public function logout()
     {
-        $_SESSION['login'] = false;
-        session_destroy();
+        setcookie("login", false, time() - (86400 * 30), "/");
+        setcookie("id", "", time() - (86400 * 30), "/");
     }
     // Public function to return the data to the user
     public function getResult()
@@ -324,24 +328,3 @@ class Database
         }
     }
 } //Class Close
-
-
-
-
-// session_start();
-
-// $obj = new Database();
-// $folder = $_SESSION['id'];
-// $ImgName = 'cropped1645860748.png';
-// $obj->select($folder, 'id', null, "posts = '{$ImgName}'", null, null);
-// $result = $obj->getResult();
-
-// echo $result[0]['id'];
-
-// $value = ['posts' => $ImgName];
-
-// $data->insert($folder, $value);
-// $date = '2020-01-21';
-// $email = "hardikdholariya@gmail.com";
-// $value = ['dob' => $date];
-// $data->update('user', $value, "email = '{$email}'");

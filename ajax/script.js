@@ -4,7 +4,23 @@ $(document).ready(function() {
     $(".dob").hide();
     $(".otp_verification").hide();
     $(".contaner-3").hide();
+    $('.unfollow_pop').hide();
 
+    const loc = window.location.href;
+
+    function loadTable() {
+        $.ajax({
+            url: "../../users/ajax-load.php",
+            type: "POST",
+            data: {
+                loc: loc
+            },
+            success: function(data) {
+                $("#table-data").html(data);
+            }
+        });
+    }
+    loadTable();
 
     $("#save-user").on("click", function(e) {
         e.preventDefault();
@@ -213,10 +229,62 @@ $(document).ready(function() {
             data: form_data,
             contentType: false,
             processData: false,
-            // success: function(data) {
-            //     $("#foo").attr("src", data);
-            // }
         });
     });
 
+    $(document).on('click', '.follow', function(e) {
+        e.preventDefault();
+        console.log("kd");
+        var location = loc;
+        var username_ff = $('.username_ff').text();
+        $.ajax({
+            type: "POST",
+            url: "../../php_files/following.php",
+            data: {
+                location: location,
+                username_ff: username_ff
+            },
+            success: function(data) {
+                if (data == 'yes') {
+                    loadTable();
+                }
+            }
+        });
+    });
+
+    // on()
+
+    $(document).on('click', '.followingBtn', function(e) {
+        e.preventDefault();
+        // $("#unfollow_pop").slideDown("slow");
+        $("#unfollow_pop").fadeIn("slow");
+        $("#unfollow_pop").show();
+
+    });
+    $(document).on('click', '#unfollow_user', function(e) {
+
+        e.preventDefault();
+        var location = loc;
+        var username_ff = $('.username_ff').text();
+        $.ajax({
+            type: "POST",
+            url: "../../php_files/unfollow.php",
+            data: {
+                location: location,
+                username_ff: username_ff
+            },
+            success: function(data) {
+                if (data == 'yes') {
+                    loadTable();
+                    console.log(data);
+                }
+            }
+        });
+    });
+
+    $(document).on('click', '#cancel_user', function(e) {
+        e.preventDefault();
+
+        $("#unfollow_pop").hide();
+    });
 });

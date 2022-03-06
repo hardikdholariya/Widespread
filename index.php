@@ -509,6 +509,7 @@ require_once("./session.php");
     ?>
 
     <h1>Welcome <a href="./logout.php">log out</a></h1>
+
     <script src="./js/jquery.js"></script>
     <script src="./js/action.js?v=<?php echo time(); ?>"></script>
 </body>

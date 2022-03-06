@@ -30,8 +30,10 @@
             <a href="./like.php" id="like"><i class='bx bx-heart' style='color:#ffffff'></i></a>
 
             <a href="" class="post" id="post"><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
-
-            <a href="./users/widespread_.p.h_/" id="profile"><i class='bx bx-user' style='color:#ffffff'></i></a>
+            <?php
+            $id = $_COOKIE['id'];
+            ?>
+            <a href="./users/<?php echo $id; ?>/" id="profile"><i class='bx bx-user' style='color:#ffffff'></i></a>
         </div>
     </div>
     <div class="empty"></div>

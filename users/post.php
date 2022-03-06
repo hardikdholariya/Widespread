@@ -8,7 +8,6 @@
     <meta name="description" content="JavaScript image cropper.">
 
     <meta name="author" content="Chen Fengyuan">
-    <title>Cropper.js</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
 
