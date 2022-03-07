@@ -5,7 +5,7 @@ $data = new Database;
 
 $loc = basename($_POST['loc']);
 
-$data->select('user', 'username,profileImg,followers,following,fullname', null, "username = '{$loc}'", null, null);
+$data->select('user', 'username,profileImg,fullname', null, "username = '{$loc}'", null, null);
 
 $result = $data->getResult();
 $folder = $_COOKIE['id'];
@@ -81,15 +81,16 @@ if (count($result) > 0) {
                 <p>Posts</p>
             </div>
             <div class='followers'>";
+        $following_table = $loc . "followers";
+        $followers = $data->count($following_table, 'followers');
 
-        $following = $result[0]['followers'];
-
-        $output .= "<span> {$following}</span>
+        $output .= "<span> {$followers}</span>
                 <p>followers</p>
             </div>
             <div class='following'>";
 
-        $following = $result[0]['following'];
+        $following_table = $loc . "following";
+        $following = $data->count($following_table, 'following');
 
         $output .= "<span> {$following}</span>
                 <p>following</p>
