@@ -23,84 +23,8 @@
     require_once("./post.php");
     ?>
     <div class="group">
-
-        <div class="sfy">
-            <h3>Suggestions For You</h3>
-        </div>
-        <div class="suggestions">
-
-            <?php
-            $folder = $_COOKIE['id'];
-            $data->select('user', 'username,fullname,profileImg', null, "not(username = '{$folder}')", " RAND()", 20);
-            $result = $data->getResult();
-
-            foreach ($result as $row) { ?>
-
-                <div class="profileDetail">
-
-                    <div class="userImg">
-
-                        <?php
-                        if (!empty($row['profileImg'])) {
-                        ?>
-
-                            <img src="../users/<?php echo $row['username'] . '/profileImg/' . $row['profileImg'] ?>" alt="User Profile" id="foo">
-
-                        <?php
-
-                        } else { ?>
-
-                            <img src="../img/icon/user.jpg" alt="User Profile" id="foo">
-
-                        <?php
-                        }
-                        ?>
-                    </div>
-
-                    <div class="userDetail">
-                        <div class="ues">
-                            <div class="username">
-                                <h4><?php echo $row['username'] ?></h4>
-                            </div>
-                            <div class="userFullName">
-                                <h5><?php echo $row['fullname'] ?></h5>
-                            </div>
-                        </div>
-
-                        <div class="follow">
-                            <button class="follow">Follow</button>
-                        </div>
-                    </div>
-                </div>
-            <?php
-            }
-            ?>
-        </div>
-
     </div>
-    <div id='unfollow_pop'>
 
-        <div id='upop'>
-
-            <div class='unfollowimg'>
-
-                <img src='../img/icon/user.jpg' alt='User Profile'>
-
-                <div class='unfollow_username'>@</div>
-
-            </div>
-
-            <div class='cu'>
-
-                <button id='unfollow_user'>Unfollow</button>
-
-                <button id='cancel_user'>Cancel</button>
-
-            </div>
-
-        </div>
-
-    </div>
     <script src="../js/jquery.js"></script>
     <script>
         $(document).ready(function() {
@@ -122,7 +46,8 @@
             $(document).on('click', '.follow', function(e) {
                 e.preventDefault();
                 var location = loc;
-                var username_ff = $('div h4').data('id');
+                var username_ff = $(this).data('itemId');
+                console.log(username_ff);
                 $.ajax({
                     type: "POST",
                     url: "../php_files/following.php",
@@ -138,22 +63,12 @@
                     }
                 });
             });
-            $(document).on('click', '.followingBtn', function(e) {
-                e.preventDefault();
-                // $("#unfollow_pop").slideDown("slow");
-                $("#unfollow_pop").fadeIn("slow");
-                $("#unfollow_pop").show();
-                // console.log("dkd");
-                var username_ff = $('div h4').data('id');
-                // console.log(username_ff);
-                $(".unfollow_username").html("@" + username_ff);
 
-
-            });
             $(document).on('click', '#unfollow_user', function(e) {
                 e.preventDefault();
                 var location = loc;
-                var username_ff = $('div h4').data('id');
+                var username_ff = $(".unfollow_username").text();
+                console.log(username_ff);
                 $.ajax({
                     type: "POST",
                     url: "../php_files/unfollow.php",
@@ -169,11 +84,18 @@
                     }
                 });
             });
+            $(document).on('click', '.followingBtn', function(e) {
+                e.preventDefault();
+                $("#unfollow_pop").fadeIn("slow");
+                $("#unfollow_pop").show();
+                var username_ff = $(this).data('itemId');
+                $(".unfollow_username").html(username_ff);
 
+
+            });
 
             $(document).on('click', '#cancel_user', function(e) {
                 e.preventDefault();
-
                 $("#unfollow_pop").hide();
             });
         });

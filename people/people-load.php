@@ -5,7 +5,7 @@ $data = new Database;
 
 $folder = $_COOKIE['id'];
 
-$data->select('user', 'username,fullname,profileImg', null, "not(username = '{$folder}')", "RAND()", 20);
+$data->select('user', 'username,fullname,profileImg', null, "not(username = '{$folder}')", "`id` DESC", 20);
 $result = $data->getResult();
 
 if (count($result) > 0) {
@@ -62,41 +62,41 @@ if (count($result) > 0) {
 
         $following_result = $data->getResult();
         if (count($following_result) == 1) {
-            $output .= "<button class='followingBtn'>following</button>";
+            $output .= "<button class='followingBtn' data-item-id='{$row['username']}'>following</button>";
         } else {
-            $output .= " <button class='follow'>Follow</button>";
+            $output .= "<button class='follow' data-item-id='{$row['username']}'>Follow</button>";
         }
         $output .= " </div>
             </div>
         </div>";
-        // $output .= "
-        // <div id='unfollow_pop' style='display: none'>
 
-        //     <div id='upop'>
-
-        //         <div class='unfollowimg'>
-
-        //             <img src='../img/icon/user.jpg' alt='User Profile'>
-
-        //             <div class='unfollow_username'>@</div>
-
-        //         </div>
-
-        //         <div class='cu'>
-
-        //             <button id='unfollow_user'>Unfollow</button>
-
-        //             <button id='cancel_user'>Cancel</button>
-
-        //         </div>
-
-        //     </div>
-
-        // </div>";
-        // style='display: none'
         $i++;
     }
     $output .= "
+    </div>";
+    $output .= "
+    <div id='unfollow_pop' style='display: none'>
+
+        <div id='upop'>
+
+            <div class='unfollowimg'>
+
+                <img src='../img/icon/user.jpg' alt='User Profile'>
+
+                <div class='unfollow_username'>@</div>
+
+            </div>
+
+            <div class='cu'>
+
+                <button id='unfollow_user' >Unfollow</button>
+
+                <button id='cancel_user'>Cancel</button>
+
+            </div>
+
+        </div>
+
     </div>";
 }
 echo $output;
