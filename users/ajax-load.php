@@ -151,4 +151,16 @@ if (count($result) > 0) {
         </div>";
     }
     echo $output;
+} else {
+    $output = "
+    <div class='text-pop-up'>
+        <div class='textNot'>
+            <div class='notFound'>
+                404
+            </div>
+            <p> Not Found</p>
+        </div>
+    </div>
+    ";
+    echo $output;
 }

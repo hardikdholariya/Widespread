@@ -263,3 +263,58 @@ h3 {
     border-radius: 10px;
     cursor: pointer;
 }
+
+.text-pop-up {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    z-index: 10;
+}
+
+.textNot {
+    border-radius: 20px;
+    background: linear-gradient(316deg, #0059ffb8, #df00cdd9);
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    width: 900px;
+    max-width: 800px;
+    min-width: 665px;
+    width: 634px;
+    height: 407px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-size: 37px;
+    color: #f88077;
+    font-weight: bolder;
+}
+
+.text-pop-up .notFound {
+    font-size: 150px;
+    color: #efefef;
+    font-weight: 800;
+    font-family: 'Syne Mono', monospace;
+    text-transform: uppercase;
+    animation: text-pop-up 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate both;
+}
+
+@keyframes text-pop-up {
+    0% {
+        transform: translateY(0);
+        transform-origin: 50% 50%;
+        text-shadow: none;
+    }
+    100% {
+        transform: translateY(-50px);
+        transform-origin: 50% 50%;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+    }
+}

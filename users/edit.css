@@ -1,0 +1,154 @@
+.edit_profile {
+    width: 935px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    border-radius: 20px;
+    background: linear-gradient(316deg, #0059ffb8, #df00cdd9);
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    margin-top: 30px;
+}
+
+.edit_profile .edit_link {
+    width: 25%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border-right: 1px solid;
+}
+
+.edit_profile .edit_link .eProfile {
+    border-radius: 18px 0 0 0;
+    border-left: 2px solid;
+}
+
+.edit_profile .edit_link .eProfile,
+.edit_profile .edit_link .cPassword {
+    padding: 25px 16px 16px 30px;
+    cursor: pointer;
+}
+
+.edit_profile .changeFrom {
+    width: 80%;
+}
+
+.edit_profile .userProfileImg {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 35px;
+    padding-bottom: 35px;
+    color: #fff;
+}
+
+.edit_profile .userProfileImg .profileFile .cImg {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    cursor: pointer;
+}
+
+.edit_profile .userProfileImg .profileFile {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.userProfileImg .profileFile aside {
+    margin-right: 30px;
+    width: 70px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profileFile .cImg img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 38px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.userProfileImg .profileFile h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.userProfileImg .profileFile .accountName {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    /* margin-left: 35px; */
+}
+
+.userProfileImg .profileFile .accountName label {
+    color: #00ffe7;
+    cursor: pointer;
+}
+
+.userProfileImg .change {
+    margin: 16px auto;
+}
+
+.userProfileImg .change .c aside {
+    font-size: 16px;
+    font-weight: bold;
+    width: 70px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    align-items: center;
+}
+
+.userProfileImg .change .c {
+    display: flex;
+    margin: 15px auto;
+    position: relative;
+}
+
+.userProfileImg .change input[type="text"] {
+    width: 60%;
+    height: 35px;
+    border-radius: 10px;
+    border: 0;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    font-weight: bold;
+    padding: 0px 40px 0 14px;
+    background-color: #fff;
+}
+
+.userProfileImg .change input[type="submit"] {
+    border: none;
+    background: #00e8ffd1;
+    height: 35px;
+    width: 95px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.password .change .c aside,
+.password .profileFile aside {
+    width: 99px;
+    text-align: right;
+}
+
+.verror {
+    position: absolute;
+    top: 5px;
+    right: 24%;
+    width: 25px;
+}
+
+.verror1 {
+    position: absolute;
+    top: 5px;
+    right: 19%;
+    width: 25px;
+}

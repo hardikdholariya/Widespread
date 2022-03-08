@@ -232,6 +232,10 @@ $(document).ready(function() {
         });
     });
 
+    $(document).on('click', '.edit', function(e) {
+        e.preventDefault();
+        window.location.href = "./edit.php";
+    });
     $(document).on('click', '.follow', function(e) {
         e.preventDefault();
         console.log("kd");
