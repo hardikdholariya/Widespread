@@ -61,6 +61,8 @@ class userValidation
         $uname = trim($this->data['uname']);
         if (empty($uname)) {
             $this->addError('uname', 'username cannot be empty.');
+        } else if (substr($uname, -1) == '.') {
+            $this->addError('uname', 'not enter spacial characters.');
         } else {
             if (strlen($uname) < 7) {
                 $this->addError('uname', 'more then 7 letters.');
@@ -202,6 +204,64 @@ class passwordValidation
                     $this->errorpass = true;
                 } else {
                     $this->errorpass = false;
+                }
+            }
+        }
+    }
+}
+
+class changeValidation
+{
+    private $data = "";
+    private static $changeField = ['cName', 'cUsername'];
+    private $errorpass = [];
+    public function __construct($post_data)
+    {
+        $this->data = $post_data;
+    }
+    public function validateForm()
+    {
+        foreach (self::$changeField as  $field) {
+
+            if (!array_key_exists($field, $this->data)) {
+                trigger_error($field . "is not present in data.");
+                return;
+            }
+        }
+        $this->validateCname();
+        $this->validateCUsername();
+        return $this->errorpass;
+    }
+    private function validateCUsername()
+    {
+        $cName = $this->data['cName'];
+        if (empty($cName)) {
+            $this->errorpass['cName'] = false;
+        } else {
+            if (!preg_match("/^([a-zA-Z' ]+)$/", $cName)) {
+                $this->errorpass['cName'] = false;
+            }
+        }
+    }
+    private function validateCname()
+    {
+        $cUsername = $this->data['cUsername'];
+        if (empty($cUsername)) {
+            $this->errorpass['cUsername'] = false;
+        } else {
+            if (strlen($cUsername) < 7) {
+                $this->errorpass['cUsername'] = false;
+            } else if ((preg_match("/[\'^£$%&*()}{@#~?><>,|=+¬-]/", $cUsername)) || (preg_match("/[A-Z]/", $cUsername))) {
+                $this->errorpass['cUsername'] = false;
+            } else if (substr($cUsername, -1) == '.') {
+                $this->errorpass['cUsername'] = false;
+            } else {
+                $data = new Database;
+                $data->select('user', 'username,email', null, "NOT(username='{$_COOKIE['id']}') AND username='{$cUsername}'");
+                $count = $data->getResult();
+
+                if (count($count) > 0) {
+                    $this->errorpass['cUsername'] = false;
                 }
             }
         }

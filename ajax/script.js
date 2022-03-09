@@ -217,9 +217,11 @@ $(document).ready(function() {
             }
         });
     });
+    $(document).on('change', '#file', function(e) {
 
-    $('#file').change(function(e) {
+        // $('#file').change(function(e) {
         e.preventDefault();
+        console.log("kd");
         var form_data = new FormData();
         var f = document.getElementById("file").files[0];
         form_data.append("file", f);
@@ -228,7 +230,7 @@ $(document).ready(function() {
             method: "POST",
             data: form_data,
             contentType: false,
-            processData: false,
+            processData: false
         });
     });
 

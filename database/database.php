@@ -258,7 +258,18 @@ class Database
             return false; // Table does not exist
         }
     }
-
+    public function renameTable($table, $table_name)
+    {
+        if ($this->tableExists($table)) {
+            $sql = "ALTER TABLE `{$table}` RENAME TO `{$table_name}`";
+            if ($this->mysqli->query($sql)) {
+                return true;
+            } else {
+                array_push($this->result, $this->mysqli->error);
+                return false;
+            }
+        }
+    }
     // session
     public function login($username, $pass)
     {
@@ -292,6 +303,8 @@ class Database
             return false; // No rows were returned
         }
     }
+
+
     public function session()
     {
 

@@ -30,103 +30,80 @@
 
         <div class='changeFrom'>
             <div class='editProfile'>
-                <div class='userProfileImg'>
-                    <div class='profileFile'>
-                        <aside>
-                            <label for='file' class="cImg">
-                                <img src='../../img/icon/user.jpg' alt='User Profile'>
-                                <input type='file' name='file' id='file' accept='image/*' style='display: none;'>
-                            </label>
-                        </aside>
-                        <div class='accountName'>
-                            <h1>
-                                <?php echo $_COOKIE['id']; ?>
-                            </h1>
-                            <label for='file'>Change Profile Photo</label>
-                        </div>
-                    </div>
+            </div>
+            <div class="setting">
 
-                    <form method='post' class="change">
-                        <div class='cName c'>
-                            <aside>
-                                <label>Name</label>
-                            </aside>
-                            <input type='text' name='cName' id='cName'>
-                            <span class="verror"><img id="error-0" src="../../img/false.svg" alt=""></span>
-                        </div>
-                        <div class='cUsername c'>
-                            <aside>
-                                <label>Username</label>
-                            </aside>
-                            <input type='text' name='cUsername' id='cUsername'>
-                            <span class="verror"><img id="error-0" src="../../img/false.svg" alt=""></span>
-                        </div>
-                        <div class='cEmail c'>
-                            <aside>
-                                <label>Email</label>
-                            </aside>
-                            <input type='text' name='cEmail' id='cEmail'>
-                            <span class="verror"><img id="error-0" src="../../img/false.svg" alt=""></span>
-                        </div>
-
-                        <div class='submit c'>
-                            <aside>
-                                <label></label>
-                            </aside>
-                            <input type='submit' value='Submit'>
-                        </div>
-                    </form>
-                </div>
-
-                <div class='password userProfileImg' style="display: none;">
-                    <div class='profileFile'>
-                        <aside>
-                            <label class="cImg">
-                                <img src='../../img/icon/user.jpg' alt='User Profile'>
-                            </label>
-                        </aside>
-                        <div class='accountName'>
-                            <h1>
-                                <?php echo $_COOKIE['id']; ?>
-                            </h1>
-                        </div>
-                    </div>
-
-                    <form method='post' class="change">
-                        <div class='cOldPassword c'>
-                            <aside>
-                                <label>Old Password</label>
-                            </aside>
-                            <input type='text' name='cOldPassword' id='cOldPassword'>
-                            <span class="verror1"><img id="error-0" src="../../img/false.svg" alt=""></span>
-                        </div>
-                        <div class='cNewPassword c'>
-                            <aside>
-                                <label>New Password</label>
-                            </aside>
-                            <input type='text' name='cNewPassword' id='cNewPassword'>
-                            <span class="verror1"><img id="error-0" src="../../img/false.svg" alt=""></span>
-                        </div>
-                        <div class='cConfirmPassword c'>
-                            <aside>
-                                <label>Confirm New Password</label>
-                            </aside>
-                            <input type='text' name='cConfirmPassword' id='cConfirmPassword'>
-                            <span class="verror1"><img id="error-0" src="../../img/false.svg" alt=""></span>
-                        </div>
-
-                        <div class='submit c'>
-                            <aside>
-                                <label></label>
-                            </aside>
-                            <input type='submit' value='Submit'>
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
 
     </div>
+
+    <script src="../../js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            function editProfile() {
+                $.ajax({
+                    url: "../edit-load.php",
+                    type: "POST",
+                    success: function(data) {
+                        $(".editProfile").html(data);
+                        $('.userDetail').show();
+
+                    }
+                });
+            }
+            editProfile();
+            $(document).on('click', '.eProfile', function(e) {
+                e.preventDefault();
+                $('.userDetail').show();
+                $('.password').hide();
+                $(this).css("border-left", "2px solid");
+                $(".cPassword").css("border", "");
+
+            });
+            $(document).on('click', '.cPassword', function(e) {
+                e.preventDefault();
+                $('.userDetail').hide();
+                $('.password').show();
+                $(this).css("border-left", "2px solid");
+                $(".eProfile").css("border", "none");
+            });
+            $(document).on('click', '#btnCDetail', function(e) {
+                e.preventDefault();
+                var name = $('#cName').val();
+                var username = $('#cUsername').val();
+                var email = $('#cEmail').val();
+                $.ajax({
+                    type: "POST",
+                    url: "../update-nue.php",
+                    data: {
+                        cName: name,
+                        cUsername: username
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        let json = $.parseJSON(data);
+                        console.log(json['cName']);
+                        if (json['cName'] == false) {
+                            $("#error-10").attr('src', "../../img/false.svg");
+                        } else {
+                            $("#error-10").attr('src', "../../img/true.svg");
+                        }
+                        if (json['cUsername'] == false) {
+                            $("#error-11").attr('src', "../../img/false.svg");
+                        } else {
+                            $("#error-11").attr('src', "../../img/true.svg");
+                        }
+                        // window.location.href = "http://localhost/php/Widespread/users/" + username;
+                        // editProfile();
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="../../ajax/script.js?v=<?php echo time(); ?>"></script>
+
 </body>
 
 </html>
