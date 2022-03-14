@@ -267,3 +267,62 @@ class changeValidation
         }
     }
 }
+
+
+class changePassValidation
+{
+    private $data = "";
+    private static $changeField = ['cOldPassword', 'cNewPassword', 'cConfirmPassword'];
+    private $errorpass = [];
+    public function __construct($post_data)
+    {
+        $this->data = $post_data;
+    }
+    public function validateForm()
+    {
+        foreach (self::$changeField as  $field) {
+
+            if (!array_key_exists($field, $this->data)) {
+                trigger_error($field . "is not present in data.");
+                return;
+            }
+        }
+        $this->validateOldPassword();
+        $this->validateNewPassword();
+        return $this->errorpass;
+    }
+    private function validateOldPassword()
+    {
+        $cOldPassword = $this->data['cOldPassword'];
+        $data = new Database;
+        $data->select('user', 'password', null, "username='{$_COOKIE['id']}'");
+        $result = $data->getResult();
+
+        foreach ($result as $row) {
+            if (md5($cOldPassword) != $row['password']) {
+                $this->errorpass['cOldPassword'] = false;
+            }
+        }
+    }
+
+    private function validateNewPassword()
+    {
+        $cNewPassword = $this->data['cNewPassword'];
+        $cConfirmPassword = $this->data['cConfirmPassword'];
+        $data = new Database;
+        $data->select('user', 'password', null, "username='{$_COOKIE['id']}'");
+        $result = $data->getResult();
+        if (empty($cNewPassword) && empty($cConfirmPassword)) {
+            $this->errorpass['cConfirmPassword'] = false;
+        } else {
+            foreach ($result as $row) {
+                if (!preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $cConfirmPassword)) {
+
+                    $this->errorpass['cConfirmPassword'] = false;
+                } else if ((md5($cConfirmPassword) ==  $row['password']) || ($cNewPassword != $cConfirmPassword)) {
+                    $this->errorpass['cConfirmPassword'] = false;
+                }
+            }
+        }
+    }
+}

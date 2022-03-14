@@ -92,22 +92,22 @@ if (count($result) > 0) {
                     <aside>
                         <label>Old Password</label>
                     </aside>
-                    <input type='text' name='cOldPassword' id='cOldPassword'>
-                    <span class='verror1'><img id='error-12' src='../../img/false.svg' alt=''></span>
+                    <input type='password' name='cOldPassword' id='cOldPassword'>
+                    <span class='verror1'><img id='error-12' src='' alt=''></span>
                 </div>
                 <div class='cNewPassword c'>
                     <aside>
                         <label>New Password</label>
                     </aside>
-                    <input type='text' name='cNewPassword' id='cNewPassword'>
+                    <input type='password' name='cNewPassword' id='cNewPassword'>
                     
                 </div>
                 <div class='cConfirmPassword c'>
                     <aside>
                         <label>Confirm New Password</label>
                     </aside>
-                    <input type='text' name='cConfirmPassword' id='cConfirmPassword'>
-                    <span class='verror1'><img id='error-13' src='../../img/false.svg' alt=''></span>
+                    <input type='password' name='cConfirmPassword' id='cConfirmPassword'>
+                    <span class='verror1'><img id='error-13' src='' alt=''></span>
                 </div>
 
                 <div class='submit c'>

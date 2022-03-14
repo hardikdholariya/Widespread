@@ -24,8 +24,30 @@
 
     <div class="profile" id="table-data">
     </div>
-
+    <div class="setting_menu">
+        <div class="setting_box">
+            <div class="changePass b">Change Password</div>
+            <div class="notification b">Notification</div>
+            <div class="help b">Help</div>
+            <div class="logOut b">Log Out</div>
+            <div class="cancel">Cancel</div>
+        </div>
+    </div>
     <script src="../../js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".setting_menu").hide();
+            $(document).on('click', '.setting', function(e) {
+                e.preventDefault();
+                $(".setting_menu").fadeIn("slow");
+                $(".setting_menu").show();
+            });
+            $(document).on('click', '.cancel', function(e) {
+                e.preventDefault();
+                $(".setting_menu").hide();
+            });
+        });
+    </script>
     <script src="../../ajax/script.js?v=<?php echo time(); ?>"></script>
 </body>
 

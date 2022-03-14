@@ -31,9 +31,9 @@
         <div class='changeFrom'>
             <div class='editProfile'>
             </div>
-            <div class="setting">
+            <!-- <div class="setting">
 
-            </div>
+            </div> -->
         </div>
 
     </div>
@@ -82,9 +82,7 @@
                         cUsername: username
                     },
                     success: function(data) {
-                        console.log(data);
                         let json = $.parseJSON(data);
-                        console.log(json['cName']);
                         if (json['cName'] == false) {
                             $("#error-10").attr('src', "../../img/false.svg");
                         } else {
@@ -95,8 +93,49 @@
                         } else {
                             $("#error-11").attr('src', "../../img/true.svg");
                         }
-                        // window.location.href = "http://localhost/php/Widespread/users/" + username;
-                        // editProfile();
+                        if (json == '') {
+
+                            window.location.href = "http://localhost/php/Widespread/users/" + username;
+                            // editProfile();
+                        }
+                    }
+                });
+            });
+
+            $(document).on('click', '#btnCPass', function(e) {
+                e.preventDefault();
+                var cOldPassword = $('#cOldPassword').val();
+                var cNewPassword = $('#cNewPassword').val();
+                var cConfirmPassword = $('#cConfirmPassword').val();
+                var username = $('#cUsername').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "../update-pass.php",
+                    data: {
+                        cOldPassword: cOldPassword,
+                        cNewPassword: cNewPassword,
+                        cConfirmPassword: cConfirmPassword
+                    },
+                    success: function(data) {
+                        // console.log(data);
+                        let json = $.parseJSON(data);
+                        if (json['cOldPassword'] == false) {
+                            $("#error-12").attr('src', "../../img/false.svg");
+                        } else {
+                            $("#error-12").attr('src', "../../img/true.svg");
+                        }
+                        if (json['cConfirmPassword'] == false) {
+                            $("#error-13").attr('src', "../../img/false.svg");
+                        } else {
+                            $("#error-13").attr('src', "../../img/true.svg");
+                        }
+                        if (json.length == 0) {
+                            // window.location.href = "http://localhost/php/Widespread/users/" + username;
+                            editProfile();
+                            $('.eProfile').css("border-left", "2px solid");
+                            $(".cPassword").css("border", "");
+                        }
                     }
                 });
             });

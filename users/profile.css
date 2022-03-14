@@ -319,3 +319,47 @@ h3 {
         text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc, 0 50px 30px rgba(0, 0, 0, 0.3);
     }
 }
+
+.setting_menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: hsl(0deg 0% 24% / 30%);
+    z-index: 20;
+}
+
+.setting_menu .setting_box {
+    margin: 20px auto;
+    /* padding: 20px; */
+    width: 370px;
+    /* min-height: 270px;
+    max-height: 430px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background: linear-gradient(316deg, hsl(219deg 100% 50%), rgb(223 0 205));
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    font-family: 'Padauk', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+.setting_menu .setting_box div {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.setting_menu .b {
+    border-bottom: 1px solid gray;
+}
