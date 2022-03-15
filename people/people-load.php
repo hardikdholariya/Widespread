@@ -11,7 +11,7 @@ $result = $data->getResult();
 if (count($result) > 0) {
     $output = "
     <div class='sfy'>
-    
+
         <h3>Suggestions For You</h3>
 
     </div>

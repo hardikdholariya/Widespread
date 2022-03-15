@@ -353,7 +353,9 @@ h3 {
     color: #fff;
 }
 
-.setting_menu .setting_box div {
+.setting_menu .setting_box div,
+.setting_menu .setting_box a {
+    color: #fff;
     width: 100%;
     text-align: center;
     padding: 16px;
@@ -362,4 +364,146 @@ h3 {
 
 .setting_menu .b {
     border-bottom: 1px solid gray;
+}
+
+.following_pop,
+.followers_pop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(0deg 0% 24% / 30%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.following_container,
+.followers_container {
+    display: flex;
+    width: 400px;
+    height: 400px;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background: linear-gradient(316deg, hsl(219deg 100% 50%), rgb(223 0 205));
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    font-family: 'Padauk', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+.following_container .close_p,
+.followers_container .close_p {
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
+
+.following_container .close_p p,
+.followers_container .close_p p {
+    font-size: 21px;
+    margin: 5px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.following_container .close_p i,
+.followers_container .close_p i {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 32px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.addP {
+    display: flex;
+    padding: 20px 0;
+    font-size: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestionsP {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.suggestionsP::-webkit-scrollbar-track {
+    background: #0b111e;
+    border-radius: 0 0 20px 0;
+}
+
+.profileDetailp {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.profileDetailp .userImgp {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 8px;
+}
+
+.profileDetailp .userImgp img {
+    object-fit: cover;
+    object-position: center;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}
+
+.userDetailp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.userDetailp .uesp {
+    padding: 0 10px;
+}
+
+h4,
+h5 {
+    margin: 0;
+}
+
+h4 {
+    font-weight: 500;
+}
+
+.h4 {
+    margin-left: 15px;
+}
+
+h5 {
+    font-weight: 100;
+}
+
+.userDetailp .followGroupp button {
+    margin: auto 10px;
+    border: none;
+    background: #00e8ffd1;
+    height: 35px;
+    width: 105px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
 }

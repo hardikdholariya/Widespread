@@ -42,6 +42,14 @@
     color: #fff;
 }
 
+.userDetail {
+    display: none;
+}
+
+.password {
+    display: none;
+}
+
 .edit_profile .userProfileImg .profileFile .cImg {
     width: 38px;
     height: 38px;
@@ -152,4 +160,5 @@
     top: 5px;
     right: 19%;
     width: 25px;
+    display: none;
 }

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 
 <body>
@@ -31,9 +32,6 @@
         <div class='changeFrom'>
             <div class='editProfile'>
             </div>
-            <!-- <div class="setting">
-
-            </div> -->
         </div>
 
     </div>
@@ -41,7 +39,6 @@
     <script src="../../js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-
             function editProfile() {
                 $.ajax({
                     url: "../edit-load.php",
@@ -54,6 +51,22 @@
                 });
             }
             editProfile();
+
+
+
+            var url_string = window.location;
+            var url = new URL(url_string);
+            var name = url.searchParams.get("p");
+            $(window).on("load", function() {
+
+                if (name == 0) {
+                    $('.userDetail').hide();
+                    $('.password').show();
+                    $(".cPassword").css("border-left", "2px solid");
+                    $(".eProfile").css("border", "none");
+                }
+            });
+
             $(document).on('click', '.eProfile', function(e) {
                 e.preventDefault();
                 $('.userDetail').show();
