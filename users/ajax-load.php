@@ -34,7 +34,7 @@ if (count($result) > 0) {
 
         $username = $row['username'];
 
-        $output .= "<h2 class='username_ff' data-id='{$row['username']}'>{$username}</h2>
+        $output .= "<h2 class='username_ff'>{$username}</h2>
 
             </div>
 
@@ -50,11 +50,11 @@ if (count($result) > 0) {
             $following_result = $data->getResult();
             if (count($following_result) == 1) {
 
-                $output .= "<button class='messageBtn' data-item-id='{$username}'>Message</button>
+                $output .= "<button class='messageBtn'>Message</button>
                         <button class='followingBtn'>following</button>";
             } else {
 
-                $output .= "<button class='follow' data-item-id='{$username}'>follow</button>";
+                $output .= "<button class='follow'>follow</button>";
             }
         }
 
@@ -125,30 +125,31 @@ if (count($result) > 0) {
         }
 
         $output .= "</div>";
+
+        $output .= "<div id='unfollow_pop' style='display: none'>
+
+            <div id='upop'>
+
+                <div class='unfollowimg'>
+
+                    <img src='../../img/icon/user.jpg' alt='User Profile'>
+
+                    <div class='unfollow_username'>@{$username}</div>
+
+                </div>
+
+                <div class='cu'>
+
+                    <button id='unfollow_user'>Unfollow</button>
+
+                    <button id='cancel_user'>Cancel</button>
+
+                </div>
+
+            </div>
+
+        </div>";
     }
-    $output .= "<div id='unfollow_pop' style='display: none'>
-
-        <div id='upop'>
-
-            <div class='unfollowimg'>
-
-                <img src='../../img/icon/user.jpg' alt='User Profile'>
-
-                <div class='unfollow_username'>@{$username}</div>
-
-            </div>
-
-            <div class='cu'>
-
-                <button id='unfollow_user'>Unfollow</button>
-
-                <button id='cancel_user'>Cancel</button>
-
-            </div>
-
-        </div>
-
-    </div>";
     echo $output;
 } else {
     $output = "

@@ -52,16 +52,26 @@ if (isset($_POST["otp"])) {
 
 				$fp = fopen("../users/" . $folder . "/index.php", "w");
 				$fe = fopen("../users/" . $folder . "/edit.php", "w");
+				$ffo = fopen("../users/" . $folder . "/followers.php", "w");
+				$ffi = fopen("../users/" . $folder . "/following.php", "w");
 
 				$content = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../profile.php"); require_once("../setting.php"); ?>';
 
 				$content_e = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../editProfile.php"); ?>';
 
+				$content_ffo = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../followers.php"); ?>';
+
+				$content_ffi = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../following.php"); ?>';
+
 				fwrite($fp, $content);
 				fwrite($fe, $content_e);
+				fwrite($ffo, $content_ffo);
+				fwrite($ffi, $content_ffi);
 
 				fclose($fp);
 				fclose($fe);
+				fclose($ffo);
+				fclose($ffi);
 			}
 		}
 		echo "valid";

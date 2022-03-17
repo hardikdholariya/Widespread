@@ -20,6 +20,34 @@ $(document).ready(function() {
             }
         });
     }
+
+    function followingLoad() {
+        $.ajax({
+            url: "../../users/following-load.php",
+            type: "POST",
+            data: {
+                loc: loc
+            },
+            success: function(data) {
+                $("#followingLoad").html(data);
+            }
+        });
+    }
+
+    function followersPLoad() {
+        $.ajax({
+            url: "../../users/followers-load.php",
+            type: "POST",
+            data: {
+                loc: loc
+            },
+            success: function(data) {
+                $("#followersPLoad").html(data);
+            }
+        });
+    }
+    followersPLoad();
+    followingLoad();
     loadTable();
 
     $("#save-user").on("click", function(e) {
@@ -287,10 +315,26 @@ $(document).ready(function() {
             }
         });
     });
-
+    $(document).on('click', '.followingBtnP', function(e) {
+        e.preventDefault();
+        var username_ff = $(this).data('itemId');
+        $.ajax({
+            type: "POST",
+            url: "../../php_files/unfollow.php",
+            data: {
+                username_ff: username_ff
+            },
+            success: function(data) {
+                if (data == 'yes') {
+                    followingLoad();
+                    loadTable();
+                    // console.log(data);
+                }
+            }
+        });
+    });
     $(document).on('click', '#cancel_user', function(e) {
         e.preventDefault();
-
         $("#unfollow_pop").hide();
     });
 });
