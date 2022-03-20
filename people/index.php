@@ -30,9 +30,6 @@
         $(document).ready(function() {
             $("#unfollow_pop").hide();
 
-            var d = $("button").attr("data-item-id");
-            console.log(d);
-
             function peopleLoad() {
                 $.ajax({
                     url: "./people-load.php",
@@ -66,20 +63,17 @@
 
             $(document).on('click', '#unfollow_user', function(e) {
                 e.preventDefault();
-                var location = loc;
-                var username_ff = $(".unfollow_username").text();
+                var username_ff = $(this).data('id');
                 console.log(username_ff);
                 $.ajax({
                     type: "POST",
                     url: "../php_files/unfollow.php",
                     data: {
-                        location: location,
                         username_ff: username_ff
                     },
                     success: function(data) {
                         if (data == 'yes') {
                             peopleLoad();
-                            console.log(data);
                         }
                     }
                 });
@@ -88,8 +82,11 @@
                 e.preventDefault();
                 $("#unfollow_pop").fadeIn("slow");
                 $("#unfollow_pop").show();
-                var username_ff = $(this).data('itemId');
-                $(".unfollow_username").html(username_ff);
+                var username = $(this).data('itemId');
+                var src = $(this).data('src');
+                $('.popImg').attr('src', src);
+                $('.unfollow_username').html(username);
+                $('#unfollow_user').attr('data-id', username);
             });
 
             $(document).on('click', '#cancel_user', function(e) {

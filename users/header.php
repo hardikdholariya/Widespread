@@ -50,6 +50,13 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
 ?>
 <script src="../../js/jquery.js"></script>
 <script>
+    $(document).ready(function() {
+        $("img").on("contextmenu", function() {
+            return false;
+        })
+    });
+</script>
+<script>
     const loc = "<?= $loc ?>";
     const animation = document.querySelector(".animation");
     for (i = 0; i < 5; i++) {
@@ -69,7 +76,7 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
         }
     }
     $(document).ready(function() {
-        ;
+
         $(".close").on('click', function(e) {
             // e.preventDefault();
 

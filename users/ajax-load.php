@@ -18,9 +18,12 @@ if (count($result) > 0) {
         if (!empty($profileImg)) {
 
             $output .= "<img src='../{$loc}/profileImg/{$profileImg}' alt='User Profile' id='foo'>";
+
+            $src = "../{$loc}/profileImg/{$profileImg}";
         } else {
 
             $output .= "<img src='../../img/icon/user.jpg' alt='User Profile' id='foo'>";
+            $src = "../../img/icon/user.jpg";
         }
 
         if ($loc == $_COOKIE['id']) {
@@ -51,10 +54,10 @@ if (count($result) > 0) {
             if (count($following_result) == 1) {
 
                 $output .= "<button class='messageBtn'>Message</button>
-                        <button class='followingBtn'>following</button>";
+                        <button class='followingBtn' data-item-id='{$row['username']}' data-src='{$src}'>following</button>";
             } else {
 
-                $output .= "<button class='follow'>follow</button>";
+                $output .= "<button class='follow' data-item-id='{$row['username']}'>follow</button>";
             }
         }
 
@@ -114,13 +117,13 @@ if (count($result) > 0) {
 
         $output .= "<div class='postImg'>";
 
-        $data->select($username, 'posts', null, null, 'id DESC');
+        $data->select($username, 'posts,id', null, null, 'id DESC');
 
         $result = $data->getResult();
 
         foreach ($result as $row) {
-            $output .= "<div class='pImg'>
-                    <img src='./upload/{$row['posts']}' alt='post'>
+            $output .= "<div class='pImg' data-postImg = '{$row['id']}'>
+                    <img src='../{$loc}/upload/{$row['posts']}' alt='post'>
                 </div>";
         }
 
@@ -132,7 +135,7 @@ if (count($result) > 0) {
 
                 <div class='unfollowimg'>
 
-                    <img src='../../img/icon/user.jpg' alt='User Profile'>
+                    <img src='../../img/icon/user.jpg' alt='User Profile' class = 'popImg'>
 
                     <div class='unfollow_username'>@{$username}</div>
 
@@ -140,7 +143,7 @@ if (count($result) > 0) {
 
                 <div class='cu'>
 
-                    <button id='unfollow_user'>Unfollow</button>
+                    <button id='unfollow_user' data-id = ''>Unfollow</button>
 
                     <button id='cancel_user'>Cancel</button>
 

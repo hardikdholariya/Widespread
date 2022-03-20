@@ -20,13 +20,15 @@ $(document).ready(function() {
             }
         });
     }
+    var path = document.location.pathname;
+    var directory = path.substring(path.indexOf('/'), path.lastIndexOf('/'));
 
     function followingLoad() {
         $.ajax({
             url: "../../users/following-load.php",
             type: "POST",
             data: {
-                loc: loc
+                loc: directory
             },
             success: function(data) {
                 $("#followingLoad").html(data);
@@ -35,17 +37,36 @@ $(document).ready(function() {
     }
 
     function followersPLoad() {
+
         $.ajax({
             url: "../../users/followers-load.php",
             type: "POST",
             data: {
-                loc: loc
+                loc: directory
             },
             success: function(data) {
                 $("#followersPLoad").html(data);
             }
         });
     }
+
+    function fullPostLoad() {
+        windowLocation = document.location.href;
+        index = windowLocation.indexOf("=") + 1;
+        directoryLocation = windowLocation.substring(index);
+        $.ajax({
+            url: "../../users/load-fullPost.php",
+            type: "POST",
+            data: {
+                loc: directory,
+                postImg: directoryLocation
+            },
+            success: function(data) {
+                $("#fullPostLoad").html(data);
+            }
+        });
+    }
+    fullPostLoad();
     followersPLoad();
     followingLoad();
     loadTable();
@@ -268,19 +289,19 @@ $(document).ready(function() {
     });
     $(document).on('click', '.follow', function(e) {
         e.preventDefault();
-        console.log("kd");
-        var location = loc;
-        var username_ff = $('.username_ff').text();
+        var username_ff = $(this).data('itemId');
         $.ajax({
             type: "POST",
             url: "../../php_files/following.php",
             data: {
-                location: location,
                 username_ff: username_ff
             },
             success: function(data) {
                 if (data == 'yes') {
                     loadTable();
+                    followingLoad();
+                    followersPLoad();
+
                 }
             }
         });
@@ -291,6 +312,11 @@ $(document).ready(function() {
     $(document).on('click', '.followingBtn', function(e) {
         e.preventDefault();
         // $("#unfollow_pop").slideDown("slow");
+        var username = $(this).data('itemId');
+        var src = $(this).data('src');
+        $('.popImg').attr('src', src);
+        $('.unfollow_username').html(username);
+        $('#unfollow_user').attr('data-id', username);
         $("#unfollow_pop").fadeIn("slow");
         $("#unfollow_pop").show();
 
@@ -298,43 +324,32 @@ $(document).ready(function() {
     $(document).on('click', '#unfollow_user', function(e) {
 
         e.preventDefault();
-        var location = loc;
-        var username_ff = $('.username_ff').text();
+        var username_ff = $(this).data('id');
+
         $.ajax({
             type: "POST",
             url: "../../php_files/unfollow.php",
             data: {
-                location: location,
                 username_ff: username_ff
             },
             success: function(data) {
                 if (data == 'yes') {
                     loadTable();
-                    console.log(data);
-                }
-            }
-        });
-    });
-    $(document).on('click', '.followingBtnP', function(e) {
-        e.preventDefault();
-        var username_ff = $(this).data('itemId');
-        $.ajax({
-            type: "POST",
-            url: "../../php_files/unfollow.php",
-            data: {
-                username_ff: username_ff
-            },
-            success: function(data) {
-                if (data == 'yes') {
                     followingLoad();
-                    loadTable();
+                    followersPLoad();
                     // console.log(data);
                 }
             }
         });
     });
+
     $(document).on('click', '#cancel_user', function(e) {
         e.preventDefault();
         $("#unfollow_pop").hide();
+    });
+    $(document).on('click', '.pImg', function(e) {
+        e.preventDefault();
+        var postImg = $(this).data('postimg');
+        window.location.href = "./post.php?p=" + postImg;
     });
 });

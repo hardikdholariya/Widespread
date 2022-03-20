@@ -29,10 +29,12 @@ if (count($result) > 0) {
 
             $output .= "
             <img src='../users/{$row['username']}/profileImg/{$row['profileImg']}' alt='User Profile' id='foo'>";
+            $src = "../users/{$row['username']}/profileImg/{$row['profileImg']}";
         } else {
 
             $output .= "
             <img src='../img/icon/user.jpg' alt='User Profile' id='foo'>";
+            $src = "../img/icon/user.jpg";
         }
         $output .= " 
         </div>
@@ -62,9 +64,9 @@ if (count($result) > 0) {
 
         $following_result = $data->getResult();
         if (count($following_result) == 1) {
-            $output .= "<button class='followingBtn' data-item-id='{$row['username']}'>following</button>";
+            $output .= "<button class='followingBtn' data-item-id='{$row['username']}' data-src='{$src}'>following</button>";
         } else {
-            $output .= "<button class='follow' data-item-id='{$row['username']}'>Follow</button>";
+            $output .= "<button class='follow' data-item-id='{$row['username']}' data-src='{$src}'>Follow</button>";
         }
         $output .= " </div>
             </div>
@@ -81,7 +83,7 @@ if (count($result) > 0) {
 
             <div class='unfollowimg'>
 
-                <img src='../img/icon/user.jpg' alt='User Profile'>
+                <img src='../img/icon/user.jpg' alt='User Profile' class = 'popImg'>
 
                 <div class='unfollow_username'>@</div>
 
@@ -89,7 +91,7 @@ if (count($result) > 0) {
 
             <div class='cu'>
 
-                <button id='unfollow_user' >Unfollow</button>
+                <button id='unfollow_user' data-id = ''>Unfollow</button>
 
                 <button id='cancel_user'>Cancel</button>
 

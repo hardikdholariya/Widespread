@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $loc; ?></title>
+    <title>@<?php echo $loc; ?></title>
     <link rel="stylesheet" href="../profile.css?v=<?php echo time(); ?>">
     <link rel="icon" type="image/x-icon" href="../../img/ioc/logo.ico?v=<?php echo time(); ?>">
 
@@ -38,61 +38,19 @@
                 <p>Following</p>
                 <i id="close_p" class="bx bx-x"></i>
             </div>
-            <div class="suggestionsP" id="followingLoad">
+            <div class="suggestionsP">
             </div>
         </div>
     </div>
-    <div class="followers_pop">
-        <div class="followers_container">
-            <div class="close_p">
-                <p>followers</p>
-                <i id="close_pf" class="bx bx-x"></i>
-            </div>
-            <div class="suggestionsP" id="followersPLoad">
-                <div class="addP">
-                    <i class="fa-solid fa-user-plus"></i>
-                </div>
-                <div class="profileDetailp" data-eid="1" data-item-id="stand-out">
-                    <div class="userImgp">
-                        <img src="../../img/icon/user.jpg" alt="User Profile" id="foo">
-                    </div>
-                    <div class="userDetailp">
-                        <div class="uesp">
-                            <div class="usernamep">
-                                <h4 class="username_ffp" data-id="_.i.m.h.a.r.d.i.k._">_.i.m.h.a.r.d.i.k._</h4>
-                            </div>
-                            <div class="userFullNamep">
-                                <h5>Hardikd dholairy </h5>
-                            </div>
-                        </div>
-                        <div class="followGroupp">
-                            <button class="follow" data-item-id="_.i.m.h.a.r.d.i.k._">Follow</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="profileDetailp" data-eid="1" data-item-id="stand-out">
-                    <div class="userImgp">
-                        <img src="../../img/icon/user.jpg" alt="User Profile" id="foo">
-                    </div>
-                    <div class="userDetailp">
-                        <div class="uesp">
-                            <div class="usernamep">
-                                <h4 class="username_ffp" data-id="_.i.m.h.a.r.d.i.k._">_.i.m.h.a.r.d.i.k._</h4>
-                            </div>
-                            <div class="userFullNamep">
-                                <h5>Hardikd dholairy </h5>
-                            </div>
-                        </div>
-                        <div class="followGroupp">
-                            <button class="follow" data-item-id="_.i.m.h.a.r.d.i.k._">Follow</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
     <script src="../../js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $(".following_pop").hide();
@@ -130,22 +88,14 @@
             $(document).on('click', '.following', function(e) {
                 e.preventDefault();
                 window.location.href = "./following.php";
-                // $(".following_pop").fadeIn("slow");
-                // $(".following_pop").show();
             });
-            $(document).on('click', '#close_p', function(e) {
-                e.preventDefault();
-                $(".following_pop").hide();
-            });
+
             $(document).on('click', '.followers', function(e) {
                 e.preventDefault();
-                $(".followers_pop").fadeIn("slow");
-                $(".followers_pop").show();
+                window.location.href = "./followers.php";
+
             });
-            $(document).on('click', '#close_pf', function(e) {
-                e.preventDefault();
-                $(".followers_pop").hide();
-            });
+
         });
     </script>
     <script src="../../ajax/script.js?v=<?php echo time(); ?>"></script>

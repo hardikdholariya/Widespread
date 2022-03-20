@@ -34,19 +34,19 @@ body::after {
     font-family: 'Padauk', sans-serif;
 }
 
-.group {
+.following {
     position: relative;
     z-index: 1;
 }
 
-.sfy h3 {
+.followingY h3 {
     margin: 0 auto;
     padding: 5px;
     width: 614px;
     z-index: 3;
 }
 
-.suggestions {
+.followingList {
     width: 614px;
     margin: 0 auto;
     border-radius: 20px;
@@ -63,7 +63,7 @@ body::after {
     z-index: 2;
 }
 
-.suggestions .profileDetail {
+.followingList .profileDetailp {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -73,7 +73,7 @@ body::after {
     padding: 10px;
 }
 
-.suggestions .profileDetail .userImg {
+.followingList .profileDetailp .userImgp {
     width: 54px;
     height: 54px;
     display: flex;
@@ -82,7 +82,7 @@ body::after {
     margin: auto 8px;
 }
 
-.suggestions .profileDetail .userImg img {
+.followingList .profileDetailp .userImgp img {
     object-fit: cover;
     object-position: center;
     height: 44px;
@@ -90,7 +90,7 @@ body::after {
     border-radius: 50%;
 }
 
-.suggestions .userDetail {
+.followingList .userDetailp {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -99,7 +99,7 @@ body::after {
     flex-direction: row;
 }
 
-.suggestions .userDetail .ues {
+.followingList .userDetailp .ues {
     padding: 0 10px;
 }
 
@@ -116,7 +116,7 @@ h5 {
     font-weight: 100;
 }
 
-.suggestions .userDetail .followGroup button {
+.followingList .userDetailp .followGroupp button {
     margin: auto 10px;
     border: none;
     /* background: #00e8ffd1; */

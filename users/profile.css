@@ -241,7 +241,7 @@ h3 {
 #upop .unfollowimg img {
     object-fit: cover;
     object-position: center;
-    height: 100%;
+    height: 130px;
     width: 130px;
     border: 2px solid #fff;
     border-radius: 50%;
