@@ -25,24 +25,62 @@ if (count($result) > 0) {
         $userPost = $row['username'];
         $data->select($userPost, '*', null, "id={$imgId}");
         $result2 = $data->getResult();
-        $output .= " <div class='middle'>";
         foreach ($result2 as $row2) {
-            $output .= " <img src='../{$loc}/upload/{$row2['posts']}' alt=''>";
-        }
-        $output .= " </div>
+            $output .= " <div class='middle'>";
+            $output .= " <img class='likePost' src='../{$loc}/upload/{$row2['posts']}' alt=''><div class='heart' style='display:none;'></div>";
+            $output .= " </div>
 
             <div class='footer'>
                 <div class='lms'>
                     <i class='bx bxs-heart'></i>
                     <i class='bx bxs-message'></i>
                     <i class='bx bxs-share bx-flip-horizontal'></i>
+                </div>";
+
+            $tablePost = $loc . 'postcommentid_' . $imgId;
+
+            $data->select($tablePost, "`{$tablePost}`.usernames,`{$tablePost}`.comment,user.username,user.profileImg", "`user` ON `{$tablePost}`.usernames = user.username", null, "`{$tablePost}`.id DESC");
+
+            $result2 = $data->getResult();
+            $resultCount = count($result2);
+
+            $tableLike = $loc . 'postlike_' . $imgId;
+            $data->select($tableLike);
+            $result3 = count($data->getResult());
+
+            $output .= " 
+                <div class='likeComments'>
+                    Like {$result3} and Comments {$resultCount}
                 </div>
-                <div class='comments'>
-                    <a href=''>View all comments</a>
+                <div class='caption'>{$row2['caption']}</div>
+                <div class='comments'>";
+
+            if ($resultCount > 0) {
+                foreach ($result2 as $row2) {
+                    $output .= " 
+                <div class='cUser'>
+                    <div class='cImg'>";
+                    if (!empty($row2['profileImg'])) {
+                        $output .= "<img src='../{$row2['username']}/profileImg/{$row2['profileImg']}'>";
+                    } else {
+                        $output .= "<img src='../../img/icon/user.jpg'>";
+                    }
+                    $output .= " </div>
+                    <div class='cusername'>
+                    {$row2['username']}
+                    </div>
+                    <div class='userComments'>
+                    {$row2['comment']}
+                    </div>
+                </div>
+            ";
+                }
+            }
+            $output .= " 
                 </div>
                 <div class='comment_post'>
                     <form action='' method='post'>
-                        <input type='text' name='post_com' class='post_com'>
+                        <input type='text' name='post_com' class='post_com' id='post_com' autocomplete='off' placeholder='Add comment...'>
                         <input type='submit' value='Post' class='postBtn'>
                     </form>
                 </div>
@@ -50,6 +88,7 @@ if (count($result) > 0) {
 
         </div>
     ";
+        }
     }
 }
 echo $output;

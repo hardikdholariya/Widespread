@@ -1,5 +1,12 @@
 <?php
 require_once("./session.php");
+$id = $_COOKIE['id'];
+$cTable = $id . 'following';
+$data->select($cTable, 'id');
+$result = $data->getResult();
+if (count($result) == 0) {
+    header("location: ./people/");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

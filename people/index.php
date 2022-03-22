@@ -1,4 +1,13 @@
-</html>
+<?php
+require_once("./header.php");
+$id = $_COOKIE['id'];
+$cTable = $id . 'following';
+$data->select($cTable, 'id');
+$result = $data->getResult();
+if (count($result) > 0) {
+    header("location: ../");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +28,7 @@
 
 <body>
     <?php
-    require_once("./header.php");
+    // require_once("./header.php");
     require_once("./post.php");
     ?>
     <div class="group">

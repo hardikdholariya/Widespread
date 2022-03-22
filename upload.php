@@ -38,9 +38,18 @@ if (isset($_POST['image'])) {
   $sql = "CREATE TABLE `$postTableName` (
         `id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
         `comment` varchar(60) NOT NULL,
+        `usernames` varchar(200) NOT NULL,
         PRIMARY KEY(id),
-        INDEX(comment)
+        INDEX(comment),
+        INDEX(usernames)
       )";
-
+  $postTableLike = $folder . 'postlike_' . $id;
+  $sql1 = "CREATE TABLE `$postTableLike` (
+    `id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
+    `likes` varchar(200) NOT NULL,
+    PRIMARY KEY(id),
+    UNIQUE(likes)
+  )";
   $data->createTable($sql);
+  $data->createTable($sql1);
 }

@@ -75,95 +75,6 @@ input {
 }
 
 
-/* .nva_bar,
-.nva_bar header,
-.nva_bar .menu {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    z-index: 10;
-}
-
-.nva_bar header {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 980px;
-    height: 82.5px;
-    top: 1rem;
-}
-
-.nva_bar header .logo p {
-    font-family: 'Dancing Script', cursive;
-    padding: 0;
-    margin: 0;
-    font-size: 30px;
-    color: #fff;
-}
-
-.nva_bar header .logo img {
-    width: 100px;
-}
-
-.nva_bar header .search input {
-    width: 200px;
-    height: 36px;
-    border-radius: 1rem;
-    border: 0;
-    border-top: 1px solid #fff;
-    border-left: 1px solid #fff;
-    backdrop-filter: blur(100px);
-    outline: none;
-    background-image: url(../img/search-solid.svg);
-    background-position: 10px 5px;
-    background-size: 25px;
-    background-repeat: no-repeat;
-    font-weight: bold;
-    padding: 3px 12px 0 40px;
-    background-color: #fff;
-}
-
-.nva_bar header .search input:focus {
-    color: #3E236D;
-}
-
-.nva_bar header,
-.nva_bar .menu {
-    background-color: hsl(219, 80%, 16%, .5);
-    backdrop-filter: blur(40px);
-    position: fixed;
-    border-radius: 4rem;
-    padding: 1rem 2.25rem;
-}
-
-.nva_bar .menu {
-    bottom: 1rem;
-    height: 5rem;
-    width: 320px;
-    justify-content: space-between;
-}
-
-.menu a {
-    height: 30px;
-    font-size: 1.25rem;
-    padding: .4rem;
-    display: flex;
-    background: #d800ff;
-    color: #fff;
-    border-radius: 5rem;
-}
-
-.menu .active_link {
-    color: #fff;
-    background: linear-gradient(180deg, #d800ff, #d800ff33);
-}
-
-.empty {
-    height: 102px;
-    width: 0;
-} */
-
-
 /* section-1 */
 
 section,
@@ -368,6 +279,31 @@ section .scrollBtn .btn-scroll {
     animation: 2s linear 1s infinite loadingno;
 }
 
+.userContender .AccountName {
+    cursor: pointer;
+}
+
+.heart {
+    cursor: pointer;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-image: url('https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 2900%;
+    animation: heart-burst .8s steps(28) 1;
+}
+
+@keyframes heart-burst {
+    from {
+        background-position: left;
+    }
+    to {
+        background-position: right;
+    }
+}
+
 .header .more {
     font-size: xx-large;
     width: 55px;
@@ -382,6 +318,9 @@ section .scrollBtn .btn-scroll {
     width: 100%;
     background: #000;
     border-radius: 15px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
 }
 
 .middle img {
@@ -408,6 +347,11 @@ section .scrollBtn .btn-scroll {
     margin: 0 8px;
     font-size: 22px;
     cursor: pointer;
+}
+
+.caption {
+    width: 100%;
+    padding: 3px 10px;
 }
 
 .posts .footer .comments {
@@ -453,15 +397,11 @@ form input {
 }
 
 .footer .comment_post form .post_com {
-    background: url(../img/emoji/face-grin-solid.svg);
-    background-repeat: no-repeat;
     width: 100%;
-    background-color: #fff;
-    background-size: 25px;
-    background-position: 8px 5px;
     border-radius: 10px 0 0 10px;
-    padding-left: 40px;
+    padding-left: 10px;
     font-weight: bold;
+    font-size: 16px;
 }
 
 

@@ -23,6 +23,17 @@ $(document).ready(function() {
     var path = document.location.pathname;
     var directory = path.substring(path.indexOf('/'), path.lastIndexOf('/'));
 
+    function getCookie(name) {
+        var cookieArr = document.cookie.split(";");
+        for (var i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+            if (name == cookiePair[0].trim()) {
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        return null;
+    }
+
     function followingLoad() {
         $.ajax({
             url: "../../users/following-load.php",
@@ -32,6 +43,14 @@ $(document).ready(function() {
             },
             success: function(data) {
                 $("#followingLoad").html(data);
+                var thi = getCookie('id');
+                var l = $(".follow").length;
+                for (var i = 0; i < l; i++) {
+                    dk = $(".follow")[i].dataset['itemId'];
+                    if (dk == thi) {
+                        $('.follow')[i].hidden = true;
+                    }
+                }
             }
         });
     }
@@ -46,6 +65,14 @@ $(document).ready(function() {
             },
             success: function(data) {
                 $("#followersPLoad").html(data);
+                var thi = getCookie('id');
+                var l = $(".follow").length;
+                for (var i = 0; i < l; i++) {
+                    dk = $(".follow")[i].dataset['itemId'];
+                    if (dk == thi) {
+                        $('.follow')[i].hidden = true;
+                    }
+                }
             }
         });
     }
@@ -342,7 +369,12 @@ $(document).ready(function() {
             }
         });
     });
-
+    $(document).on('click', '.username_ffp', function(e) {
+        e.preventDefault();
+        $userId = $(this).data('id');
+        console.log($userId);
+        window.location.href = '../' + $userId;
+    });
     $(document).on('click', '#cancel_user', function(e) {
         e.preventDefault();
         $("#unfollow_pop").hide();
@@ -352,4 +384,38 @@ $(document).ready(function() {
         var postImg = $(this).data('postimg');
         window.location.href = "./post.php?p=" + postImg;
     });
+    $(document).on('click', '.emojionearea', function(e) {
+        e.preventDefault();
+
+        $(this).removeClass("focused");
+    });
+    $(document).on('mouseover', '#post_com', function(e) {
+        $("#post_com").emojioneArea({
+            autocomplete: false,
+            inline: true
+        });
+    });
+
+    $(document).on('click', '.postBtn', function(e) {
+        e.preventDefault();
+        var postComment = $("#post_com").val();
+        $.ajax({
+            type: "POST",
+            url: "../../php_files/post-comments.php",
+            data: {
+                postComment: postComment,
+                loc: directory,
+                postImg: directoryLocation
+            },
+            success: function(data) {
+                // if (data == 'yes') {
+                fullPostLoad();
+                loadTable();
+                followingLoad();
+                followersPLoad();
+                // }
+                console.log(data);
+            }
+        });
+    })
 });

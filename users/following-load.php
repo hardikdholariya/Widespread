@@ -3,11 +3,14 @@ include_once("../database/database.php");
 $data = new Database;
 $loc = basename($_POST['loc']);
 $id = $_COOKIE['id'];
+$followers_btn = $id . "followers";
+$following_btn = $id . "following";
+
 $following_p = $loc . "following";
 $join = "`{$following_p}` ON user.username = `{$following_p}`.following";
 $data->select('user', 'user.username,user.fullname,user.profileImg', $join);
 $result = $data->getResult();
-$data->select('user', 'username,fullname,profileImg', null, "(NOT EXISTS (SELECT following FROM `{$following_p}` WHERE following IN(username))) AND (NOT username = '{$id}')");
+$data->select('user', 'username,fullname,profileImg', null, "(NOT EXISTS (SELECT following FROM `{$following_btn}` WHERE following IN(username))) AND (NOT username = '{$id}')");
 $result2 = $data->getResult();
 
 
@@ -40,7 +43,7 @@ if (count($result) > 0) {
             <div class='userDetailp'>
                 <div class='uesp'>
                     <div class='usernamep'>
-                        <h4 class='username_ffp'>{$row['username']}</h4>
+                        <h4 class='username_ffp' data-id = '{$row['username']}'>{$row['username']}</h4>
                     </div>
                     <div class='userFullNamep'>
                         <h5>{$row['fullname']} </h5>
@@ -48,9 +51,16 @@ if (count($result) > 0) {
                 </div>
 
                 <div class='followGroupp'>";
-
-        $output .= " 
+        $data->select($following_btn, 'following', null, "(EXISTS (select followers FROM `{$followers_btn}` WHERE following IN('{$row['username']}')))");
+        $result3 = $data->getResult();
+        if (count($result3) == 1) {
+            $output .= " 
                     <button class='followingBtn' data-item-id='{$row['username']}' data-src='{$src}'>Following</button>";
+        } else {
+            $output .= "
+            <button class='follow' data-item-id='{$row['username']}'>Follow</button>
+            ";
+        }
 
         $output .= "   
                 </div>
@@ -111,7 +121,7 @@ if (count($result) > 0) {
             <div class='userDetailp'>
                 <div class='uesp'>
                     <div class='usernamep'>
-                        <h4 class='username_ffp'>{$row2['username']}</h4>
+                        <h4 class='username_ffp' data-id = '{$row2['username']}'>{$row2['username']}</h4>
                     </div>
                     <div class='userFullNamep'>
                         <h5>{$row2['fullname']} </h5>

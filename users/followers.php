@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>following</title>
+    <title>followers</title>
     <link rel="stylesheet" href="../follwing-followers.css?v=<?php echo time(); ?>">
 </head>
 
@@ -47,6 +47,23 @@
             </div>
         </div>
     </div>
+    <?php
+    $thi = $_COOKIE['id'];
+    ?>
+    <script>
+        $(document).ready(function() {
+            $(window).on('load', function() {
+                var thi = "<?= $thi ?>";
+                var l = $(".follow").length;
+                for (var i = 0; i < l; i++) {
+                    dk = $(".follow")[i].dataset['itemId'];
+                    if (dk == thi) {
+                        $('.follow')[i].hidden = true;
+                    }
+                }
+            });
+        });
+    </script>
     <script src="../../ajax/script.js?v=<?php echo time(); ?>"></script>
 </body>
 

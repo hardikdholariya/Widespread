@@ -1,15 +1,21 @@
 <?php
 include_once("../database/database.php");
 $data = new Database;
+$id = $_COOKIE['id'];
+
 $loc = basename($_POST['loc']);
 $followers_p = $loc . "followers";
-$id = $_COOKIE['id'];
+$followers_btn = $id . "followers";
 $following_p = $loc . "following";
+$following_btn = $id . "following";
+
 $join = "`{$followers_p}` ON user.username = `{$followers_p}`.followers";
 $data->select('user', "user.username,user.fullname,user.profileImg,`{$followers_p}`.followers", $join);
 $result = $data->getResult();
-$data->select('user', 'username,fullname,profileImg', null, "(NOT EXISTS (SELECT following FROM `{$following_p}` WHERE following IN(username))) AND (NOT username = '{$id}')");
+
+$data->select('user', 'username,fullname,profileImg', null, "(NOT EXISTS (SELECT following FROM `{$following_btn}` WHERE following IN(username))) AND (NOT username = '{$id}')");
 $result2 = $data->getResult();
+
 if (count($result) > 0) {
     $output = "
     <div class='followingY'>
@@ -39,7 +45,7 @@ if (count($result) > 0) {
             <div class='userDetailp'>
                 <div class='uesp'>
                     <div class='usernamep'>
-                        <h4 class='username_ffp'>{$row['username']}</h4>
+                        <h4 class='username_ffp' data-id = '{$row['username']}'>{$row['username']}</h4>
                     </div>
                     <div class='userFullNamep'>
                         <h5>{$row['fullname']} </h5>
@@ -47,7 +53,7 @@ if (count($result) > 0) {
                 </div>
 
                 <div class='followGroupp'>";
-        $data->select($following_p, 'following', null, "(EXISTS (select   followers FROM  `{$followers_p}` WHERE following IN('{$row['username']}')))");
+        $data->select($following_btn, 'following', null, "(EXISTS (select followers FROM `{$followers_btn}` WHERE following IN('{$row['username']}')))");
         $result3 = $data->getResult();
         // SELECT following  FROM `widespread_.p.h_following` WHERE(EXISTS (select   followers FROM  `widespread_.p.h_followers` WHERE following IN('dk_9089')))
         if (count($result3) == 1) {
@@ -117,7 +123,7 @@ if (count($result) > 0) {
             <div class='userDetailp'>
                 <div class='uesp'>
                     <div class='usernamep'>
-                        <h4 class='username_ffp'>{$row2['username']}</h4>
+                        <h4 class='username_ffp' data-id = '{$row['username']}'>{$row2['username']}</h4>
                     </div>
                     <div class='userFullNamep'>
                         <h5>{$row2['fullname']} </h5>
