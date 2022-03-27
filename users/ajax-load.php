@@ -78,7 +78,7 @@ if (count($result) > 0) {
         <div class='pff'>
             <div class='imgPost'>";
 
-        $posts = $data->count($username, 'posts');
+        $posts = $data->count('userpost', 'posts', null, "usernames = '{$username}'");
 
         $output .= "<span> {$posts}</span>
                 <p>Posts</p>
@@ -117,7 +117,7 @@ if (count($result) > 0) {
 
         $output .= "<div class='postImg'>";
 
-        $data->select($username, 'posts,id', null, null, 'id DESC');
+        $data->select('userpost', 'posts,id', null, "usernames = '{$username}'", 'posttime DESC');
 
         $result = $data->getResult();
 

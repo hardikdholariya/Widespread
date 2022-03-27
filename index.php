@@ -7,6 +7,7 @@ $result = $data->getResult();
 if (count($result) == 0) {
     header("location: ./people/");
 }
+require_once("./header.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,14 +26,17 @@ if (count($result) == 0) {
     <!-- or -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./css/emojionearea.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .black {
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
 
-    <?php
-    require_once("./header.php");
-    ?>
     <section>
         <div class="scrollBtn">
             <button class="btn-scroll btn-1" id="btn-scroll-left" onclick="scrollHorizontally(1)"><i class="fa-solid fa-caret-left"></i></button>
@@ -150,374 +154,30 @@ if (count($result) == 0) {
                 </div>
             </div>
         </div>
-
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle">
-                <img src="./img/login-background.png" alt="">
-            </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/cake.svg" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/cake.svg" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
+        <div id="posts" style='z-index: 1;'>
         </div>
 
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/true.svg" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/search-solid.svg" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/forgetpassword.png" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/nav_bar-logo.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/nav_bar-logo.png" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/background-index.jpg" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/password.png" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="posts">
-            <div class="header">
-                <div class="userContender">
-                    <div class="userImg">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="AccountName">
-                        _.i.m.h.a.r.d.i.k._
-                    </div>
-                </div>
-                <div class="more">
-                    <a href="">...</a>
-                </div>
-            </div>
-
-            <div class="middle"> <img src="./img/mail.png" alt=""> </div>
-
-            <div class="footer">
-                <div class="lms">
-                    <i class='bx bxs-heart'></i>
-                    <i class='bx bxs-message'></i>
-                    <i class='bx bxs-share bx-flip-horizontal'></i>
-                </div>
-                <div class="comments">
-                    <a href="">View all comments</a>
-                </div>
-                <div class="comment_post">
-                    <form action="" method="post">
-                        <input type="text" name="post_com" class="post_com">
-                        <input type="submit" value="Post" class="postBtn">
-                    </form>
-                </div>
-            </div>
-
-        </div>
     </section>
     <?php
     include_once("./post.php");
     ?>
 
-    <h1>Welcome <a href="./logout.php">log out</a></h1>
-
+    <h1><a href="./logout.php"></a></h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '.bxs-message', function(e) {
+                e.preventDefault();
+                var id = $(this).data('id');
+                $(".comments-" + id).toggle();
+                $(this).toggleClass("black");
+            });
+
+        });
+    </script>
+    <script src="./js/emojionearea.js"></script>
+    <script src="./ajax/script.js?v=<?php echo time(); ?>"></script>
     <script src="./js/action.js?v=<?php echo time(); ?>"></script>
 </body>
 

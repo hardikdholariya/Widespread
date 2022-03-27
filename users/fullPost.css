@@ -7,12 +7,14 @@
     margin: 45px 0;
 }
 
-.likeComments {
+
+/* .likeComments {
     width: 100%;
     padding: 3px 10px;
-}
+} */
 
-.cUser {
+
+/* .cUser {
     display: flex;
     margin: 5px 0;
 }
@@ -24,9 +26,10 @@
 .cUser .cImg {
     width: 32px;
     height: 32px;
-    /* display: block; */
-}
+} */
 
+
+/* 
 .cUser .cImg img {
     display: block;
     object-fit: cover;
@@ -47,18 +50,20 @@
     font-size: 16px;
     font-weight: 600;
     color: #2c0000;
-}
+} */
 
-.emojionearea.post_com.emojionearea-inline {
+
+/* .emojionearea.post_com.emojionearea-inline {
     border: none;
     height: 100%;
 }
 
 .emojionearea.emojionearea-inline>.emojionearea-editor {
     color: #3E236D;
-}
+} */
 
-.comments {
+
+/* .comments {
     flex-direction: column;
     max-height: 125px;
     overflow: auto;
@@ -66,14 +71,18 @@
 
 .comments::-webkit-scrollbar {
     display: none;
-}
+} */
 
 
 /* Hide scrollbar for IE, Edge and Firefox */
 
-.comments {
+
+/* .comments {
     -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+
+scrollbar-width: none;
+
+
+
 }
+*/

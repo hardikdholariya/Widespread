@@ -93,6 +93,20 @@ $(document).ready(function() {
             }
         });
     }
+
+    function loadPost() {
+        $.ajax({
+            url: "./load-postes.php",
+            type: "POST",
+            success: function(data) {
+                $("#posts").html(data);
+                // console.log($('.len').data('length'));
+
+            }
+        });
+    }
+
+    loadPost();
     fullPostLoad();
     followersPLoad();
     followingLoad();
@@ -328,7 +342,7 @@ $(document).ready(function() {
                     loadTable();
                     followingLoad();
                     followersPLoad();
-
+                    fullPostLoad();
                 }
             }
         });
@@ -386,17 +400,10 @@ $(document).ready(function() {
     });
     $(document).on('click', '.emojionearea', function(e) {
         e.preventDefault();
-
         $(this).removeClass("focused");
     });
-    $(document).on('mouseover', '#post_com', function(e) {
-        $("#post_com").emojioneArea({
-            autocomplete: false,
-            inline: true
-        });
-    });
 
-    $(document).on('click', '.postBtn', function(e) {
+    $(document).on('click', '.fullPostBtn', function(e) {
         e.preventDefault();
         var postComment = $("#post_com").val();
         $.ajax({
@@ -417,5 +424,239 @@ $(document).ready(function() {
                 console.log(data);
             }
         });
-    })
+    });
+
+    $(document).on('click', '.fullPostBtn', function(e) {
+        e.preventDefault();
+        var postComment = $("#post_com").val();
+        $.ajax({
+            type: "POST",
+            url: "../../php_files/post-comments.php",
+            data: {
+                postComment: postComment,
+                loc: directory,
+                postImg: directoryLocation
+            },
+            success: function(data) {
+                // if (data == 'yes') {
+                fullPostLoad();
+                loadTable();
+                followingLoad();
+                followersPLoad();
+                // }
+                console.log(data);
+            }
+        });
+    });
+
+    $(document).on('dblclick', '.likePost', function(e) {
+        $(".heart").show();
+    });
+
+    $(document).on('animationend', ".heart", function() {
+        $(this).toggleClass('is_animating');
+        $(".bxs-heart").addClass('animate__animated animate__rubberBand');
+        $(".bxs-heart").css('color', '#000');
+        $(this).hide();
+        console.log(this);
+        likeUsername = $(this).data('id');
+        setTimeout(function() {
+            $.ajax({
+                type: "POST",
+                url: "../../php_files/like.php",
+                data: {
+                    likeUsername: likeUsername,
+                    postImg: directoryLocation
+                },
+                success: function(data) {
+                    fullPostLoad();
+                    loadTable();
+                    followingLoad();
+                    followersPLoad();
+                }
+            });
+        }, 900);
+    });
+    // middle = document.querySelectorAll(".middle");
+
+    $(document).on('dblclick', '.likePost_' + 0, function(e) {
+        var d = $(this).data('id');
+        // console.log(d);
+        $(".heart_" + d).show();
+        $(document).on('animationend', ".heart_" + d, function() {
+            $(this).toggleClass('is_animating');
+            $(".likeHeart_" + d).addClass('animate__animated animate__rubberBand');
+            $(".likeHeart_" + d).css('color', '#000');
+            $(this).hide();
+            likeUsername = $(this).data('id');
+            postImg = $(this).data('imgId');
+
+            setTimeout(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "./php_files/like.php",
+                    data: {
+                        likeUsername: likeUsername,
+                        postImg: postImg
+                    },
+                    success: function(data) {
+                        // fullPostLoad();
+                        // loadTable();
+                        // followingLoad();
+                        // followersPLoad();
+                        loadPost();
+                    }
+                });
+            }, 900);
+        });
+    });
+
+    $(document).on('click', '.likeUIndex', function(e) {
+        e.preventDefault();
+        $(".bxs-heart").addClass('animate__animated animate__rubberBand');
+        $(".bxs-heart").css('color', '#000');
+        likeUsername = $(this).data('id');
+        postImg = $(this).data('imgId');
+        console.log(likeUsername);
+        console.log(postImg);
+        setTimeout(function() {
+            $.ajax({
+                type: "POST",
+                url: "./php_files/like.php",
+                data: {
+                    likeUsername: likeUsername,
+                    postImg: postImg
+                },
+                success: function(data) {
+                    loadPost();
+                }
+            });
+        }, 900);
+    });
+    $(document).on('click', '.likeUnIndex', function(e) {
+        e.preventDefault();
+        likeUsername = $(this).data('id');
+        postImg = $(this).data('imgId');
+        console.log(likeUsername);
+        console.log(postImg);
+        $.ajax({
+            type: "POST",
+            url: "./php_files/dislike.php",
+            data: {
+                likeUsername: likeUsername,
+                postImg: postImg
+            },
+            success: function(data) {
+                loadPost();
+            }
+        });
+    });
+
+    $(document).on('click', '.likeU', function(e) {
+        e.preventDefault();
+        $(".bxs-heart").addClass('animate__animated animate__rubberBand');
+        $(".bxs-heart").css('color', '#000');
+        likeUsername = $(this).data('id');
+        setTimeout(function() {
+            $.ajax({
+                type: "POST",
+                url: "../../php_files/like.php",
+                data: {
+                    likeUsername: likeUsername,
+                    postImg: directoryLocation
+                },
+                success: function(data) {
+                    fullPostLoad();
+                    loadTable();
+                    followingLoad();
+                    followersPLoad();
+                }
+            });
+        }, 900);
+    });
+    $(document).on('click', '.likeUn', function(e) {
+        e.preventDefault();
+        likeUsername = $(this).data('id');
+        $.ajax({
+            type: "POST",
+            url: "../../php_files/dislike.php",
+            data: {
+                likeUsername: likeUsername,
+                postImg: directoryLocation
+            },
+            success: function(data) {
+                fullPostLoad();
+                loadTable();
+                followingLoad();
+                followersPLoad();
+            }
+        });
+    });
+
+    $(document).on('click', '.moreOption', function(e) {
+        e.preventDefault();
+        $(".deletePost").fadeIn("slow");
+        $(".deletePost").show();
+    });
+    $(document).on('click', '.cancel', function(e) {
+        e.preventDefault();
+        $(".deletePost").hide();
+    });
+    $(document).on('click', '.unfollowpost', function(e) {
+        e.preventDefault();
+        var username_ff = $(this).data('id');
+        $.ajax({
+            type: "POST",
+            url: "../../php_files/unfollow.php",
+            data: {
+                username_ff: username_ff
+            },
+            success: function(data) {
+                if (data == 'yes') {
+                    fullPostLoad();
+                    loadTable();
+                    followingLoad();
+                    followersPLoad();
+                }
+            }
+        });
+    });
+
+    //index
+    document.addEventListener('mouseover', () => {
+        var len = $('.len').data('length');
+        for (var i = 0; i < len; i++) {
+            $(document).on('mouseover', "#post_com_" + i, function(e) {
+                $(this).emojioneArea({
+                    autocomplete: false,
+                    inline: true
+                });
+            });
+        }
+    });
+    $(document).on('click', '.emojionearea', function(e) {
+        e.preventDefault();
+        $(this).removeClass("focused");
+    });
+
+    $(document).on('click', '.postBtn', function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        var postComment = $("#post_com_" + id).val();
+        var loc = $(this).data('username');
+        var postImg = $(this).data('imgId');
+        $.ajax({
+            type: "POST",
+            url: "./php_files/post-comments.php",
+            data: {
+                postComment: postComment,
+                loc: loc,
+                postImg: postImg
+            },
+            success: function(data) {
+                loadPost();
+            }
+        });
+    });
+
 });

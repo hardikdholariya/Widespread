@@ -9,5 +9,4 @@ $postTable = $loc . 'postcommentid_' . $postImg;
 
 if (!empty($comment)) {
     $data->insert($postTable, ['comment' => $comment, 'usernames' => $id]);
-    // $result = $data->getResult();
 }

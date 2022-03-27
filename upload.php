@@ -22,13 +22,13 @@ if (isset($_POST['image'])) {
   file_put_contents($image_name, $data);
 
   $data = new Database();
-  $value = ['posts' => $ImgName, 'caption' => $caption];
-  $data->insert($folder, $value);
+  $value = ['usernames' => $folder, 'posts' => $ImgName, 'caption' => $caption, 'posttime' => date("Y-m-d H:i:s")];
+  $data->insert('userpost', $value);
 
 
   $data = new Database();
 
-  $data->select($folder, 'id', null, "posts = '{$ImgName}'", null, null);
+  $data->select('userpost', 'id', null, "posts = '{$ImgName}'", null, null);
   $result = $data->getResult();
 
   $id = $result[0]['id'];

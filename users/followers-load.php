@@ -123,7 +123,7 @@ if (count($result) > 0) {
             <div class='userDetailp'>
                 <div class='uesp'>
                     <div class='usernamep'>
-                        <h4 class='username_ffp' data-id = '{$row['username']}'>{$row2['username']}</h4>
+                        <h4 class='username_ffp' data-id = '{$row2['username']}'>{$row2['username']}</h4>
                     </div>
                     <div class='userFullNamep'>
                         <h5>{$row2['fullname']} </h5>
