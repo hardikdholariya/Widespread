@@ -38,122 +38,9 @@ require_once("./header.php");
 <body>
 
     <section>
-        <div class="scrollBtn">
-            <button class="btn-scroll btn-1" id="btn-scroll-left" onclick="scrollHorizontally(1)"><i class="fa-solid fa-caret-left"></i></button>
-
-            <button class="btn-scroll btn-2" id="btn-scroll-right" onclick="scrollHorizontally(-1)"><i class="fa-solid fa-caret-right"></i></button>
-            <div class="horizontal-scroll">
-                <div class="storys-container">
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img loading">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardik
-                        </div>
-                    </div>
-
-                    <div class="story-circle">
-                        <div class="story-img">
-                            <img src="./img/login-background.png" alt="">
-                        </div>
-                        <div class="userName">
-                            hardiksdfsdfsdfsdfsdfsd
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <?php
+        require_once("./story.php");
+        ?>
         <div id="posts" style='z-index: 1;'>
         </div>
 
@@ -163,7 +50,7 @@ require_once("./header.php");
     ?>
 
     <h1><a href="./logout.php"></a></h1>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
     <script src="./js/jquery.js"></script>
     <script>
         $(document).ready(function() {

@@ -44,7 +44,7 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
 ?>
 <script src="./js/jquery.js"></script>
 <script>
-    const loc = "<?= $loc ?>";
+    var loc = "<?= $loc ?>";
     const animation = document.querySelector(".animation");
     for (i = 0; i < 5; i++) {
         var target = document.querySelectorAll(".menu a")[i];
@@ -54,6 +54,7 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
                 $(".animation").addClass('is-active');
             }, 500);
         }
+
     }
     $(document).ready(function() {
         ;
@@ -78,6 +79,20 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
                 }
             }
         });
+        var path = window.location.pathname;
+        var chat = path.split('/').reverse()[0];
+        if (chat == "chat.php") {
+            str = loc;
+            str = str.substring(0, str.indexOf("?"));
+            loc = str;
+            var target = document.querySelectorAll(".menu a")[1];
+            if ("chat.php" == loc) {
+                target.className = "active_link";
+                // setTimeout(() => {
+                $(".animation").addClass('is-active');
+                // }, 00);
+            }
+        }
     });
 </script>
 

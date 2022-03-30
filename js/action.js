@@ -14,7 +14,7 @@ function scrollHorizontally(val) {
     currentScrollPosition += (val * scrollAmount);
 
     if (currentScrollPosition >= 0) {
-        currentScrollPosition = 0
+        currentScrollPosition = 0;
         btnScrollLeft.style.opacity = "0";
     } else {
         btnScrollLeft.style.opacity = "1";

@@ -147,8 +147,8 @@ require_once("./session.php");
     <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
     <script src="./js/pop.js?v=<?php echo time(); ?>"></script>
     <script src="./js/jquery.js"></script>
-    <script src="js/cropper.js"></script>
-    <script src="js/main.js?v=<?php echo time(); ?> "></script>
+    <script src="./js/cropper.js"></script>
+    <script src="./js/main.js?v=<?php echo time(); ?> "></script>
 </body>
 
 </html>

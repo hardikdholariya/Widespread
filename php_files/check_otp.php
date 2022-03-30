@@ -8,7 +8,7 @@ if (isset($_POST["otp"])) {
 	$username = $_POST["username"];
 	$data = new Database();
 
-	$count = $data->count('user', '*', null, "email='{$email}' AND otp='{$otp}' AND NOW() <= DATE_ADD(otp_datetime, INTERVAL 10 MINUTE)");
+	$count = $data->count('user', '*', null, "email='{$email}' AND otp='{$otp}' AND NOW() >= DATE_ADD(otp_datetime, INTERVAL 5 MINUTE)");
 
 	if ($count > 0) {
 

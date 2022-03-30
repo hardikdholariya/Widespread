@@ -311,7 +311,7 @@ $(document).ready(function() {
 
         // $('#file').change(function(e) {
         e.preventDefault();
-        console.log("kd");
+        // console.log("kd");
         var form_data = new FormData();
         var f = document.getElementById("file").files[0];
         form_data.append("file", f);
