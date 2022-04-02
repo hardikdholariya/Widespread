@@ -3,25 +3,35 @@ require_once("./database/database.php");
 $data = new Database;
 ?>
 <?php
+
 $receiver = $_POST['r'];
 $sender = $_COOKIE['id'];
 
-$sql = "SELECT username,text_message,curr_date,curr_time FROM message LEFT JOIN user ON user.username = message.outgoing_msg_id
-WHERE incoming_msg_id='$receiver' AND outgoing_msg_id='$sender' || outgoing_msg_id='$receiver' AND incoming_msg_id='$sender' ORDER BY msg_id ASC";
+$sql = "SELECT `username`,`text_message`,`curr_date`,`curr_time`,`vi` FROM message LEFT JOIN user ON user.username = message.outgoing_msg_id
+WHERE `incoming_msg_id`='$receiver' AND `outgoing_msg_id`='$sender' || `outgoing_msg_id`='$receiver' AND `incoming_msg_id`='$sender' ORDER BY `msg_id` ASC";
 $data->sql($sql);
 $result = $data->getResult();
+
 if (count($result) > 0) {
     foreach ($result as $row) {
+        $data->update('message', ['open' => 0], "(incoming_msg_id='{$sender}' and outgoing_msg_id='{$receiver}') and open = 1");
+        $iv = hex2bin($row['vi']);
+        $message = $data->str_openssl_dec($row['text_message'], $iv);
+
         if ($receiver == $row['username']) {
 ?>
             <div class="user-1 message-user">
-                <p><?= $row['text_message'] ?></p>
+                <p><?= $message ?></p>
             </div>
+            <div class="time"><?= $row['curr_date'] . ' ' . $row['curr_time'] ?></div>
         <?php
 
         } else { ?>
             <div class="user-2 message-user">
-                <p><?= $row['text_message'] ?></p>
+                <p><?= $message ?></p>
+            </div>
+            <div class="time" style="text-align: right;">
+                <?= $row['curr_date'] . ' ' . $row['curr_time'] ?>
             </div>
     <?php
         }

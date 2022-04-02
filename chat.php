@@ -38,6 +38,9 @@ require_once("./session.php");
         if (count($result) > 0) {
             foreach ($result as $row) { ?>
                 <div class="chatWithUser" style="cursor: auto;">
+                    <div class="back">
+                        <a href="./message.php"><i class='bx bx-arrow-back'></i></a>
+                    </div>
                     <div class="userImg">
                         <img src="./users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="">
                     </div>
@@ -55,23 +58,21 @@ require_once("./session.php");
             }
         }
         ?>
-        <div class="userChat">
+        <div class="userChat" id="userChat">
         </div>
         <form method="post" class="chatPostBtn" id="chatPostBtn">
             <input type="text" name="postChat" id="postChat" autocomplete="off" placeholder="Type Message...">
             <input type="submit" value="Send" id="send">
         </form>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <script src="./js/jquery.js"></script>
     <script src="./js/emojionearea.js"></script>
     <script>
-        function scrollDown() {
-            var chatBox = document.querySelector(".userChat");
-            chatBox.scrollTo(0, chatBox.scrollHeight);
-        }
-        scrollDown();
+        var el = document.getElementById("userChat");
+        scrollToBottom();
         $(document).ready(function() {
             $(window).on("load", function() {
                 $("#postChat").emojioneArea({
@@ -92,9 +93,13 @@ require_once("./session.php");
                     inline: true
                 });
             });
+            el.onmouseenter = () => {
+                el.classList.add("active");
+            }
+            el.onmouseleave = () => {
+                el.classList.remove("active");
+            }
             $(function() {
-                scrollDown();
-
                 var receiver = $("#receive").val();
                 setInterval(function() {
                     $.ajax({
@@ -105,9 +110,15 @@ require_once("./session.php");
                         },
                         success: function(data) {
                             $(".userChat").html(data);
+                            if (data != "") {
+                                if (!el.classList.contains("active")) {
+                                    scrollToBottom();
+                                }
+                            }
                         }
                     });
-                }, 100);
+                }, 300);
+                // 
 
             });
             $(document).on('click', '#send', function(e) {
@@ -124,12 +135,25 @@ require_once("./session.php");
                         },
                         success: function(data) {
                             var emoj = $(".emojionearea-editor").html("");
-                            scrollDown();
+                            $(".userChat").html(data);
+                            // scrollToBottom();
                         }
                     });
                 }
             });
         });
+
+        function scrollToBottom() {
+            el.scrollTop = el.scrollHeight;
+        }
+    </script>
+    <script>
+        // function scrollDown() {
+        //     el.scrollTop = el.scrollHeight - el.scrollTop;
+        //     console.log(el.scrollTop);
+        // }
+        // scrollDown();
+        // scrollDown();
     </script>
 </body>
 

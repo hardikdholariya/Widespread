@@ -426,28 +426,7 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on('click', '.fullPostBtn', function(e) {
-        e.preventDefault();
-        var postComment = $("#post_com").val();
-        $.ajax({
-            type: "POST",
-            url: "../../php_files/post-comments.php",
-            data: {
-                postComment: postComment,
-                loc: directory,
-                postImg: directoryLocation
-            },
-            success: function(data) {
-                // if (data == 'yes') {
-                fullPostLoad();
-                loadTable();
-                followingLoad();
-                followersPLoad();
-                // }
-                console.log(data);
-            }
-        });
-    });
+
 
     $(document).on('dblclick', '.likePost', function(e) {
         $(".heart").show();
@@ -479,9 +458,8 @@ $(document).ready(function() {
     });
     // middle = document.querySelectorAll(".middle");
 
-    $(document).on('dblclick', '.likePost_' + 0, function(e) {
+    $(document).on('dblclick', '.likePost_0', function(e) {
         var d = $(this).data('id');
-        // console.log(d);
         $(".heart_" + d).show();
         $(document).on('animationend', ".heart_" + d, function() {
             $(this).toggleClass('is_animating');
@@ -505,6 +483,7 @@ $(document).ready(function() {
                         // followingLoad();
                         // followersPLoad();
                         loadPost();
+                        console.log(data);
                     }
                 });
             }, 900);
@@ -517,8 +496,7 @@ $(document).ready(function() {
         $(".bxs-heart").css('color', '#000');
         likeUsername = $(this).data('id');
         postImg = $(this).data('imgId');
-        console.log(likeUsername);
-        console.log(postImg);
+
         setTimeout(function() {
             $.ajax({
                 type: "POST",
@@ -537,8 +515,7 @@ $(document).ready(function() {
         e.preventDefault();
         likeUsername = $(this).data('id');
         postImg = $(this).data('imgId');
-        console.log(likeUsername);
-        console.log(postImg);
+
         $.ajax({
             type: "POST",
             url: "./php_files/dislike.php",
@@ -643,7 +620,6 @@ $(document).ready(function() {
         e.preventDefault();
         var id = $(this).data('id');
         var postComment = $("#post_com_" + id).val();
-        var loc = $(this).data('username');
         var postImg = $(this).data('imgId');
         $.ajax({
             type: "POST",

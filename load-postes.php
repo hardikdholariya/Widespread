@@ -56,12 +56,11 @@ if (count($result) > 0) {
         <div class='footer'>
         <div class='lms'>";
 
-        $likeTbl = $row['username'] . 'postlike_' . $row['id'];
-        if ($data->tableExists($likeTbl)) {
-            $data->select($likeTbl, 'likes', null, "likes='{$id}'");
-            $likeResult = $data->getResult();
-            $likeCount = count($likeResult);
-        }
+        $likeTbl = 'postlike';
+        $data->select($likeTbl, 'likes', null, "likes='{$id}' AND postId = {$row['id']}");
+        $likeResult = $data->getResult();
+
+        $likeCount = count($likeResult);
         if ($likeCount == 1) {
             $output .= "<i class='bx bxs-heart likeHeart_{$i} likeUnIndex' data-id='{$row['username']}' data-img-id='{$row['id']}' style='color:#000;'></i>";
         } else {
@@ -71,22 +70,22 @@ if (count($result) > 0) {
         $output .= " <i class='bx bxs-message' data-username = '{$row['username']}' data-img-id='{$row['id']}' data-id='{$i}'></i>
                 <i class='bx bxs-share bx-flip-horizontal'></i>
             </div>";
-        // $likeResult = $data->count($likeTbl);
-        $postTbl = $row['username'] . 'postcommentid_' . $row['id'];
-        if ($data->tableExists($postTbl)) {
-            $data->select($postTbl, "`{$postTbl}`.usernames,`{$postTbl}`.comment,user.username,user.profileImg", "`user` ON `{$postTbl}`.usernames = user.username", null, "`{$postTbl}`.id DESC");
-            $result2 = $data->getResult();
-            $commentResult = count($result2);
-        }
+        $data->select($likeTbl, 'likes', null, "postId = {$row['id']}");
+        $likeResult1 = count($data->getResult());
+
+
+        $postTbl =  'postcomment';
+        $data->select($postTbl, "`{$postTbl}`.usernames,`{$postTbl}`.comment,user.username,user.profileImg", "`user` ON `{$postTbl}`.usernames = user.username", "postId ={$row['id']}", "`{$postTbl}`.id DESC");
+        $result2 = $data->getResult();
+        $commentResult = count($result2);
 
         $output .= "
             <div class='likeComments'>
-                Like {$likeCount} and Comments  {$commentResult}
+                Like {$likeResult1} and Comments  {$commentResult}
             </div>";
         if (!empty($row['caption'])) {
             $output .= "<div class='caption'><span style='color:#000;font-weight: bold;'>@{$row['username']}</span> {$row['caption']}</div>";
         }
-        // <a href='./users/{$row['username']}/post.php?p={$row['id']}'>View all comments</a>
 
         $output .= "
             <div class='comments comments-{$i}' style='display:none;'>";

@@ -1,0 +1,100 @@
+.likeAndComment {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 135px;
+}
+
+h3 {
+    margin: 0 auto;
+    padding: 5px;
+    width: 465px;
+    z-index: 3;
+    margin-top: 10px;
+}
+
+.notification {
+    width: 465px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background: linear-gradient(316deg, #0059ffb8, #df00cdd9);
+    box-shadow: 20px 20px 15px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.notification .like,
+.notification .comment {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.notification .like .userImg,
+.notification .comment .userImg {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 8px;
+}
+
+.notification .like .userImg img,
+.notification .comment .userImg img {
+    object-fit: cover;
+    object-position: center;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}
+
+.notification .userDetail .username {
+    display: flex;
+    flex-direction: column;
+}
+
+.username span {
+    width: 300px;
+    color: #bbbbbb;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notification .userDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.notification .userPost {
+    display: flex;
+    margin: 0 10px;
+}
+
+.notification .userPost img {
+    object-fit: cover;
+    object-position: center;
+    height: 44px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+h4 {
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0;
+}

@@ -27,47 +27,70 @@ require_once("./session.php");
     ?>
     <div class="chatUser">
         <div class="search">
-            <!-- <input type="text" name="search" id="search" placeholder="Search.."> -->
             <input type="text" name="searchUser" id="searchUser" placeholder="Search User....">
         </div>
         <div class="users">
             <?php
             $id = $_COOKIE['id'];
             $data = new Database;
-            $data->select('user', "username,fullname,profileImg", null, "username != '{$id}'");
-            $result = $data->getResult();
-            if (count($result) > 0) {
-                foreach ($result as $row) {
-            ?>
-                    <a href="chat.php?r=<?php echo $row['username']; ?>">
-                        <div class="chatWithUser">
-                            <div class="userImg">
-                                <?php
-                                if (!empty($row['profileImg'])) {
-                                ?>
-                                    <img src="./users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="">
-                                <?php
-                                } else {
-                                ?>
-                                    <img src="./img/icon/user.jpg" alt="">
-                                <?php
-                                }
-                                ?>
-                            </div>
-                            <div class="name">
-                                <div class="username">
-                                    <h4><?= $row['username'] ?></h4>
-                                </div>
-                                <div class="fullName">
-                                    <h5>
-                                        <?= $row['fullname'] ?>
-                                    </h5>
-                                </div>
+            $data->select('conversations', "*", null, "user_1='{$id}' OR user_2='{$id}'", "time DESC");
+            $result1 = $data->getResult();
+            $data->select('message', 'outgoing_msg_id', null, "incoming_msg_id='{$id}' AND open=1");
+            $result4 = $data->getResult();
 
-                            </div>
-                        </div>
-                    </a>
+            if (count($result1) > 0) {
+                foreach ($result1 as $row2) {
+                    if ($row2['user_1'] == $id) {
+                        $data->select('user', 'username,fullname,profileImg', null, "username='{$row2['user_2']}'");
+                    } else {
+                        $data->select('user', 'username,fullname,profileImg', null, "username='{$row2['user_1']}'");
+                    }
+                    $result3 = $data->getResult();
+                    if (count($result3) > 0) {
+                        foreach ($result3 as $row) {
+            ?>
+                            <a href="chat.php?r=<?php echo $row['username']; ?>">
+                                <div class="chatWithUser">
+
+                                    <div class="userImg">
+                                        <?php
+                                        if (!empty($row['profileImg'])) {
+                                        ?>
+                                            <img src="./users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <img src="./img/icon/user.jpg" alt="">
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="name">
+                                        <div class="username">
+                                            <h4><?= $row['username'] ?></h4>
+                                        </div>
+                                        <div class="fullName">
+                                            <h5>
+                                                <?= $row['fullname'] ?>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    foreach ($result4 as $row3) {
+                                        if ($row['username'] == $row3['outgoing_msg_id']) {
+                                    ?>
+                                            <div class="dot">
+                                                •
+                                            </div>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            </a>
             <?php
+                        }
+                    }
                 }
             }
             ?>

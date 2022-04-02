@@ -3,7 +3,6 @@ require_once("../database/database.php");
 $loc = basename($_POST['loc']);
 $imgId = $_POST['postImg'];
 $id = $_COOKIE['id'];
-$likeTbl = $loc . 'postlike_' . $imgId;
 
 $data = new Database;
 $data->select('user', "username,profileImg", null, "username ='{$loc}'");
@@ -36,9 +35,10 @@ if (count($result) > 0) {
             $output .= " <div class='middle'>";
             $output .= " <img class='likePost' src='../{$row['username']}/upload/{$row2['posts']}' alt=''><div class='heart' style='display:none;' data-id='{$row['username']}'></div>";
 
-
-            $data->select($likeTbl, 'likes', null, "likes='{$id}'");
+            $tableLike = 'postlike';
+            $data->select($tableLike, '*', null, "likes='{$id}' AND postId = {$imgId}");
             $likeResult = $data->getResult();
+
             $output .= " </div>
 
             <div class='footer'>
@@ -54,16 +54,16 @@ if (count($result) > 0) {
                     <i class='bx bxs-share bx-flip-horizontal'></i>
                 </div>";
 
-            $tablePost = $loc . 'postcommentid_' . $imgId;
+            $tablePost = 'postcomment';
 
-            $data->select($tablePost, "`{$tablePost}`.usernames,`{$tablePost}`.comment,user.username,user.profileImg", "`user` ON `{$tablePost}`.usernames = user.username", null, "`{$tablePost}`.id DESC");
+            $data->select($tablePost, "`{$tablePost}`.usernames,`{$tablePost}`.comment,user.username,user.profileImg", "`user` ON `{$tablePost}`.usernames = user.username", "postId ={$imgId}", "`{$tablePost}`.id DESC");
 
             $result2 = $data->getResult();
             $resultCount = count($result2);
 
-            $tableLike = $loc . 'postlike_' . $imgId;
-            $data->select($tableLike);
-            $result3 = count($data->getResult());
+            $data->select($tableLike, '*', null, "postId = {$imgId}");
+            $likeResult1 = $data->getResult();
+            $result3 = count($likeResult1);
 
             $output .= " 
                 <div class='likeComments'>

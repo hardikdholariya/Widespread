@@ -271,6 +271,27 @@ class Database
             }
         }
     }
+
+    //encrypt data
+    public function str_openssl_enc($str, $iv)
+    {
+        $key = 'spaceWithThis@87347569+_(#*$';
+        $chipper = "AES-128-CTR";
+        $options = 0;
+        $str = openssl_encrypt($str, $chipper, $key, $options, $iv);
+        return $str;
+    }
+
+    //decrypt data
+    public function str_openssl_dec($str, $iv)
+    {
+        $key = 'spaceWithThis@87347569+_(#*$';
+        $chipper = "AES-128-CTR";
+        $options = 0;
+        $str = openssl_decrypt($str, $chipper, $key, $options, $iv);
+        return $str;
+    }
+
     // session
     public function login($username, $pass)
     {

@@ -13,7 +13,6 @@
 
 <body>
     <div class="fullPost" id="fullPostLoad">
-
     </div>
 
 

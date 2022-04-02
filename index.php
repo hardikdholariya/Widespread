@@ -50,7 +50,6 @@ require_once("./header.php");
     ?>
 
     <h1><a href="./logout.php"></a></h1>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
     <script src="./js/jquery.js"></script>
     <script>
         $(document).ready(function() {

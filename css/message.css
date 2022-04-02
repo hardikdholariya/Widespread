@@ -51,6 +51,7 @@
     padding: 10px;
     border-bottom: 2px solid gray;
     cursor: pointer;
+    position: relative;
 }
 
 .chatWithUser .userImg {
@@ -101,6 +102,18 @@
 
 .chatWithUser .name {
     color: #fff;
+    padding: 0 10px;
+}
+
+.chatWithUser .dot {
+    padding: 0 21px;
+    font-size: 25px;
+    color: #ff007d;
+    font-weight: bold;
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    transform: translate(-1%, -50%);
 }
 
 h4 {
@@ -115,6 +128,22 @@ h5 {
 
 h5 {
     font-weight: 100;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.back a {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 10px;
 }
 
 .notFound {
@@ -243,9 +272,9 @@ h5 {
 }
 
 .time {
-    text-align: center;
+    padding: 0px 10px;
     color: #fff;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
 }
 

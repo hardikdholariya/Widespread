@@ -27,7 +27,7 @@
 
             <a href="./message.php" id="message"><i class='bx bx-message'></i></a>
 
-            <a href="./like.php" id="like"><i class='bx bx-heart' style='color:#ffffff'></i></a>
+            <a href="./notification.php" id="notification"><i class='bx bx-heart' style='color:#ffffff'></i></a>
 
             <a href="" class="post" id="post"><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
             <?php
