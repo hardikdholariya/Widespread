@@ -14,8 +14,6 @@
 <body>
     <div class="fullPost" id="fullPostLoad">
     </div>
-
-
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="../../js/jquery.js"></script>
@@ -39,6 +37,22 @@
                 inline: true
             });
         });
+        $(document).on('click', '.delete', function(e) {
+            e.preventDefault();
+            var imgId = $(this).data('imgId');
+            $.ajax({
+                type: "POST",
+                url: "../../php_files/delete_post.php",
+                data: {
+                    imgId: imgId
+                },
+                success: function(date) {
+                    window.location.href = "./";
+                }
+
+            });
+        });
+
     });
 </script>
 

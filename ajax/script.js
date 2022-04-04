@@ -363,10 +363,8 @@ $(document).ready(function() {
 
     });
     $(document).on('click', '#unfollow_user', function(e) {
-
         e.preventDefault();
         var username_ff = $(this).data('id');
-
         $.ajax({
             type: "POST",
             url: "../../php_files/unfollow.php",
@@ -378,7 +376,6 @@ $(document).ready(function() {
                     loadTable();
                     followingLoad();
                     followersPLoad();
-                    // console.log(data);
                 }
             }
         });
@@ -415,13 +412,11 @@ $(document).ready(function() {
                 postImg: directoryLocation
             },
             success: function(data) {
-                // if (data == 'yes') {
                 fullPostLoad();
                 loadTable();
                 followingLoad();
                 followersPLoad();
-                // }
-                console.log(data);
+
             }
         });
     });
@@ -456,7 +451,7 @@ $(document).ready(function() {
             });
         }, 900);
     });
-    // middle = document.querySelectorAll(".middle");
+
 
     $(document).on('dblclick', '.likePost_0', function(e) {
         var d = $(this).data('id');
@@ -569,7 +564,42 @@ $(document).ready(function() {
             }
         });
     });
+    $(document).on('click', '.moreOption1', function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        document.querySelectorAll(".deletePost")[id].style.display = 'block';
+    });
+    $(document).on('click', '.unfollowpost', function(e) {
+        e.preventDefault();
+        var username_ff = $(this).data('id');
+        $.ajax({
+            type: "POST",
+            url: "./php_files/unfollow.php",
+            data: {
+                username_ff: username_ff
+            },
+            success: function(data) {
+                if (data == 'yes') {
+                    loadPost();
+                }
+            }
+        });
+    });
+    $(document).on('click', '.delete', function(e) {
+        e.preventDefault();
+        var imgId = $(this).data('imgId');
+        $.ajax({
+            type: "POST",
+            url: "./php_files/delete_post.php",
+            data: {
+                imgId: imgId
+            },
+            success: function(date) {
+                loadPost();
+            }
 
+        });
+    });
     $(document).on('click', '.moreOption', function(e) {
         e.preventDefault();
         $(".deletePost").fadeIn("slow");

@@ -43,7 +43,46 @@ require_once("./header.php");
         ?>
         <div id="posts" style='z-index: 1;'>
         </div>
+        <div class="notify_pop">
+            <button id="notification_pop">submit</button>
+            <div class="notification_pop notify_like">
+                <div class="like">
+                    <div class="userImg">
+                        <img src="./users/widespread_.p.h_/profileImg/996.png" alt="User Profile" id="foo">
+                    </div>
+                    <div class="userDetail">
+                        <div class="ues">
+                            <div class="username">
+                                <h4 class="username_ffp">widespread_.p.h_</h4><span>like your post</span>
+                            </div>
+                        </div>
+                        <div class="userPost">
+                            <i class='bx bx-x'></i>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+            <div class="notification_pop notify_comment">
+                <div class="comment">
+                    <div class="userImg">
+                        <img src="./users/widespread_.p.h_/profileImg/996.png" alt="User Profile" id="foo">
+                    </div>
+                    <div class="userDetail">
+                        <div class="ues">
+                            <div class="username">
+                                <h4 class="username_ffp">widespread_.p.h_</h4><span>Comment: 🤩 </span>
+                            </div>
+                        </div>
+
+                        <div class="userPost">
+                            <i class='bx bx-x'></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
     <?php
     include_once("./post.php");
@@ -51,6 +90,7 @@ require_once("./header.php");
 
     <h1><a href="./logout.php"></a></h1>
     <script src="./js/jquery.js"></script>
+    <script src="./js/notify.js?v=<?= time() ?>"></script>
     <script>
         $(document).ready(function() {
             $(document).on('click', '.bxs-message', function(e) {

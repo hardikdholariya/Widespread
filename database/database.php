@@ -209,7 +209,6 @@ class Database
     public function sql($sql)
     {
         $query = $this->mysqli->query($sql);
-
         if ($query) {
             $this->result = $query->fetch_all(MYSQLI_ASSOC);
             return true; // Query was successful

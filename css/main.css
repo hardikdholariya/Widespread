@@ -909,3 +909,98 @@ textarea {
 .img-container>img {
     max-width: 100%;
 }
+
+.notify_pop {
+    position: fixed;
+    top: 13%;
+    right: 2%;
+}
+
+.notification_pop {
+    width: 335px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background: linear-gradient(180deg, hsl(219deg 100% 50% / 50%), #df00cd73);
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: #fff;
+    z-index: 3;
+    transform: translateX(calc(100% + 15%));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.notify_pop .active {
+    transform: translateX(0%);
+}
+
+.notification_pop .like,
+.notification_pop .comment {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.notification_pop .like .userImg,
+.notification_pop .comment .userImg {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 8px;
+}
+
+.notification_pop .like .userImg img,
+.notification_pop .comment .userImg img {
+    object-fit: cover;
+    object-position: center;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}
+
+.notification_pop .userDetail .username {
+    display: flex;
+    flex-direction: column;
+}
+
+.username span {
+    color: #bbbbbb;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notification_pop .userDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.notification_pop .userPost {
+    display: flex;
+    cursor: pointer;
+}
+
+.notification_pop .userPost i {
+    font-size: 35px;
+}
+
+h4 {
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0;
+}
