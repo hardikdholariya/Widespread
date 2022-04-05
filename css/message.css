@@ -261,6 +261,27 @@ h5 {
     font-weight: 600;
 }
 
+.userChat .user-2 a,
+.userChat .user-1 a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.userChat .user-1 a {
+    color: #000;
+}
+
+.userChat .user-1 img,
+.userChat .user-2 img {
+    object-fit: cover;
+    object-position: center;
+    height: 44px;
+    width: 44px;
+}
+
 .emojionearea.emojionearea-inline,
 #postChat {
     height: 36px;

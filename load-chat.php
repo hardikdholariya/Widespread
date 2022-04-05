@@ -7,7 +7,7 @@ $data = new Database;
 $receiver = $_POST['r'];
 $sender = $_COOKIE['id'];
 
-$sql = "SELECT `username`,`text_message`,`curr_date`,`curr_time`,`vi` FROM message LEFT JOIN user ON user.username = message.outgoing_msg_id
+$sql = "SELECT `username`,`text_message`,`curr_date`,`curr_time`,`vi`,`link` FROM message LEFT JOIN user ON user.username = message.outgoing_msg_id
 WHERE `incoming_msg_id`='$receiver' AND `outgoing_msg_id`='$sender' || `outgoing_msg_id`='$receiver' AND `incoming_msg_id`='$sender' ORDER BY `msg_id` ASC";
 $data->sql($sql);
 $result = $data->getResult();
@@ -19,21 +19,47 @@ if (count($result) > 0) {
         $message = $data->str_openssl_dec($row['text_message'], $iv);
 
         if ($receiver == $row['username']) {
+            if ($row['link'] != 0) {
 ?>
-            <div class="user-1 message-user">
-                <p><?= $message ?></p>
-            </div>
-            <div class="time"><?= $row['curr_date'] . ' ' . $row['curr_time'] ?></div>
-        <?php
+                <div class="user-1 message-user">
+                    <p><?= $message ?></p>
+                </div>
+                <div class="time"><?= $row['curr_date'] . ' ' . $row['curr_time'] ?></div>
+            <?php
+            } else {
+            ?>
+                <div class="user-1 message-user">
+                    <p><a href=".<?= $message ?>" class="sendpost"><img src="./img/post-black.png" alt="">Send Post...</a></p>
+                </div>
+                <div class="time"><?= $row['curr_date'] . ' ' . $row['curr_time'] ?></div>
+            <?php
+            }
+        } else {
+            if ($row['link'] != 0) {
+            ?>
 
-        } else { ?>
-            <div class="user-2 message-user">
-                <p><?= $message ?></p>
-            </div>
-            <div class="time" style="text-align: right;">
-                <?= $row['curr_date'] . ' ' . $row['curr_time'] ?>
-            </div>
+                <div class="user-2 message-user">
+                    <p><?= $message ?></p>
+                </div>
+                <div class="time" style="text-align: right;">
+                    <?= $row['curr_date'] . ' ' . $row['curr_time'] ?>
+                </div>
+            <?php
+            } else {
+            ?>
+                <div class="user-2 message-user">
+                    <p>
+                        <a href=".<?= $message ?>" class="sendpost">
+                            <img src="./img/post-white.png" alt="">
+                            <span>Send Post...</span>
+                        </a>
+                    </p>
+                </div>
+                <div class="time" style="text-align: right;">
+                    <?= $row['curr_date'] . ' ' . $row['curr_time'] ?>
+                </div>
     <?php
+            }
         }
     }
 } else {

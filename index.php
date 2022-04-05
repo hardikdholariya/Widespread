@@ -66,13 +66,13 @@ require_once("./header.php");
                 $(".comments-" + id).toggle();
                 $(this).toggleClass("black");
             });
-            $(document).on('click', '.shareClose', function(e) {
-                e.preventDefault();
-                $(".sharePost").hide();
-                $(".sharePostUser").css('color', '#fff');
-            });
+
             $(document).on('click', '.sharePostUser', function(e) {
                 e.preventDefault();
+                let imgId = $(this).data('imgId');
+                var id = $(this).data('id');
+                $("#sendPost").attr('data-img-id', imgId);
+                $("#sendPost").attr('data-id', id);
                 $(this).css('color', '#000');
                 $(".sharePost").show();
             });

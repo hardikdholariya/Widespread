@@ -69,7 +69,7 @@ if (count($result) > 0) {
                         ?>
 
                         <i class='bx bxs-message' data-username='<?= $row['username'] ?>' data-img-id='<?= $row['id'] ?>' data-id='<?= $i ?>'></i>
-                        <i class='bx bxs-share bx-flip-horizontal sharePostUser'></i>
+                        <i class='bx bxs-share bx-flip-horizontal sharePostUser' data-img-id="<?= $row['id'] ?>" data-id='<?= $row['username'] ?>'></i>
                     </div>
                     <?php
                     $data->select($likeTbl, 'likes', null, "postId = {$row['id']}");
@@ -163,10 +163,10 @@ if (count($result) > 0) {
             $i++;
         }
     }
-    // style='display:none;
+    // 
     ?>
 
-    <div class='sharePost'>
+    <div class='sharePost' style='display:none;'>
         <div class='share_box'>
             <div class='shareN'>
                 <h4>share</h4>
@@ -175,48 +175,11 @@ if (count($result) > 0) {
                 </div>
             </div>
             <div class='shareSearch'>
-                <input type='text' name='shareSearchUser' id='shareSearchUser' class='searchUser' placeholder='Search Account...'>
+                <input type='text' name='shareSearchUser' id='shareSearchUser' class='searchUser' placeholder='Search Account...' autocomplete="off">
             </div>
-            <form method='post'>
+            <form method='post' name="myform">
                 <div class='chatUser'>
-                    <?php
-                    $data->select('conversations', '*', null, "user_1='{$id}' OR user_2='{$id}'", "time DESC");
-                    $result5 = $data->getResult();
-                    if (count($result5) > 0) {
-                        foreach ($result5 as $row3) {
-                            if ($row3['user_1'] == $id) {
-                                $data->select('user', 'username,fullname,profileImg', null, "username='{$row3['user_2']}'");
-                            } else {
-                                $data->select('user', 'username,fullname,profileImg', null, "username='{$row3['user_1']}'");
-                            }
-                            $result6 = $data->getResult();
-                            if (count($result6) > 0) {
-                                foreach ($result6 as $row4) {
-                                    $data->select('sendcheckbox', '	checked,checkName,sendUser', null, "checked = 0 AND checkName='{$row4['username']}' AND sendUser='{$id}'");
-                    ?>
-                                    <div class='sendPostUser'>
-                                        <div class='userImg'>
-                                            <img src='./users/<?= $row4['username'] ?>/profileImg/<?= $row4['profileImg'] ?>' alt='User Profile' id='foo'>
-                                        </div>
-                                        <div class='userDetail'>
-                                            <div class='ues'>
-                                                <div class='username'>
-                                                    <h4 style='cursor: auto;'><?= $row4['username'] ?></h4><span><?= $row4['fullname'] ?></span>
-                                                </div>
-                                            </div>
-                                            <label class='container'>
-                                                <input type='checkbox' name='sharePost' value='<?= $row4['username'] ?>'>
-                                                <span class='checkmark'></span>
-                                            </label>
-                                        </div>
-                                    </div>
-                    <?php
-                                }
-                            }
-                        }
-                    }
-                    ?>
-
+                    <h4 style="padding: 10px;cursor:auto;">No Found</h4>
                 </div>
                 <div class='sendP'>
                     <input type='button' value='Send' name='sendPost' id='sendPost'>
@@ -237,6 +200,55 @@ if (count($result) > 0) {
                     },
                     success: function(data) {
                         $(".chatUser").html(data);
+                    }
+                });
+            });
+            $(document).on('click', '.shareClose', function(e) {
+                $.ajax({
+                    type: "post",
+                    url: "./php_files/close-share.php",
+                    success: function(data) {
+                        $(".sharePost").hide();
+                        $(".sharePostUser").css('color', '#fff');
+                        document.myform.reset();
+                    }
+                });
+            });
+            $(".check").click(function(e) {
+                var check = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: "./php_files/check.php",
+                    data: {
+                        checked: check
+                    }
+                });
+            });
+            $('#sendPost').click(function(e) {
+                e.preventDefault();
+                var users = [];
+                $("input[type='checkbox']").each(function() {
+                    if ($(this).is(":checked")) {
+                        users.push($(this).val());
+                    }
+                });
+                var imgId = $(this).data('imgId');
+                var folder = $(this).data('id');
+                $.ajax({
+                    type: "POST",
+                    url: "./php_files/sher-post.php",
+                    data: {
+                        users,
+                        imgId,
+                        folder
+                    },
+                    success: function(data) {
+                        $(this).attr('data-img-id', '');
+                        $(this).attr('data-id', '');
+                        $('.sharePost').hide();
+                        $(".sharePostUser").css('color', "#fff");
+                        document.myform.reset();
+                        $("#shareSearchUser").val("");
                     }
                 });
             });
