@@ -32,9 +32,30 @@
             <a href="../../" id="Widespread"><i class='bx bx-home'></i></a>
 
             <a href="../../message.php" id="message"><i class='bx bx-message'></i></a>
+            <?php
+            $data = new Database;
+            $user =  $_COOKIE['id'];
+            $data->select('userpost', 'id', null, "usernames ='{$user}'");
+            $res = $data->getResult();
+            if (count($res) > 0) {
+                foreach ($res as $row) {
+                    $data->select('postlike', "*", null, "postId={$row['id']} AND open=1");
+                    $res1 = $data->getResult();
+                    $data->select('postcomment', "*", null, "postId={$row['id']} AND open=1");
+                    $res2 = $data->getResult();
+                }
+            }
+            if (count($res1) > 0 || count($res2) > 0) {
+            ?>
+                <a href="../../notification.php" id="notification"><i class='bx bxs-heart' style='color:#d800ff'></i></a>
+            <?php
+            } else {
+            ?>
+                <a href="../../notification.php" id="notification"><i class='bx bx-heart' style='color:#ffffff'></i></a>
 
-            <a href="../../notification.php" id="notification"><i class='bx bx-heart' style='color:#ffffff'></i></a>
-
+            <?php
+            }
+            ?>
             <a href="" class="post" id="post"><i class='bx bx-plus-medical' style='color:#ffffff'></i></a>
             <?php
             $id =  $_COOKIE['id'];

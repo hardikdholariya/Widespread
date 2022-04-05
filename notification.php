@@ -1,5 +1,15 @@
 <?php
 require_once("./session.php");
+$data = new Database;
+$user =  $_COOKIE['id'];
+$data->select('userpost', 'id', null, "usernames ='{$user}'");
+$res = $data->getResult();
+if (count($res) > 0) {
+    foreach ($res as $row) {
+        $data->update('postlike', ['open' => 0], "postId={$row['id']} AND open=1");
+        $data->update('postcomment', ['open' => 0], "postId={$row['id']} AND open=1");
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +39,14 @@ require_once("./session.php");
 
     <script src="./js/jquery.js"></script>
     <script>
-        $.ajax({
-            type: "POST",
-            url: "./load-notification.php",
-            success: function(data) {
-                $("#notify").html(data);
-            }
+        $(document).ready(function() {
+            $.ajax({
+                type: "POST",
+                url: "./load-notification.php",
+                success: function(data) {
+                    $("#notify").html(data);
+                }
+            });
         });
     </script>
 </body>

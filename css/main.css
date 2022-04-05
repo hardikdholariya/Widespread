@@ -3,10 +3,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* background-color: #3E236D; */
     background-color: #f88077;
-    /* background-color: hsl(219, 48%, 8%); */
-    /* background-image: url(../img/login-background.png); */
     overflow-x: hidden;
 }
 
@@ -914,14 +911,16 @@ textarea {
     position: fixed;
     top: 13%;
     right: 2%;
+    transform: translateX(calc(100% + 15%));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
 }
 
 .notification_pop {
-    width: 335px;
+    width: 300px;
     margin: 0 auto;
     border-radius: 20px;
-    background: linear-gradient(180deg, hsl(219deg 100% 50% / 50%), #df00cd73);
-    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    background: linear-gradient(316deg, #0059ffb8, #df00cdd9);
+    box-shadow: 20px 20px 15px rgb(0 0 0 / 50%);
     backdrop-filter: blur(5px);
     margin-bottom: 30px;
     display: flex;
@@ -931,12 +930,11 @@ textarea {
     flex-direction: column;
     color: #fff;
     z-index: 3;
-    transform: translateX(calc(100% + 15%));
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
 }
 
-.notify_pop .active {
+.active {
     transform: translateX(0%);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
 }
 
 .notification_pop .like,
@@ -981,7 +979,7 @@ textarea {
     text-overflow: ellipsis;
 }
 
-.notification_pop .userDetail {
+.notify_pop .userDetail {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -990,17 +988,217 @@ textarea {
     flex-direction: row;
 }
 
-.notification_pop .userPost {
+.sharePost {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .30);
+    z-index: 20;
+}
+
+.sharePost .share_box {
+    width: 370px;
+    max-height: 500px;
+    overflow-x: auto;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background: linear-gradient(316deg, hsl(219deg 100% 50%), rgb(223 0 205));
+    box-shadow: 20px 20px 50px rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    font-family: 'Padauk', sans-serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+.share_box .shareN {
+    width: 100%;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.share_box .shareN h4 {
+    font-weight: bold;
+    cursor: auto;
+}
+
+.share_box .shareClose {
+    position: absolute;
+    right: 0;
+    display: flex;
+    margin: 10px;
+}
+
+.share_box .shareClose i {
+    font-size: 30px;
     cursor: pointer;
 }
 
-.notification_pop .userPost i {
-    font-size: 35px;
+.share_box .shareSearch {
+    width: 100%;
+}
+
+.share_box .shareSearch .searchUser {
+    width: 100%;
+    height: 40px;
+    border: 0;
+    backdrop-filter: blur(100px);
+    outline: none;
+    background-image: url(../img/search-solid.svg);
+    background-position: 3% 50%;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    padding: 0 12px 0 50px;
+    background-color: #fff;
+}
+
+.share_box .chatUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.share_box form {
+    width: 100%;
+}
+
+.share_box .chatUser .sendPostUser {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    border-top: 2px solid gray;
+}
+
+.share_box .chatUser .sendPostUser .userImg {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 8px;
+}
+
+.share_box .chatUser .sendPostUser .userImg img {
+    object-fit: cover;
+    object-position: center;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}
+
+.share_box .chatUser .sendPostUser .userDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.sendPostUser .userDetail .ues .username {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked~.checkmark {
+    background-color: #d503cf;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: 50%;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
 
 h4 {
     font-weight: 500;
     cursor: pointer;
     margin: 0;
+}
+
+.share_box form .sendP {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-top: 2px solid gray;
+}
+
+.share_box form .sendP #sendPost {
+    border: none;
+    background: #009aff;
+    height: 35px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
 }

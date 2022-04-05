@@ -93,9 +93,22 @@ require_once("./session.php");
                     }
                 }
             }
-            ?>
 
+            ?>
         </div>
+        <?php
+        $data->select('user', 'username', null, null, "RAND()", 1);
+        $result5 = $data->getResult();
+        if (count($result5) > 0) {
+            foreach ($result5 as $row4) {
+        ?>
+                <div class="readerUser">
+                    <a class="reader" href="chat.php?r=<?php echo $row4['username']; ?>">Random People With Chatting</a>
+                </div>
+        <?php
+            }
+        }
+        ?>
     </div>
     <script src="./js/jquery.js"></script>
     <script>
@@ -103,7 +116,7 @@ require_once("./session.php");
             $("#searchUser").keyup(function(e) {
                 var search = $(this).val();
                 $.ajax({
-                    type: "post",
+                    type: "POST",
                     url: "./search-chat.php",
                     data: {
                         search: search

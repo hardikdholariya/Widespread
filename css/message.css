@@ -116,6 +116,24 @@
     transform: translate(-1%, -50%);
 }
 
+.readerUser {
+    margin: 20px auto;
+}
+
+.readerUser .reader {
+    padding: 10px 40px;
+    border: none;
+    background: #fff;
+    height: 35px;
+    width: 120px;
+    font-size: 17px;
+    color: #000;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Syne Mono', monospace;
+}
+
 h4 {
     font-weight: 500;
     cursor: pointer;
