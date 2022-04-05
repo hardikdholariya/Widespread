@@ -14,16 +14,11 @@ if (isset($_POST["otp"])) {
 
 		$data->update('user', ['otp' => 'w', 'verify' => 1], "email = '{$email}'");
 		if ($data->tableExists($username) == false) {
-			$sql = "CREATE TABLE `$username` (
-				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
-				`story` varchar(200) NOT NULL,
-				PRIMARY KEY(id),
-				UNIQUE(story)
-			  ) ";
 			$following = $username . "following";
 			$sql1 =  "CREATE TABLE `$following` (
 				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
 				`following` varchar(200) NOT NULL,
+				`openStory` INT(2) NOT NULL DEFAULT '0',
 				PRIMARY KEY(id),
 				UNIQUE(`following`)
 			  )";
@@ -36,14 +31,12 @@ if (isset($_POST["otp"])) {
 				UNIQUE(`followers`)
 			  )";
 
-			if ($data->createTable($sql) && $data->createTable($sql1) && $data->createTable($sql2)) {
+			if ($data->createTable($sql1) && $data->createTable($sql2)) {
 				$folder = "{$username}";
 				mkdir("../users/" . $folder);
 				mkdir("../users/" . $folder . "/upload");
 				mkdir("../users/" . $folder . "/profileImg");
-
-				// $htaccess = fopen("../users/" . $folder . "/upload" . "/.htaccess", "w");
-				// $htaccess1 = fopen("../users/" . $folder . "/profileImg" . "/.htaccess", "w");
+				mkdir("../users/" . $folder . "/story");
 
 				$fp = fopen("../users/" . $folder . "/index.php", "w");
 				$fe = fopen("../users/" . $folder . "/edit.php", "w");

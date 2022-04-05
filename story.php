@@ -142,7 +142,7 @@
                     processData: false,
                     success: function(data) {
                         $(".storyPop").hide();
-
+                        console.log(data);
                     }
                 });
             });
