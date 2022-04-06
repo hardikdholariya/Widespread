@@ -58,7 +58,7 @@
                 $result1 = $data->getResult();
                 if (count($result1) > 0) {
                     foreach ($result1 as $row1) {
-                        $data->select($row1['following'], 'story');
+                        $data->select('userstroy', 'postStoryUsername', null, "postStoryUsername ='{$row1['following']}' GROUP BY `postStoryUsername`");
                         $result2 = $data->getResult();
                         if (count($result2) > 0) {
                             foreach ($result2 as $row2) {
@@ -96,8 +96,19 @@
                         hardik
                     </div>
                 </div>
-
             </div>
+        </div>
+    </div>
+    <div class="storyPop">
+        <div class="storyClose">
+            <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24" width="24">
+                <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
+            </svg>
+        </div>
+        <div class="preview">
+            <img src="" alt="" id="storyImg">
+            <input type="button" value="Add Story" id="uploadStory">
         </div>
     </div>
     <div class="storyPop">
