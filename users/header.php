@@ -37,6 +37,8 @@
             $user =  $_COOKIE['id'];
             $data->select('userpost', 'id', null, "usernames ='{$user}'");
             $res = $data->getResult();
+            $res1 = [];
+            $res2 = [];
             if (count($res) > 0) {
                 foreach ($res as $row) {
                     $data->select('postlike', "*", null, "postId={$row['id']} AND open=1");

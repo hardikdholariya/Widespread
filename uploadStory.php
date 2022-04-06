@@ -22,9 +22,7 @@ if ($_FILES["file"]["name"] != '') {
         $result1 = $data->getResult();
         foreach ($result1 as $row1) {
             $openStory = $row1['openStory'] + 1;
-            $data->update($following, [`openStory` => $openStory], "following = '{$folder}'");
+            $data->update($following, ['openStory' => $openStory], "following = '{$folder}'");
         }
-        // $sql = "UPDATE `{$following}` SET `openStory`=`openStory` + '1' WHERE following='{$folder}'";
-        // $data->sql($sql);
     }
 }
