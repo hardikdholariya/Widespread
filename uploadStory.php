@@ -13,6 +13,7 @@ if ($_FILES["file"]["name"] != '') {
     $data = new Database;
     $val = ['story' => $name, 'postStoryUsername' => $folder];
     $data->insert('userstroy', $val);
+    $story_id = $data->getResult();
     $followers = $folder . 'followers';
     $data->select($followers);
     $result = $data->getResult();
@@ -21,7 +22,12 @@ if ($_FILES["file"]["name"] != '') {
         $data->select($following, '*', null, "following = '{$folder}'");
         $result1 = $data->getResult();
         foreach ($result1 as $row1) {
-            $openStory = $row1['openStory'] + 1;
+            $openStory = $row1['openStory'];
+            if (!empty($openStory)) {
+                $openStory .= ",{$story_id[0]}";
+            } else {
+                $openStory = $story_id[0];
+            }
             $data->update($following, ['openStory' => $openStory], "following = '{$folder}'");
         }
     }

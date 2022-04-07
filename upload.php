@@ -24,32 +24,4 @@ if (isset($_POST['image'])) {
   $data = new Database();
   $value = ['usernames' => $folder, 'posts' => $ImgName, 'caption' => $caption, 'posttime' => date("Y-m-d H:i:s")];
   $data->insert('userpost', $value);
-
-
-  // $data = new Database();
-
-  // $data->select('userpost', 'id', null, "posts = '{$ImgName}'", null, null);
-  // $result = $data->getResult();
-
-  // $id = $result[0]['id'];
-  // echo $select;
-
-  // $postTableName = $folder . 'postcommentid_' . $id;
-  // $sql = "CREATE TABLE `$postTableName` (
-  //       `id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
-  //       `comment` varchar(60) NOT NULL,
-  //       `usernames` varchar(200) NOT NULL,
-  //       PRIMARY KEY(id),
-  //       INDEX(comment),
-  //       INDEX(usernames)
-  //     )";
-  // $postTableLike = $folder . 'postlike_' . $id;
-  // $sql1 = "CREATE TABLE `$postTableLike` (
-  //   `id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
-  //   `likes` varchar(200) NOT NULL,
-  //   PRIMARY KEY(id),
-  //   UNIQUE(likes)
-  // )";
-  // $data->createTable($sql);
-  // $data->createTable($sql1);
 }

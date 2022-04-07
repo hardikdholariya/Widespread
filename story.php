@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://www.cssscript.com/demo/sticky.css" rel="stylesheet" type="text/css">
     <title>story</title>
 </head>
 
@@ -111,22 +112,107 @@
             <input type="button" value="Add Story" id="uploadStory">
         </div>
     </div>
-    <div class="storyPop">
-        <div class="storyClose">
-            <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24" width="24">
-                <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
-                <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
-            </svg>
-        </div>
-        <div class="preview">
-            <img src="" alt="" id="storyImg">
-            <input type="button" value="Add Story" id="uploadStory">
+    <div class="storyPopUser">
+
+
+        <div data-slide="slide" class="slide">
+            <div class="slide-items">
+                <div class="storyUserDetail">
+                    <div class="userDetail">
+                        <div class="userImg">
+                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
+                        </div>
+                        <div class="username">
+                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
+                        </div>
+
+                    </div>
+                    <div class="userStory">
+                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
+                    </div>
+
+                </div>
+                <div class="storyUserDetail">
+                    <div class="userDetail">
+                        <div class="userImg">
+                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
+                        </div>
+                        <div class="username">
+                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
+                        </div>
+
+                    </div>
+                    <div class="userStory">
+                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
+                    </div>
+
+                </div>
+                <div class="storyUserDetail">
+                    <div class="userDetail">
+                        <div class="userImg">
+                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
+                        </div>
+                        <div class="username">
+                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
+                        </div>
+
+                    </div>
+                    <div class="userStory">
+                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
+                    </div>
+
+                </div>
+                <div class="storyUserDetail">
+                    <div class="userDetail">
+                        <div class="userImg">
+                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
+                        </div>
+                        <div class="username">
+                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
+                        </div>
+
+                    </div>
+                    <div class="userStory">
+                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
+                    </div>
+
+                </div>
+                <div class="storyUserDetail">
+                    <div class="userDetail">
+                        <div class="userImg">
+                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
+                        </div>
+                        <div class="username">
+                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
+                        </div>
+
+                    </div>
+                    <div class="userStory">
+                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
+                    </div>
+
+                </div>
+            </div>
+            <nav class="slide-nav">
+                <div class="slide-thumb"></div>
+
+                <button class="slide-prev">Prev</button>
+                <button class="slide-next">Next</button>
+                <div class="userStoryClose" style="z-index: 20;">
+                    <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+                        <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
+                    </svg>
+                </div>
+            </nav>
         </div>
     </div>
     <script src="./js/jquery.js"></script>
     <script>
         $(document).ready(function() {
             $(".storyPop").hide();
+            $('.storyPopUser').hide();
+
             $("#story").change(function(e) {
                 e.preventDefault();
                 var src = $(this).val();
@@ -138,8 +224,19 @@
             $(".storyClose").click(function(e) {
                 e.preventDefault();
                 $(".storyPop").hide();
+                $('.storyPopUser').hide();
                 $("#storyImg").fadeIn("slow").attr('src', '');
             });
+            $(".userStoryClose").click(function(e) {
+                e.preventDefault();
+                $('.storyPopUser').hide();
+                clearInterval(scrollWindow);
+            });
+            const scrollWindow = setInterval(scrollbar, 100);
+
+            function scrollbar() {
+                window.scrollTo(0, 0);
+            }
             $(document).on('click', '#uploadStory', function(e) {
                 e.preventDefault();
                 var form_data = new FormData();
@@ -153,7 +250,6 @@
                     processData: false,
                     success: function(data) {
                         $(".storyPop").hide();
-                        console.log(data);
                     }
                 });
             });
@@ -171,6 +267,7 @@
             }, 2000);
         });
     </script>
+    <script src="./js/slide-stories.js"></script>
 </body>
 
 </html>

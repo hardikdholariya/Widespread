@@ -6,12 +6,12 @@ $data->select('user', 'username');
 $result = $data->getResult();
 if (count($result) > 0) {
     foreach ($result as $row) {
-        $data->select($row['username'], '*', null, "NOW() >= DATE_ADD(time, INTERVAL 24 HOUR)");
+        $data->select('userstroy', '*', null, "NOW() >= DATE_ADD(add_time, INTERVAL 24 HOUR)");
         $result1 = $data->getResult();
         if (count($result1) > 0) {
             foreach ($result1 as $row2) {
-                $data->delete($row['username'], "story='{$row2['story']}'");
-                unlink("./users/{$row['username']}/story/{$row2['story']}");
+                unlink("./users/{$row['postStoryUsername']}/story/{$row2['story']}");
+                $data->delete('userstroy', "story='{$row2['story']}'");
             }
         }
     }

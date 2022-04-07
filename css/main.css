@@ -260,9 +260,6 @@ section .scrollBtn .btn-scroll {
     justify-content: center;
     align-content: center;
     position: relative;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
 }
 
 .storyClose {
@@ -305,6 +302,152 @@ section .scrollBtn .btn-scroll {
     bottom: 2%;
     left: 50%;
     transform: translate(-50%, 0%);
+}
+
+
+/* story pop */
+
+.storyPopUser {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 20;
+    padding: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userStoryClose {
+    cursor: pointer;
+    position: absolute;
+    top: 3%;
+    right: 4%;
+}
+
+.storyPopUser .slide {
+    min-width: 320px;
+    margin: 20px auto;
+    display: grid;
+    box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.4);
+    max-width: 425px;
+    height: 97vh;
+    border-radius: 20px;
+    background: linear-gradient(316deg, hsl(219deg 100% 50%), rgb(223 0 205));
+    backdrop-filter: blur(5px);
+    font-family: 'Padauk', sans-serif;
+    font-weight: 400;
+}
+
+.slide .slide-items {
+    position: relative;
+    grid-area: 1/1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.slide .slide-items>* {
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slide .slide-items>.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.slide .slide-items .storyUserDetail {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.slide-items .storyUserDetail .userDetail {
+    margin-top: 10px;
+    margin-left: 11px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    color: #fff;
+    position: absolute;
+    top: 2%;
+    width: 94%;
+}
+
+.slide-items .storyUserDetail .userDetail .userImg img {
+    object-fit: cover;
+    object-position: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.username h4 {
+    margin: 0 10px;
+}
+
+.userStory img {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.slide-nav {
+    grid-area: 1/1;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+.slide-nav button {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+}
+
+.slide-thumb {
+    display: flex;
+    grid-column: 1 / 3;
+    margin: 7px;
+}
+
+.slide-thumb>span {
+    flex: 1;
+    display: block;
+    height: 3px;
+    background: rgb(0 0 0 / 68%);
+    margin: 3px 2px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.slide-thumb>span.active::after {
+    content: '';
+    display: block;
+    height: inherit;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    transform: translateX(-100%);
+    animation: thumb 5s forwards linear;
+}
+
+@keyframes thumb {
+    to {
+        transform: initial;
+    }
 }
 
 
