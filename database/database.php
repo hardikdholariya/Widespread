@@ -364,34 +364,5 @@ class Database
 } //Class Close
 
 // $data = new Database;
-
-// $data->select('widespread_.p.h_following', 'following');
-// $result = $data->getResult();
-
-// $data->select('userstroy', 'postStoryUsername');
-// $result1 = $data->getResult();
-
-// $data->select('user');
-// $result2 = $data->getResult();
-
-// foreach ($result2 as $rows2) {
-//     foreach ($result1 as $rows1) {
-//         if ($rows2['username'] == $rows1['postStoryUsername']) {
-//             foreach ($result as $rows) {
-//                 if ($rows2['username'] == $rows['following']) {
-//                     echo $rows2['username'] . "<br>";
-//                 }
-                // echo "<pre>";
-                // print_r($result);
-                // print_r($result1);
-                // print_r($result2);
-//                 // echo "</pre>";
-//             }
-//         }
-//     }
-// }
-// echo "<pre>";
-// print_r($result);
-// print_r($result1);
-// print_r($result2);
-// echo "</pre>";
+// $data->select('userstroy', 'username,profileImg', "USER ON USER.username = userstroy.postStoryUsername JOIN `widespread_.p.h_following` ON `widespread_.p.h_following`.following = userstroy.postStoryUsername GROUP BY postStoryUsername");
+// print_r($data->getResult());

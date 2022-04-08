@@ -29,7 +29,7 @@
                                 <?php
                                 if (!empty($row['profileImg'])) {
                                 ?>
-                                    <img src="./users/<?php echo $row['username']; ?>/profileImg/<?php echo  $row['profileImg']; ?>" alt="">
+                                    <img src="./users/<?= $row['username'] ?>/profileImg/<?php echo  $row['profileImg'] ?>" alt="">
                                     <input type="file" name="story" id="story" accept="image/*" style="display: none;">
                                 <?php
                                 } else { ?>
@@ -42,7 +42,7 @@
                             </label>
                         </div>
                         <div class="userName">
-                            <?php echo $row['username']; ?>
+                            <?php echo $row['username'] ?>
                         </div>
                         <div id="addStory">
                             <svg aria-label="Plus icon" class="_8-yf5 " color="#0095f6" fill="#0095f6" height="17" role="img" viewBox="0 0 24 24" width="17">
@@ -53,53 +53,41 @@
                 <?php
                 }
                 ?>
+
                 <?php
-                $user_following = $id . 'following';
-                $data->select($user_following, "`{$user_following}`.following,user.profileImg", "`user` ON user.username = `{$user_following}`.following");
+                $following = $id . 'following';
+                $data->select('userstroy', 'username,profileImg', "USER ON USER.username = userstroy.postStoryUsername JOIN `widespread_.p.h_following` ON `widespread_.p.h_following`.following = userstroy.postStoryUsername GROUP BY postStoryUsername");
                 $result1 = $data->getResult();
+
                 if (count($result1) > 0) {
                     foreach ($result1 as $row1) {
-                        $data->select('userstroy', 'postStoryUsername', null, "postStoryUsername ='{$row1['following']}' GROUP BY `postStoryUsername`");
-                        $result2 = $data->getResult();
-                        if (count($result2) > 0) {
-                            foreach ($result2 as $row2) {
                 ?>
-                                <div class="story-circle">
-                                    <div class="story-img">
-                                        <?php
-                                        if (!empty($row1['profileImg'])) {
-                                        ?>
-                                            <img src="./users/<?php echo $row1['following']; ?>/profileImg/<?php echo  $row1['profileImg']; ?>" alt="">
-                                        <?php
-                                        } else { ?>
-                                            <img src="./img/icon/user.jpg" alt="">
-
-                                        <?php
-
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="userName">
-                                        <?php echo $row1['following']; ?>
-                                    </div>
-                                </div>
+                        <div class="story-circle iStory" data-username="<?= $row1['username'] ?>">
+                            <div class="story-img">
+                                <?php
+                                if (!empty($row1['profileImg'])) {
+                                ?>
+                                    <img src="./users/<?= $row1['username'] ?>/profileImg/<?= $row1['profileImg'] ?>" alt="">
+                                <?php
+                                } else { ?>
+                                    <img src="./img/icon/user.jpg">
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="userName">
+                                <?= $row1['username'] ?>
+                            </div>
+                        </div>
                 <?php
-                            }
-                        }
+
                     }
                 }
                 ?>
-                <div class="story-circle">
-                    <div class="story-img">
-                        <img src="./img/login-background.png" alt="">
-                    </div>
-                    <div class="userName">
-                        hardik
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+
     <div class="storyPop">
         <div class="storyClose">
             <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24" width="24">
@@ -112,102 +100,12 @@
             <input type="button" value="Add Story" id="uploadStory">
         </div>
     </div>
-    <div class="storyPopUser">
+    <div class="userstoryCookies">
 
-
-        <div data-slide="slide" class="slide">
-            <div class="slide-items">
-                <div class="storyUserDetail">
-                    <div class="userDetail">
-                        <div class="userImg">
-                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
-                        </div>
-                        <div class="username">
-                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
-                        </div>
-
-                    </div>
-                    <div class="userStory">
-                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
-                    </div>
-
-                </div>
-                <div class="storyUserDetail">
-                    <div class="userDetail">
-                        <div class="userImg">
-                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
-                        </div>
-                        <div class="username">
-                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
-                        </div>
-
-                    </div>
-                    <div class="userStory">
-                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
-                    </div>
-
-                </div>
-                <div class="storyUserDetail">
-                    <div class="userDetail">
-                        <div class="userImg">
-                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
-                        </div>
-                        <div class="username">
-                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
-                        </div>
-
-                    </div>
-                    <div class="userStory">
-                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
-                    </div>
-
-                </div>
-                <div class="storyUserDetail">
-                    <div class="userDetail">
-                        <div class="userImg">
-                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
-                        </div>
-                        <div class="username">
-                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
-                        </div>
-
-                    </div>
-                    <div class="userStory">
-                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
-                    </div>
-
-                </div>
-                <div class="storyUserDetail">
-                    <div class="userDetail">
-                        <div class="userImg">
-                            <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="">
-                        </div>
-                        <div class="username">
-                            <h4><span>@</span>_.i.m.h.a.r.d.i.k._</h4>
-                        </div>
-
-                    </div>
-                    <div class="userStory">
-                        <img src="https://source.unsplash.com/V7IJzp_ElQc/1000x1500" alt="Img 1">
-                    </div>
-
-                </div>
-            </div>
-            <nav class="slide-nav">
-                <div class="slide-thumb"></div>
-
-                <button class="slide-prev">Prev</button>
-                <button class="slide-next">Next</button>
-                <div class="userStoryClose" style="z-index: 20;">
-                    <svg aria-label="Close" class="_8-yf5 " color="#ffffff" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24" width="24">
-                        <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
-                        <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
-                    </svg>
-                </div>
-            </nav>
-        </div>
     </div>
+
     <script src="./js/jquery.js"></script>
+
     <script>
         $(document).ready(function() {
             $(".storyPop").hide();
@@ -222,21 +120,32 @@
                 }
             });
             $(".storyClose").click(function(e) {
-                e.preventDefault();
+                // e.preventDefault();
                 $(".storyPop").hide();
                 $('.storyPopUser').hide();
                 $("#storyImg").fadeIn("slow").attr('src', '');
             });
-            $(".userStoryClose").click(function(e) {
+            $(document).on('click', '.userStoryClose', function(e) {
                 e.preventDefault();
-                $('.storyPopUser').hide();
-                clearInterval(scrollWindow);
+                window.location = "./";
             });
-            const scrollWindow = setInterval(scrollbar, 100);
 
-            function scrollbar() {
-                window.scrollTo(0, 0);
-            }
+
+            $(".iStory").click(function(e) {
+                e.preventDefault();
+                var user = $(this).data('username');
+                $(".storyPopUser").show();
+                $.ajax({
+                    type: "post",
+                    url: "./load-story.php",
+                    data: {
+                        user
+                    },
+                    success: function(response) {
+                        $('.userstoryCookies').html(response);
+                    }
+                });
+            });
             $(document).on('click', '#uploadStory', function(e) {
                 e.preventDefault();
                 var form_data = new FormData();
@@ -267,7 +176,8 @@
             }, 2000);
         });
     </script>
-    <script src="./js/slide-stories.js"></script>
+    <!-- <script src="./js/slide-stories.js"></script> -->
+
 </body>
 
 </html>

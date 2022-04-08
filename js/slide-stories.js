@@ -1,7 +1,7 @@
 class SlideStories {
     constructor(id) {
         this.slide = document.querySelector(`[data-slide="${id}"]`);
-        // this.active = 0;
+        this.active = 0;
         this.init();
     }
 
@@ -26,8 +26,9 @@ class SlideStories {
         if (this.active < this.items.length - 1) {
             this.activeSlide(this.active + 1);
         } else {
-            // this.activeSlide(0);
+            this.activeSlide(0);
             $('.storyPopUser').hide();
+            window.location = "./";
         }
     }
 
