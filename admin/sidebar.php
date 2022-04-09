@@ -38,31 +38,31 @@
         </li>
 
         <li>
-            <a href="forms.php?v=<?= time() ?>">
+            <a href="forms.php">
                 <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
             </a>
         </li>
 
         <li>
-            <a href="tables.php?v=<?= time() ?>">
+            <a href="tables.php">
                 <i class="zmdi zmdi-grid"></i> <span>Tables</span>
             </a>
         </li>
 
         <li>
-            <a href="profile.php?v=<?= time() ?>">
+            <a href="profile.php">
                 <i class="zmdi zmdi-face"></i> <span>Profile</span>
             </a>
         </li>
 
         <li>
-            <a href="login.php?v=<?= time() ?>" target="_blank">
+            <a href="login.php" target="_blank">
                 <i class="zmdi zmdi-lock"></i> <span>Login</span>
             </a>
         </li>
 
         <li>
-            <a href="register.php?v=<?= time() ?>" target="_blank">
+            <a href="register.php" target="_blank">
                 <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
             </a>
         </li>

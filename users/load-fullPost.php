@@ -68,8 +68,8 @@ if (count($result2) > 0) {
                                 }
                                 ?>
 
-                                <i class='bx bxs-message'></i>
-                                <i class='bx bxs-share bx-flip-horizontal'></i>
+                                <!-- <i class='bx bxs-message'></i> -->
+                                <!-- <i class='bx bxs-share bx-flip-horizontal'></i> -->
                             </div>
                             <?php
 

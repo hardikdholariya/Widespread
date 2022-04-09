@@ -29,9 +29,20 @@ if ($data->session() == false) {
                 <p>Widespread</p>
             </div>
             <div class="search">
-                <input type="text" name="search" id="search" placeholder="Search..">
+                <input type="text" name="search" id="search" placeholder="Search.." class="main-search" autocomplete="off">
             </div>
         </header>
+        <div class="searchItem">
+            <div class="searchClose" style="cursor: pointer;">
+                <svg aria-label="Close" class="_8-yf5 " color="#000" fill="#ffffff" height="24" role="img" viewBox="0 0 24 24" width="24">
+                    <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+                    <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
+                </svg>
+            </div>
+            <div class="ser">
+
+            </div>
+        </div>
         <div class="menu">
             <a href="../" id="Widespread"><i class='bx bx-home'></i></a>
 
@@ -72,7 +83,7 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
         }
     }
     $(document).ready(function() {
-        ;
+        $(".searchItem").hide();
         $(".close").on('click', function(e) {
             // e.preventDefault();
 
@@ -93,6 +104,25 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
                     $(target).removeClass("active_link");
                 }
             }
+        });
+        $(".main-search").click(function(e) {
+            $(".searchItem").show();
+        });
+        $(".main-search").keyup(function(e) {
+            let search = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "./load-header-search.php",
+                data: {
+                    search
+                },
+                success: function(data) {
+                    $(".ser").html(data);
+                }
+            });
+        });
+        $(".searchClose").click(function(e) {
+            $(".searchItem").hide();
         });
     });
 </script>

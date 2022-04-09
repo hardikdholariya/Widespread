@@ -364,5 +364,9 @@ class Database
 } //Class Close
 
 // $data = new Database;
-// $data->select('userstroy', 'username,profileImg', "USER ON USER.username = userstroy.postStoryUsername JOIN `widespread_.p.h_following` ON `widespread_.p.h_following`.following = userstroy.postStoryUsername GROUP BY postStoryUsername");
+// $id = $_COOKIE['id'];
+// $user = "widespread_.p.h_";
+// $following = $id . 'following';
+// $data->select($following, 'user.username,user.profileImg,userstroy.story', "userstroy ON `{$following}`.following = userstroy.postStoryUsername JOIN user ON user.username = userstroy.postStoryUsername", "userstroy.postStoryUsername='{$user}'");
+// echo
 // print_r($data->getResult());

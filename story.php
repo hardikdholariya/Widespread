@@ -56,7 +56,7 @@
 
                 <?php
                 $following = $id . 'following';
-                $data->select('userstroy', 'username,profileImg', "USER ON USER.username = userstroy.postStoryUsername JOIN `widespread_.p.h_following` ON `widespread_.p.h_following`.following = userstroy.postStoryUsername GROUP BY postStoryUsername");
+                $data->select('userstroy', 'username,profileImg', "USER ON USER.username = userstroy.postStoryUsername JOIN `{$following}` ON `{$following}`.following = userstroy.postStoryUsername GROUP BY postStoryUsername");
                 $result1 = $data->getResult();
 
                 if (count($result1) > 0) {
@@ -141,8 +141,8 @@
                     data: {
                         user
                     },
-                    success: function(response) {
-                        $('.userstoryCookies').html(response);
+                    success: function(data) {
+                        $('.userstoryCookies').html(data);
                     }
                 });
             });

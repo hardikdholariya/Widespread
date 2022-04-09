@@ -4,8 +4,11 @@ $id = $_COOKIE['id'];
 $cTable = $id . 'following';
 $data->select($cTable, 'id');
 $result = $data->getResult();
-if (count($result) > 0) {
-    header("location: ../");
+if (count($result) > 0) { ?>
+    <script>
+        window.location.href = "../";
+    </script>
+<?php
 }
 ?>
 <!DOCTYPE html>
