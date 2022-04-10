@@ -2,7 +2,7 @@
 require_once("../database/database.php");
 date_default_timezone_set("Asia/Kolkata");
 if (isset($_POST["otp"])) {
-	$otp =  $_POST["otp"];
+	$otp =  md5($_POST["otp"]);
 
 	$email =  $_POST["email"];
 
@@ -11,8 +11,8 @@ if (isset($_POST["otp"])) {
 	$count = $data->count('user', '*', null, "email='{$email}' AND otp='{$otp}' AND NOW() <= DATE_ADD(otp_datetime, INTERVAL 5 MINUTE)");
 
 	if ($count > 0) {
-
-		$data->update('user', ['otp' => 'w', 'verify' => 1], "email = '{$email}'");
+		$w = md5('w');
+		$data->update('user', ['otp' => $w, 'verify' => 1], "email = '{$email}'");
 		if (!empty($_POST["username"])) {
 			$username = $_POST["username"];
 

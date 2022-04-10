@@ -7,11 +7,11 @@ if (isset($_POST['email'])) {
 
     if ($count > 0) {
         $otp = rand(111111, 999999); //generate otp randomly
-
-        $send_otp = ['otp' => $otp, 'otp_datetime' => date("Y-m-d H:i:s")];
+        $e_otp = md5($otp);
+        $send_otp = ['otp' => $e_otp, 'otp_datetime' => date("Y-m-d H:i:s")];
         $data->update('user', $send_otp, "email = '{$email}'");
 
-        $otp_code = "Your otp verification code is " . $otp;
+        $otp_code = "Your otp verification code is : " . $otp;
 
         require_once('../smtp/PHPMailerAutoload.php');
 
