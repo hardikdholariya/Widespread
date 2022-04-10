@@ -274,8 +274,10 @@ $(document).ready(function() {
                     }
                 } else {
                     $("#error-7").attr("src", "./img/true.svg");
-                    // $(".contaner-4").hide();
-                    // $(".contaner-3").show();
+                    // document.getElementsByClassName('.contaner-4').style.display = 'none';
+                    // document.getElementsByClassName('.contaner-3').style.display = 'block';
+                    $(".contaner-4").hide();
+                    $(".contaner-3").show();
                 }
             }
         });

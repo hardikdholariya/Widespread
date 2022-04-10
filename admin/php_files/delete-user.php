@@ -6,20 +6,24 @@ if (isset($_POST['id'])) {
     $data->select('user', 'username', null, "id={$id}");
     $result = $data->getResult();
     $following = $result[0]['username'] . 'following';
+
     $data->select($following);
     $result1 = $data->getResult();
+    print_r($result1);
     if (count($result1) > 0) {
         foreach ($result1 as $row) {
-            $followingfollowers = $row['following'] . 'followers';
+            echo $followingfollowers = $row['following'] . 'followers';
             $data->delete($followingfollowers, "followers='{$result[0]['username']}'");
         }
     }
+
     $followers = $result[0]['username'] . 'followers';
+
     $data->select($followers);
     $result2 = $data->getResult();
     if (count($result2) > 0) {
         foreach ($result2 as $row1) {
-            $followersfollowing = $row1['following'] . 'following';
+            $followersfollowing = $row1['followers'] . 'following';
             $data->delete($followersfollowing, "following='{$result[0]['username']}'");
         }
     }

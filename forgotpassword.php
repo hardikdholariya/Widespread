@@ -78,7 +78,7 @@ if ($data->session()) {
         </form>
     </div>
     <script src="./js/jquery.js"></script>
-    <script src="./ajax/script.js"></script>
+    <script src="./ajax/script.js?v=<?= time() ?>"></script>
 </body>
 
 </html>
