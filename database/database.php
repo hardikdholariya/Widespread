@@ -1,11 +1,10 @@
 <?php
-
 class Database
 {
 
     private $db_host = "localhost";
     private $db_user = "root";
-    private $db_pass = "";
+    private $db_pass = "kd@9913";
     private $db_name = "widespread";
 
 
@@ -218,15 +217,16 @@ class Database
         }
     }
 
-    public function tableDrop($table){
-        if($this->tableExists($table)){
+    public function tableDrop($table)
+    {
+        if ($this->tableExists($table)) {
             $sql = "DROP TABLE `{$table}`";
             // $tableDrDb = $this->mysqli->query($sql);
             $query = $this->mysqli->query($sql);
 
-            if($query){
+            if ($query) {
                 return true;
-            }else{
+            } else {
                 array_push($this->result, $table . " does not Table.");
                 return false;
             }
