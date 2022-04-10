@@ -21,7 +21,15 @@
   <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet" />
-
+  <style>
+    .img {
+            object-fit: cover;
+            object-position: center;
+            height: 50px;
+            width: 50px;
+            margin: 0 auto;
+        }
+  </style>
 </head>
 
 <body class="bg-theme bg-theme1">
@@ -43,7 +51,7 @@
       <div class="card-body">
         <div class="card-content p-2">
           <div class="text-center">
-            <img src="assets/images/logo-icon.png" alt="logo icon">
+            <img class="img" src="assets/images/nav_bar-logo.png" alt="logo icon">
           </div>
           <div class="card-title text-uppercase text-center py-3">Sign Up</div>
           <form>

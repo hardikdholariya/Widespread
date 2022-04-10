@@ -13,7 +13,7 @@ if (isset($_POST["otp"])) {
 	if ($count > 0) {
 
 		$data->update('user', ['otp' => 'w', 'verify' => 1], "email = '{$email}'");
-		if (isset($_POST["username"])) {
+		if (!empty($_POST["username"])) {
 			$username = $_POST["username"];
 
 			$following = $username . "following";
@@ -24,7 +24,6 @@ if (isset($_POST["otp"])) {
 				PRIMARY KEY(id),
 				UNIQUE(`following`)
 			  )";
-
 			$followers = $username . "followers";
 			$sql2 =  "CREATE TABLE `$followers` (
 				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,

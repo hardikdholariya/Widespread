@@ -9,11 +9,14 @@ if (isset($_POST['id'])) {
 
     $data->select($following);
     $result1 = $data->getResult();
-    print_r($result1);
     if (count($result1) > 0) {
         foreach ($result1 as $row) {
-            echo $followingfollowers = $row['following'] . 'followers';
-            $data->delete($followingfollowers, "followers='{$result[0]['username']}'");
+            $followingfollowers = $row['following'] . 'followers';
+            $data->count($followingfollowers,"followers",null,"followers='{$result[0]['username']}'");
+            $resultcount=$data->getResult();
+            if($resultcount > 0){
+            $data->delete($followingfollowers, "followers='{$result[0]['username']}'"); 
+            }
         }
     }
 
@@ -24,14 +27,31 @@ if (isset($_POST['id'])) {
     if (count($result2) > 0) {
         foreach ($result2 as $row1) {
             $followersfollowing = $row1['followers'] . 'following';
-            $data->delete($followersfollowing, "following='{$result[0]['username']}'");
+            $data->count($followersfollowing,"following",null,"following='{$result[0]['username']}'");
+            $resultcount1=$data->getResult();
+            if($resultcount1 > 0){
+                $data->delete($followersfollowing, "following='{$result[0]['username']}'");
+            }
         }
     }
-    $data->delete('userstroy', "postStoryUsername='{$result[0]['username']}'");
-    $data->delete('userpost', "usernames='{$result[0]['username']}'");
-    $data->delete('postlike', "like='{$result[0]['username']}'");
-    $data->delete('postcomment', "usernames='{$result[0]['username']}'");
-    $data->sql("DROP TABLE {$following}");
-    $data->sql("DROP TABLE {$followers}");
+
+    $data->count('userstroy',"*",null,"postStoryUsername='{$result[0]['username']}'");
+    if($data->getResult()>0){
+        $data->delete('userstroy', "postStoryUsername='{$result[0]['username']}'");
+    }
+    $data->count('userpost',"*",null,"usernames='{$result[0]['username']}'");
+    if($data->getResult()>0){
+        $data->delete('userpost', "usernames='{$result[0]['username']}'");
+    }
+    $data->count('postlike',"*",null,"likes='{$result[0]['username']}'");
+    if($data->getResult()>0){
+        $data->delete('postlike', "likes='{$result[0]['username']}'");
+    }
+    $data->count('postcomment',"*",null,"usernames='{$result[0]['username']}'");
+    if($data->getResult()>0){
+        $data->delete('postcomment', "usernames='{$result[0]['username']}'");
+    }
+    $data->tableDrop($followers);
+    $data->tableDrop($following);
     $data->delete("user", "id={$id}");
 }
