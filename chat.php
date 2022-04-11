@@ -42,7 +42,18 @@ require_once("./session.php");
                         <a href="./message.php"><i class='bx bx-arrow-back'></i></a>
                     </div>
                     <div class="userImg">
-                        <img src="./users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="">
+                        <?php
+                        if (!empty($row['profileImg'])) {
+                        ?>
+                            <img src="./users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="">
+                        <?php
+                        } else {
+                        ?>
+                            <img src="./img/icon/user.jpg" alt="">
+
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="name">
                         <div class="username">

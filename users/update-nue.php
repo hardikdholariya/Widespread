@@ -76,7 +76,6 @@ if (count($errors) == 0) {
             }
         }
         setcookie("id", $cUsername, time() + (86400 * 30), "/");
-        // header("location: ./");
 
         function deleteAll($dir)
         {

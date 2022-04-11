@@ -77,6 +77,18 @@ require_once("./header.php");
                 $(".sharePost").show();
             });
 
+            setInterval(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "./php_files/birth_date.php",
+                    success: function(data) {
+                        console.log(data);
+                        if (data == 1) {
+                            window.location.href = "./birthday/";
+                        }
+                    }
+                });
+            }, 2000);
         });
     </script>
     <script src="./js/emojionearea.js"></script>
