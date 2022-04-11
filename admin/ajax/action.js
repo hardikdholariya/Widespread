@@ -37,4 +37,21 @@ $(document).ready(function() {
             });
         }
     });
+    $("#signIn").click(function(e) {
+        $.ajax({
+            type: "POST",
+            url: "./php_files/validation.php",
+            data: $(mySing).serialize(),
+            success: function(data) {
+                if (data == 1) {
+                    window.location.href = "./";
+                }
+            }
+        });
+
+    });
+    $("#logOut").click(function(e) {
+        e.preventDefault();
+        window.location.href = "./logout.php";
+    });
 });

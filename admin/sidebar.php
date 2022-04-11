@@ -38,39 +38,39 @@
         </li>
 
         <li>
-            <a href="forms.php">
-                <i class="zmdi zmdi-format-list-bulleted"></i> <span>Forms</span>
+            <a href="recent.php">
+                <i class="zmdi zmdi-format-list-bulleted"></i> <span>Recent User</span>
             </a>
         </li>
 
-        <li>
+        <!-- <li>
             <a href="tables.php">
                 <i class="zmdi zmdi-grid"></i> <span>Tables</span>
             </a>
-        </li>
+        </li> -->
 
-        <li>
+        <!-- <li>
             <a href="profile.php">
                 <i class="zmdi zmdi-face"></i> <span>Profile</span>
             </a>
-        </li>
+        </li> -->
 
-        <li>
+        <!-- <li>
             <a href="login.php" target="_blank">
                 <i class="zmdi zmdi-lock"></i> <span>Login</span>
             </a>
-        </li>
+        </li> -->
 
-        <li>
+        <!-- <li>
             <a href="register.php" target="_blank">
                 <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
             </a>
-        </li>
+        </li> -->
 
-        <li class="sidebar-header">LABELS</li>
+        <!-- <li class="sidebar-header">LABELS</li>
         <li><a href="javaScript:void();"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
         <li><a href="javaScript:void();"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-        <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+        <li><a href="javaScript:void();"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li> -->
 
     </ul>
 

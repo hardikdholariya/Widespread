@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,49 +65,36 @@
             <img class='img' src="assets/images/nav_bar-logo.png" alt="logo icon">
           </div>
           <div class="card-title text-uppercase text-center py-3">Sign In</div>
-          <form>
+          <form name="mySing" method="POST">
             <div class="form-group">
               <label for="exampleInputUsername" class="sr-only">Username</label>
               <div class="position-relative has-icon-right">
-                <input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Username">
+                <input type="text" id="exampleInputUsername" name="username" class="form-control input-shadow" placeholder="Enter Username" required>
                 <div class="form-control-position">
                   <i class="icon-user"></i>
                 </div>
               </div>
             </div>
             <div class="form-group">
+              <label for="exampleInputEmail" class="sr-only">Email</label>
+              <div class="position-relative has-icon-right">
+                <input type="email" id="exampleInputEmail" name="email" class="form-control input-shadow" placeholder="Enter Email" required>
+                <div class="form-control-position">
+                  <i class="zmdi zmdi-account-box-mail"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
               <label for="exampleInputPassword" class="sr-only">Password</label>
               <div class="position-relative has-icon-right">
-                <input type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Enter Password">
+                <input type="password" name="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Enter Password" required>
                 <div class="form-control-position">
                   <i class="icon-lock"></i>
                 </div>
               </div>
             </div>
-            <!-- <div class="form-row">
-              <div class="form-group col-6">
-                <div class="icheck-material-white">
-                  <input type="checkbox" id="user-checkbox" checked="" />
-                  <label for="user-checkbox">Remember me</label>
-                </div>
-              </div>
-              <div class="form-group col-6 text-right">
-                <a href="reset-password.php">Reset Password</a>
-              </div>
-            </div> -->
-            <button type="button" class="btn btn-light btn-block">Sign In</button>
-
-            <!-- <div class="form-row mt-4">
-              <div class="form-group mb-0 col-6">
-                <button type="button" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-              </div>
-              <div class="form-group mb-0 col-6 text-right">
-                <button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-              </div>
-            </div> -->
-            
             <div class="card-footer text-center py-3">
-              <p class="text-warning mb-0">Do not have an account? <a href="register.php"> Sign Up here</a></p>
+              <button type="submit" class="btn btn-light btn-block" id="signIn">Sign In</button>
             </div>
           </form>
         </div>
@@ -166,7 +156,8 @@
 
   <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
-
+  <script src="../js/jquery.js"></script>
+  <script src="./ajax/action.js?v=<?= time() ?>"></script>
 </body>
 
 </html>

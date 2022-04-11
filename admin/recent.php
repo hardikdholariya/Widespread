@@ -89,7 +89,7 @@ require_once("./session.php");
                 <!--Start Dashboard Content-->
 
                 <!--End Row-->
-                <!-- <div class="row" id="recent-user">
+                <div class="row" id="recent-user">
                     <div class="col-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -115,8 +115,8 @@ require_once("./session.php");
                             </div>
                         </div>
                     </div>
-                </div> -->
-                <div class="row">
+                </div>
+                <!-- <div class="row">
                     <div class="col-12 col-lg-12">
                         <div class="card">
                             <div class="card-body">
@@ -142,7 +142,7 @@ require_once("./session.php");
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!--End Row-->
 
                 <!--End Dashboard Content-->
