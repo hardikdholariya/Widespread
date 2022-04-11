@@ -1,27 +1,8 @@
-#RewriteEngine on
-#RewriteCond %{HTTP_REFERER} !^http://localhost/php/Widespread/.*$ [NC]
-#RewriteCond %{HTTP_REFERER} !^http://localhost/php/Widespread/.*$ [NC]
-#RewriteRule .(apng|avif|gif|jpg|jpeg|jfif|pjpeg|pjp|png|svg|webp|bmp|cur|ico|tiff|tif)$ - [F]
 
-
-
-# enable mod_rewrite
 RewriteEngine On
- 
-# RewriteCond = define rule condition
-# HTTP_REFERER = check from where the request originated
-# ! = exclude
-# ^ = start of string
-# [NC] = case insensitive search
+
 RewriteCond %{HTTP_REFERER} !^http://localhost/php/Widespread/ [NC]
  
-# \ = match any
-# . = any character
-# () = pattern, group
-# $ = end of string
- 
-# [F] = forbidden, 403
-# [L] = stop processing further rules
 RewriteRule \.(gif|jpg|jpeg|png|mp4|mov|mkv|flv|apng|avif|gif|jpg|jpeg|jfif|pjpeg|pjp|png|svg|webp|bmp|cur|ico|tiff|tif)$ - [F,L]
 
 ErrorDocument 403 http://localhost/php/Widespread/errors/403.html

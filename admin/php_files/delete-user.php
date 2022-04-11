@@ -51,6 +51,14 @@ if (isset($_POST['id'])) {
     if ($data->getResult() > 0) {
         $data->delete('postcomment', "usernames='{$result[0]['username']}'");
     }
+    $data->count('message', '*', null, "incoming_msg_id='{$result[0]['username']}' OR outgoing_msg_id='{$result[0]['username']}'");
+    if ($data->getResult() > 0) {
+        $data->delete('message', "incoming_msg_id='{$result[0]['username']}' OR outgoing_msg_id='{$result[0]['username']}'");
+    }
+    $data->count('conversations', '*', null, "user_1='{$result[0]['username']}' OR user_2='{$result[0]['username']}'");
+    if ($data->getResult() > 0) {
+        $data->delete('conversations', "user_1='{$result[0]['username']}' OR user_2='{$result[0]['username']}'");
+    }
     $data->tableDrop($followers);
     $data->tableDrop($following);
     $data->delete("user", "id={$id}");
