@@ -31,7 +31,6 @@ if (count($result) > 0) { ?>
 
 <body>
     <?php
-    // require_once("./header.php");
     require_once("./post.php");
     ?>
     <div class="group">
