@@ -9,81 +9,103 @@ $data->select('user', 'username,fullname,profileImg', null, "not(username = '{$f
 $result = $data->getResult();
 
 if (count($result) > 0) {
-    $output = "
+?>
     <div class='sfy'>
 
         <h3>Suggestions For You</h3>
 
     </div>
 
-    <div class='suggestions'>";
-    $i = 0;
-    foreach ($result as $row) {
+    <div class='suggestions'>
+        <?php
 
-        $output .= "
-        <div class='profileDetail' data-eid='1' data-item-id='stand-out'>
+        $i = 0;
+        foreach ($result as $row) {
+        ?>
 
-            <div class='userImg'>";
 
-        if (!empty($row['profileImg'])) {
+            <div class='profileDetail' data-eid='1' data-item-id='stand-out'>
 
-            $output .= "
-            <img src='../users/{$row['username']}/profileImg/{$row['profileImg']}' alt='User Profile' id='foo'>";
-            $src = "../users/{$row['username']}/profileImg/{$row['profileImg']}";
-        } else {
+                <div class='userImg'>
+                    <?php
 
-            $output .= "
-            <img src='../img/icon/user.jpg' alt='User Profile' id='foo'>";
-            $src = "../img/icon/user.jpg";
-        }
-        $output .= " 
-        </div>
+                    if (!empty($row['profileImg'])) {
+                    ?>
 
-            <div class='userDetail'>
 
-                <div class='ues'>
+                        <img src='../users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>' alt='User Profile' id='foo'>
+                    <?php
 
-                    <div class='username'>
+                        $src = "../users/{$row['username']}/profileImg/{$row['profileImg']}";
+                    } else {
+                    ?>
 
-                        <h4 class='username_ff' data-id='{$row['username']}'>{$row['username']}</h4>
 
-                    </div>
+                        <img src='../img/icon/user.jpg' alt='User Profile' id='foo'>
+                    <?php
 
-                    <div class='userFullName'>
-
-                        <h5>{$row['fullname']} </h5>
-
-                    </div>
+                        $src = "../img/icon/user.jpg";
+                    }
+                    ?>
 
                 </div>
 
-                <div class='followGroup'>";
-        $following_name = $folder . 'following';
+                <div class='userDetail'>
 
-        $data->select($following_name, '*', null, "following='{$row['username']}'");
+                    <div class='ues'>
 
-        $following_result = $data->getResult();
-        if (count($following_result) == 1) {
-            $output .= "<button class='followingBtn' data-item-id='{$row['username']}' data-src='{$src}'>following</button>";
-        } else {
-            $output .= "<button class='follow' data-item-id='{$row['username']}' data-src='{$src}'>Follow</button>";
-        }
-        $output .= " </div>
+                        <div class='username'>
+
+                            <h4 class='username_ff' data-id='<?= $row['username'] ?>'><?= $row['username'] ?></h4>
+
+                        </div>
+
+                        <div class='userFullName'>
+
+                            <h5><?= $row['fullname'] ?> </h5>
+
+                        </div>
+
+                    </div>
+
+                    <div class='followGroup'>
+                        <?php
+
+                        $following_name = $folder . 'following';
+
+                        $data->select($following_name, '*', null, "following='{$row['username']}'");
+
+                        $following_result = $data->getResult();
+                        if (count($following_result) == 1) {
+                        ?>
+                            <button class='followingBtn' data-item-id='<?= $row['username'] ?>' data-src='<?= $src ?>'>following</button>
+                        <?php
+
+                        } else {
+                        ?>
+                            <button class='follow' data-item-id='<?= $row['username'] ?>' data-src='<?= $src ?>'>Follow</button>
+                        <?php
+
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
-        </div>";
+        <?php
 
-        $i++;
-    }
-    $output .= "
-    </div>";
-    $output .= "
+            $i++;
+        }
+        ?>
+
+    </div>
+
     <div id='unfollow_pop' style='display: none'>
 
         <div id='upop'>
 
             <div class='unfollowimg'>
 
-                <img src='../img/icon/user.jpg' alt='User Profile' class = 'popImg'>
+                <img src='../img/icon/user.jpg' alt='User Profile' class='popImg'>
 
                 <div class='unfollow_username'>@</div>
 
@@ -91,7 +113,7 @@ if (count($result) > 0) {
 
             <div class='cu'>
 
-                <button id='unfollow_user' data-id = ''>Unfollow</button>
+                <button id='unfollow_user' data-id=''>Unfollow</button>
 
                 <button id='cancel_user'>Cancel</button>
 
@@ -99,6 +121,14 @@ if (count($result) > 0) {
 
         </div>
 
-    </div>";
+    </div>
+<?php
+
+} else {
+
+?>
+    <h2 style="margin: 20px auto;width: 106px;">Not Found</h2>
+<?php
+
 }
-echo $output;
+?>

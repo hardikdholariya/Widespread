@@ -46,7 +46,7 @@ if (isset($_POST["otp"])) {
 				$ffp = fopen("../users/" . $folder . "/post.php", "w");
 
 
-				$content = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../profile.php"); require_once("../setting.php"); ?>';
+				$content = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../profile.php"); ?>';
 
 				$content_e = '<?php require_once("../session.php"); require_once("../header.php"); require_once("../post.php"); require_once("../editProfile.php"); ?>';
 

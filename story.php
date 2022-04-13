@@ -30,7 +30,6 @@
                                 if (!empty($row['profileImg'])) {
                                 ?>
                                     <img src="./users/<?= $row['username'] ?>/profileImg/<?php echo  $row['profileImg'] ?>" alt="">
-                                    <input type="file" name="story" id="story" accept="image/*" style="display: none;">
                                 <?php
                                 } else { ?>
                                     <img src="./img/icon/user.jpg" alt="">
@@ -39,6 +38,7 @@
 
                                 }
                                 ?>
+                                <input type="file" name="story" id="story" accept="image/*" style="display: none;">
                             </label>
                         </div>
                         <div class="userName">

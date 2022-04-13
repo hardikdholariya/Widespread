@@ -379,8 +379,6 @@ class Database
 
 // $data = new Database;
 // $id = $_COOKIE['id'];
-// $user = "widespread_.p.h_";
-// $following = $id . 'following';
-// $data->select($following, 'user.username,user.profileImg,userstroy.story', "userstroy ON `{$following}`.following = userstroy.postStoryUsername JOIN user ON user.username = userstroy.postStoryUsername", "userstroy.postStoryUsername='{$user}'");
-// echo
-// print_r($data->getResult());
+// $followers_btn = $id . "followers";
+// $following_btn = $id . "following";
+// $data->select($following_btn, 'following', null, "(EXISTS (select followers FROM `{$followers_btn}` WHERE following IN('{$row['username']}')))");

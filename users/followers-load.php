@@ -17,68 +17,83 @@ $data->select('user', 'username,fullname,profileImg', null, "(NOT EXISTS (SELECT
 $result2 = $data->getResult();
 
 if (count($result) > 0) {
-    $output = "
+?>
     <div class='followingY'>
-            <h3>Your Followers</h3>
+        <h3>Your Followers</h3>
     </div>
     <div class='followingList'>
-    ";
-    foreach ($result as $row) {
-        $output .= "
-        <div class='profileDetailp'>
-            <div class='userImgp'>";
+        <?php
+        foreach ($result as $row) {
+        ?>
 
-        if (!empty($row['profileImg'])) {
+            <div class='profileDetailp'>
+                <div class='userImgp'>
+                    <?php
 
-            $output .= "
-                <img src='../{$row['username']}/profileImg/{$row['profileImg']}'  alt='User Profile' id='foo'>";
+                    if (!empty($row['profileImg'])) {
+                    ?>
+                        <img src='../<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>' alt='User Profile' id='foo'>
+                    <?php
+                        $src = "../{$row['username']}/profileImg/{$row['profileImg']}";
+                    } else {
+                    ?>
 
-            $src = "../{$row['username']}/profileImg/{$row['profileImg']}";
-        } else {
 
-            $output .= "
-                <img src='../../img/icon/user.jpg' alt='User Profile' id='foo'>";
-            $src = "../../img/icon/user.jpg";
-        }
-        $output .= " 
-            </div>
-            <div class='userDetailp'>
-                <div class='uesp'>
-                    <div class='usernamep'>
-                        <h4 class='username_ffp' data-id = '{$row['username']}'>{$row['username']}</h4>
+                        <img src='../../img/icon/user.jpg' alt='User Profile' id='foo'>
+
+                    <?php
+                        $src = "../../img/icon/user.jpg";
+                    }
+                    ?>
+                </div>
+                <div class='userDetailp'>
+                    <div class='uesp'>
+                        <div class='usernamep'>
+                            <h4 class='username_ffp' data-id='<?= $row['username'] ?>'><?= $row['username'] ?></h4>
+                        </div>
+                        <div class='userFullNamep'>
+                            <h5><?= $row['fullname'] ?> </h5>
+                        </div>
                     </div>
-                    <div class='userFullNamep'>
-                        <h5>{$row['fullname']} </h5>
+
+                    <div class='followGroupp'>
+                        <?php
+
+                        $data->select($following_btn, 'following', null, "(EXISTS (select followers FROM `{$followers_btn}` WHERE following IN('{$row['username']}')))");
+                        $result3 = $data->getResult();
+                        // SELECT following  FROM `widespread_.p.h_following` WHERE(EXISTS (select   followers FROM  `widespread_.p.h_followers` WHERE following IN('dk_9089')))
+                        if (count($result3) == 1) {
+                        ?>
+
+                            <button class='followingBtn' data-item-id='<?= $row['username'] ?>' data-src='<?= $src ?>'>Following</button>
+                        <?php
+
+                        } else {
+                        ?>
+
+                            <button class='follow' data-item-id='<?= $row['username'] ?>'>Follow</button>
+                        <?php
+
+                        }
+                        ?>
+
                     </div>
                 </div>
-
-                <div class='followGroupp'>";
-        $data->select($following_btn, 'following', null, "(EXISTS (select followers FROM `{$followers_btn}` WHERE following IN('{$row['username']}')))");
-        $result3 = $data->getResult();
-        // SELECT following  FROM `widespread_.p.h_following` WHERE(EXISTS (select   followers FROM  `widespread_.p.h_followers` WHERE following IN('dk_9089')))
-        if (count($result3) == 1) {
-            $output .= " 
-                    <button class='followingBtn' data-item-id='{$row['username']}' data-src='{$src}'>Following</button>";
-        } else {
-            $output .= "
-            <button class='follow' data-item-id='{$row['username']}'>Follow</button>
-            ";
-        }
-        $output .= "   
-                </div>
             </div>
-        </div>";
-    }
-    $output .= "
-    </div>";
-    $output .= "
+        <?php
+
+        }
+        ?>
+
+    </div>
+
     <div id='unfollow_pop' style='display: none'>
 
         <div id='upop'>
 
             <div class='unfollowimg'>
 
-                <img src='../../img/icon/user.jpg' alt='User Profile' class = 'popImg'>
+                <img src='../../img/icon/user.jpg' alt='User Profile' class='popImg'>
 
                 <div class='unfollow_username'>@</div>
 
@@ -86,7 +101,7 @@ if (count($result) > 0) {
 
             <div class='cu'>
 
-                <button id='unfollow_user' data-id = ''>Unfollow</button>
+                <button id='unfollow_user' data-id=''>Unfollow</button>
 
                 <button id='cancel_user'>Cancel</button>
 
@@ -94,92 +109,122 @@ if (count($result) > 0) {
 
         </div>
 
-    </div>";
-
-    if (count($result2) > 0) {
-        $output .= "
-    <div class='followingY'>
-    <h3>Suggestions For You</h3>
     </div>
-    <div class='followingList'>";
-        foreach ($result2 as $row2) {
-            $output .= "<div class='profileDetailp'>
-        <div class='userImgp'>";
+    <?php
+    if (count($result2) > 0) {
+    ?>
 
-            if (!empty($row2['profileImg'])) {
+        <div class='followingY'>
+            <h3>Suggestions For You</h3>
+        </div>
+        <div class='followingList'>
+            <?php
 
-                $output .= "
-                <img src='../{$row2['username']}/profileImg/{$row2['profileImg']}'  alt='User Profile' id='foo'>";
+            foreach ($result2 as $row2) {
+            ?>
+                <div class='profileDetailp'>
+                    <div class='userImgp'>
+                        <?php
 
-                $src = "../{$row2['username']}/profileImg/{$row2['profileImg']}";
-            } else {
+                        if (!empty($row2['profileImg'])) {
+                        ?>
 
-                $output .= "
-                <img src='../../img/icon/user.jpg' alt='User Profile' id='foo'>";
-                $src = "../../img/icon/user.jpg";
+
+                            <img src='../<?= $row2['username'] ?>/profileImg/<?= $row2['profileImg'] ?>' alt='User Profile' id='foo'>
+                        <?php
+
+                            $src = "../{$row2['username']}/profileImg/{$row2['profileImg']}";
+                        } else {
+                        ?>
+
+
+                            <img src='../../img/icon/user.jpg' alt='User Profile' id='foo'>
+                        <?php
+
+                            $src = "../../img/icon/user.jpg";
+                        }
+                        ?>
+
+                    </div>
+                    <div class='userDetailp'>
+                        <div class='uesp'>
+                            <div class='usernamep'>
+                                <h4 class='username_ffp' data-id='<?= $row2['username'] ?>'><?= $row2['username'] ?></h4>
+                            </div>
+                            <div class='userFullNamep'>
+                                <h5><?= $row2['fullname'] ?> </h5>
+                            </div>
+                        </div>
+                        <div class='followGroupp'>
+                            <button class='follow' data-item-id='<?= $row2['username'] ?>'>Follow</button>
+                        </div>
+                    </div>
+                </div>
+            <?php
+
             }
-            $output .= " 
-            </div>
-            <div class='userDetailp'>
-                <div class='uesp'>
-                    <div class='usernamep'>
-                        <h4 class='username_ffp' data-id = '{$row2['username']}'>{$row2['username']}</h4>
-                    </div>
-                    <div class='userFullNamep'>
-                        <h5>{$row2['fullname']} </h5>
-                    </div>
-                </div>
-                <div class='followGroupp'>
-                    <button class='follow' data-item-id='{$row2['username']}'>Follow</button>
-                </div>
-            </div>
-        </div>";
-        }
-        $output .= "</div>
-    ";
+            ?>
+        </div>
+    <?php
+
     }
 } else {
     if (count($result2) > 0) {
-        $output = "
-    <div class='followingY'>
-    <h3>Suggestions For You</h3>
-    </div>
-    <div class='followingList'>";
-        foreach ($result2 as $row2) {
-            $output .= "<div class='profileDetailp'>
-        <div class='userImgp'>";
+    ?>
 
-            if (!empty($row2['profileImg'])) {
+        <div class='followingY'>
+            <h3>Suggestions For You</h3>
+        </div>
+        <div class='followingList'>
+            <?php
 
-                $output .= "
-                <img src='../{$row2['username']}/profileImg/{$row2['profileImg']}'  alt='User Profile' id='foo'>";
+            foreach ($result2 as $row2) {
+            ?>
+                <div class='profileDetailp'>
+                    <div class='userImgp'>
+                        <?php
 
-                $src = "../{$row2['username']}/profileImg/{$row2['profileImg']}";
-            } else {
+                        if (!empty($row2['profileImg'])) {
+                        ?>
 
-                $output .= "
-                <img src='../../img/icon/user.jpg' alt='User Profile' id='foo'>";
-                $src = "../../img/icon/user.jpg";
+
+                            <img src='../<?= $row2['username'] ?>/profileImg/<?= $row2['profileImg'] ?>' alt='User Profile' id='foo'>
+                        <?php
+
+                            $src = "../{$row2['username']}/profileImg/{$row2['profileImg']}";
+                        } else {
+                        ?>
+
+
+                            <img src='../../img/icon/user.jpg' alt='User Profile' id='foo'>
+                        <?php
+
+                            $src = "../../img/icon/user.jpg";
+                        }
+                        ?>
+
+                    </div>
+                    <div class='userDetailp'>
+                        <div class='uesp'>
+                            <div class='usernamep'>
+                                <h4 class='username_ffp'><?= $row2['username'] ?></h4>
+                            </div>
+                            <div class='userFullNamep'>
+                                <h5><?= $row2['fullname'] ?> </h5>
+                            </div>
+                        </div>
+                        <div class='followGroupp'>
+                            <button class='follow' data-item-id='<?= $row2['username'] ?>'>Follow</button>
+                        </div>
+                    </div>
+                </div>
+            <?php
+
             }
-            $output .= " 
-            </div>
-            <div class='userDetailp'>
-                <div class='uesp'>
-                    <div class='usernamep'>
-                        <h4 class='username_ffp'>{$row2['username']}</h4>
-                    </div>
-                    <div class='userFullNamep'>
-                        <h5>{$row2['fullname']} </h5>
-                    </div>
-                </div>
-                <div class='followGroupp'>
-                    <button class='follow' data-item-id='{$row2['username']}'>Follow</button>
-                </div>
-            </div>
-        </div>";
-        }
-        $output .= "</div>
-    ";
+            ?>
+        </div>
+<?php
+
     }
 }
-echo $output;
+?>
