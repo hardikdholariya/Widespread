@@ -43,18 +43,17 @@
             </a>
         </li>
 
-        <!-- <li>
-            <a href="tables.php">
-                <i class="zmdi zmdi-grid"></i> <span>Tables</span>
-            </a>
-        </li> -->
-
-        <!-- <li>
+        <li>
             <a href="profile.php">
                 <i class="zmdi zmdi-face"></i> <span>Profile</span>
             </a>
-        </li> -->
+        </li>
 
+        <li>
+            <a href="forms.php">
+                <i class="zmdi zmdi-grid"></i> <span>forms</span>
+            </a>
+        </li>
         <!-- <li>
             <a href="login.php" target="_blank">
                 <i class="zmdi zmdi-lock"></i> <span>Login</span>
