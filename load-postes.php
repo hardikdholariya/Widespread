@@ -31,7 +31,7 @@ if (count($result) > 0) {
                             ?>
 
                         </div>
-                        <div class='AccountName'>
+                        <div class='AccountName' data-id="<?= $row['username'] ?>">
                             <?= $row['username'] ?>
                         </div>
                     </div>
@@ -251,6 +251,10 @@ if (count($result) > 0) {
                         $("#shareSearchUser").val("");
                     }
                 });
+            });
+            $(document).on('click', '.AccountName', function(e) {
+                id = $(this).data('id');
+                window.location.href = "./users/" + id;
             });
         });
     </script>

@@ -217,3 +217,9 @@ input {
     right: 0;
     padding: 15px;
 }
+
+@media only screen and (max-width: 320px) {
+    .nva_bar header {
+        width: 289px;
+    }
+}

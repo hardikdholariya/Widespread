@@ -50,7 +50,6 @@ require_once("./session.php");
                         } else {
                         ?>
                             <img src="./img/icon/user.jpg" alt="">
-
                         <?php
                         }
                         ?>

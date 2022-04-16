@@ -7,7 +7,7 @@ $data = new Database;
 $receiver = $_POST['r'];
 $sender = $_COOKIE['id'];
 
-$sql = "SELECT `username`,`text_message`,`curr_date`,`curr_time`,`vi`,`link` FROM message LEFT JOIN user ON user.username = message.outgoing_msg_id
+$sql = "SELECT message.msg_id,`username`,`text_message`,`curr_date`,`curr_time`,`vi`,`link` FROM message LEFT JOIN user ON user.username = message.outgoing_msg_id
 WHERE `incoming_msg_id`='$receiver' AND `outgoing_msg_id`='$sender' || `outgoing_msg_id`='$receiver' AND `incoming_msg_id`='$sender' ORDER BY `msg_id` ASC";
 $data->sql($sql);
 $result = $data->getResult();
@@ -40,6 +40,7 @@ if (count($result) > 0) {
 
                 <div class="user-2 message-user">
                     <p><?= $message ?></p>
+                    <div class="deleteChat" data-id="<?= $row['msg_id'] ?>">...</div>
                 </div>
                 <div class="time" style="text-align: right;">
                     <?= $row['curr_date'] . ' ' . $row['curr_time'] ?>
@@ -54,6 +55,7 @@ if (count($result) > 0) {
                             <span>Send Post...</span>
                         </a>
                     </p>
+                    <div class="deleteChat" data-id="<?= $row['msg_id'] ?>">...</div>
                 </div>
                 <div class="time" style="text-align: right;">
                     <?= $row['curr_date'] . ' ' . $row['curr_time'] ?>
@@ -71,3 +73,22 @@ if (count($result) > 0) {
     </div>
 <?php
 }
+?>
+<script src="./js/jquery.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.deleteChat').click(function(e) {
+            e.preventDefault();
+            id = $(this).data('id');
+            if (confirm("You want to delete message?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "./php_files/delete_chat.php",
+                    data: {
+                        id
+                    }
+                });
+            }
+        });
+    });
+</script>

@@ -268,6 +268,7 @@ section .scrollBtn .btn-scroll {
     right: 0;
     margin: 16px;
     cursor: pointer;
+    z-index: 10;
 }
 
 
@@ -394,10 +395,6 @@ section .scrollBtn .btn-scroll {
     border: 1px solid #fff;
 }
 
-.username h4 {
-    margin: 0 10px;
-}
-
 .userStory img {
     object-fit: contain;
     object-position: center;
@@ -490,6 +487,7 @@ section .scrollBtn .btn-scroll {
     flex-direction: row;
     width: 544px;
     justify-content: flex-start;
+    transition: width 2s;
 }
 
 .userContender .userImg {
@@ -1346,4 +1344,27 @@ h4 {
     border-radius: 10px;
     cursor: pointer;
     color: #fff;
+}
+
+@media only screen and (max-width: 320px) {
+    .posts,
+    section .scrollBtn {
+        width: 289px;
+    }
+    .posts .header .userContender {
+        width: 225px;
+    }
+    header .logo {
+        display: none;
+    }
+    header .search {
+        margin: 0 auto;
+    }
+    .searchItem {
+        right: 4%;
+    }
+    .deletePost .delete_box,
+    .sharePost .share_box {
+        width: 284px;
+    }
 }

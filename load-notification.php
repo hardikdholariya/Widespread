@@ -29,7 +29,7 @@ if (count($result) > 0) {
                         <img src="./users/<?= $row['likes'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
                     <?php
                     } else { ?>
-                        <img src="./users/<?= $row['likes'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
+                        <img src="./img/icon/user.jpg" alt="User Profile" id="foo">
                     <?php
                     }
                     ?>
@@ -72,7 +72,17 @@ if (count($result1) > 0) {
         ?>
             <div class="comment">
                 <div class="userImg">
-                    <img src="./users/<?= $row2['usernames'] ?>/profileImg/<?= $row2['profileImg'] ?>" alt="User Profile" id="foo">
+                    <?php
+                    if (!empty($row2['profileImg'])) {
+                    ?>
+                        <img src="./users/<?= $row['likes'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
+                    <?php
+                    } else { ?>
+                        <img src="./img/icon/user.jpg" alt="User Profile" id="foo">
+                    <?php
+                    }
+                    ?>
+
                 </div>
                 <div class="userDetail">
                     <div class="ues">

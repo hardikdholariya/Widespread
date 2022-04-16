@@ -43,11 +43,7 @@ require_once("./header.php");
         ?>
         <div id="posts" style='z-index: 1;'>
         </div>
-
-
-
         <div class="notify_pop">
-
         </div>
 
     </section>
@@ -82,7 +78,6 @@ require_once("./header.php");
                     type: "POST",
                     url: "./php_files/birth_date.php",
                     success: function(data) {
-                        console.log(data);
                         if (data == 1) {
                             window.location.href = "./birthday/";
                         }
