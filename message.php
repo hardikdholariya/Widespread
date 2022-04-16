@@ -128,6 +128,13 @@ require_once("./session.php");
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
+        });
+    </script>
 </body>
 
 </html>

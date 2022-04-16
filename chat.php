@@ -165,6 +165,13 @@ require_once("./session.php");
         // scrollDown();
         // scrollDown();
     </script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
+        });
+    </script>
 </body>
 
 </html>

@@ -47,20 +47,15 @@
             </div>
         </div>
     </div>
+
+    <script src="../../ajax/script.js?v=<?php echo time(); ?>"></script>
     <script>
         $(document).ready(function() {
-            // $(document).on('click', '.followingBtn', function(e) {
-            //     e.preventDefault();
-            //     var username = $(this).data('itemId');
-            //     var src = $(this).data('src');
-            //     $('.popImg').attr('src', src);
-            //     $('.unfollow_username').html(username);
-            //     $('#unfollow_user').attr('data-id', username);
-            // });
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
         });
     </script>
-    <script src="../../ajax/script.js?v=<?php echo time(); ?>"></script>
-
 </body>
 
 </html>

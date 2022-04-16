@@ -65,6 +65,13 @@
         });
     </script>
     <script src="../../ajax/script.js?v=<?php echo time(); ?>"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
+        });
+    </script>
 </body>
 
 </html>

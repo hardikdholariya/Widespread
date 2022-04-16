@@ -89,6 +89,13 @@ require_once("./header.php");
     <script src="./js/emojionearea.js"></script>
     <script src="./ajax/script.js?v=<?php echo time(); ?>"></script>
     <script src="./js/action.js?v=<?php echo time(); ?>"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
+        });
+    </script>
 </body>
 
 </html>
