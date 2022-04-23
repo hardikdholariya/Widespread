@@ -94,7 +94,7 @@ if (isset($_POST['change'])) {
           <div class="col-lg-6 ">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Vertical Form</div>
+                <div class="card-title">Change Password</div>
                 <hr>
                 <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" name="passwordChange">
 
