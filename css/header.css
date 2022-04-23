@@ -218,6 +218,18 @@ input {
     padding: 15px;
 }
 
+@media only screen and (max-width: 768px) {
+    .nva_bar header {
+        width: 625px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .nva_bar header {
+        width: 366px;
+    }
+}
+
 @media only screen and (max-width: 320px) {
     .nva_bar header {
         width: 289px;

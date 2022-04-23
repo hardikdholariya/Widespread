@@ -151,6 +151,10 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
         $(".searchClose").click(function(e) {
             $(".searchItem").hide();
         });
+        $(".logo").click(function(e) {
+            e.preventDefault();
+            window.location.href = "./"
+        });
     });
 </script>
 

@@ -1078,6 +1078,7 @@ textarea {
 .active {
     transform: translateX(0%);
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    z-index: 100;
 }
 
 .notification_pop .like,
@@ -1346,6 +1347,59 @@ h4 {
     color: #fff;
 }
 
+@media only screen and (max-width: 425px) {
+    .posts,
+    section .scrollBtn {
+        width: 364px;
+    }
+    .posts .header .userContender {
+        width: 290px;
+    }
+    header .logo {
+        display: none;
+    }
+    header .search {
+        margin: 0 auto;
+    }
+    .searchItem {
+        right: 4%;
+    }
+    .deletePost .delete_box,
+    .sharePost .share_box {
+        width: 284px;
+    }
+    .notification {
+        width: 341px;
+    }
+    h3 {
+        width: 345px;
+    }
+    .username span {
+        width: 147px;
+    }
+    .pop {
+        width: 294px;
+    }
+    .container-crop {
+        width: 361px;
+    }
+    .docs-buttons .btnGroup .btnS {
+        flex-direction: column;
+    }
+    .btnGroup .btnS button {
+        margin: 3px;
+    }
+    .docs-buttons .btnGroup {
+        margin: 0px;
+        margin-bottom: 6px;
+    }
+    .btnSGreen {
+        position: absolute;
+        bottom: 0%;
+        right: 5%;
+    }
+}
+
 @media only screen and (max-width: 320px) {
     .posts,
     section .scrollBtn {
@@ -1366,5 +1420,32 @@ h4 {
     .deletePost .delete_box,
     .sharePost .share_box {
         width: 284px;
+    }
+    .notification {
+        width: 289px;
+    }
+    .username span {
+        width: 124px;
+    }
+    .pop {
+        width: 294px;
+    }
+    .container-crop {
+        width: 305px;
+    }
+    .docs-buttons .btnGroup .btnS {
+        flex-direction: column;
+    }
+    .btnGroup .btnS button {
+        margin: 3px;
+    }
+    .docs-buttons .btnGroup {
+        margin: 0px;
+        margin-bottom: 6px;
+    }
+    .btnSGreen {
+        position: absolute;
+        bottom: 0%;
+        right: 5%;
     }
 }

@@ -73,9 +73,10 @@ if (count($result1) > 0) {
             <div class="comment">
                 <div class="userImg">
                     <?php
+
                     if (!empty($row2['profileImg'])) {
                     ?>
-                        <img src="./users/<?= $row['likes'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
+                        <img src="./users/<?= $row2['usernames'] ?>/profileImg/<?= $row2['profileImg'] ?>" alt="User Profile" id="foo">
                     <?php
                     } else { ?>
                         <img src="./img/icon/user.jpg" alt="User Profile" id="foo">
