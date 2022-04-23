@@ -43,6 +43,10 @@ input {
     font-size: 16px;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 .animation {
     position: fixed;
     top: 0;

@@ -8,7 +8,8 @@ require_once("./session.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>username</title>
+
+    <title><?= $_GET['r'] ?> • <?= $_COOKIE['id'] ?></title>
     <link rel="stylesheet" href="./css/message.css?v=<?php echo time(); ?>">
     <link rel="icon" type="image/x-icon" href="./img/ioc/logo.ico?v=<?php echo time(); ?>">
 
@@ -56,7 +57,7 @@ require_once("./session.php");
                     </div>
                     <div class="name">
                         <div class="username">
-                            <h4><?= $row['username'] ?></h4>
+                            <h4 style="cursor: auto;"><?= $row['username'] ?></h4>
                         </div>
                         <div class="fullName">
                             <h5><?= $row['fullname'] ?> </h5>

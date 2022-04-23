@@ -41,7 +41,6 @@ p {
 
 .profileDetail .userimg {
     height: 150px;
-    margin-right: 75px;
     cursor: pointer;
 }
 
@@ -594,5 +593,8 @@ h5 {
     }
     .profile .postIcon {
         width: 300px;
+    }
+    .setting_menu .setting_box {
+        width: 255px;
     }
 }
