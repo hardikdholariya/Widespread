@@ -38,7 +38,7 @@ if (count($result) > 0) {
                 <div class="userDetail">
                     <div class="ues">
                         <div class="username">
-                            <h4 class="username_ffp"><?= $row['likes'] ?></h4><span>like your post</span>
+                            <h4 class="username_ffp" style="cursor: auto;"><?= $row['likes'] ?></h4><span>like your post</span>
                         </div>
                     </div>
 
@@ -88,7 +88,7 @@ if (count($result1) > 0) {
                 <div class="userDetail">
                     <div class="ues">
                         <div class="username">
-                            <h4 class="username_ffp"><?= $row2['usernames'] ?></h4><span>Comment: <?= $row2['comment'] ?> </span>
+                            <h4 class="username_ffp" style="cursor: auto;"><?= $row2['usernames'] ?></h4><span>Comment: <?= $row2['comment'] ?> </span>
                         </div>
                     </div>
 

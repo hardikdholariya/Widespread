@@ -178,7 +178,7 @@
     <div class="img"></div>
     <div class="nva_bar">
         <header>
-            <div class="logo">
+            <div class="logo" style="cursor: pointer;">
                 <p>Widespread</p>
             </div>
             <div class="search">
@@ -308,6 +308,10 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
         });
         $(".searchClose").click(function(e) {
             $(".searchItem").hide();
+        });
+        $(".logo").click(function(e) {
+            e.preventDefault();
+            window.location.href = "../../"
         });
     });
 </script>
