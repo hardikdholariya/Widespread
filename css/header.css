@@ -52,17 +52,16 @@ input {
     top: 0;
     left: 0%;
     bottom: 0;
-    width: 100%;
+    width: 150%;
     background: linear-gradient(90deg, #ff00c8, #4001ff);
-    clip-path: circle(100% at 50% 0%);
-    /* clip-path: circle(0% at 50% 94%); */
+    clip-path: circle(150% at 50% 0%);
     z-index: 1000;
-    transition: 0.5s ease-out;
+    transition: 0.9s ease-out;
 }
 
 .is-active {
     left: 0%;
-    clip-path: circle(0% at 50% 94%);
+    clip-path: circle(0% at 33.3% 94%);
 }
 
 .nva_bar,
