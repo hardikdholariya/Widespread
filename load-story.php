@@ -6,7 +6,6 @@ $user = $_POST['user'];
 $following = $id . 'following';
 $data->select($following, 'username,profileImg,story', "userstroy ON `{$following}`.following = userstroy.postStoryUsername JOIN user ON user.username = userstroy.postStoryUsername", "userstroy.postStoryUsername='{$user}'");
 $result2 = $data->getResult();
-// print_r($result2);
 if (count($result2) > 0) {
 
 ?>

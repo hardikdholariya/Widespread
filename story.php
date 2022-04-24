@@ -173,7 +173,6 @@
             }, 2000);
         });
     </script>
-    <!-- <script src="./js/slide-stories.js"></script> -->
 
 </body>
 

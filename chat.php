@@ -90,7 +90,6 @@ require_once("./session.php");
                     autocomplete: false,
                     inline: true
                 });
-                // scrollDown();
 
             });
             $(document).on('click', '.emojionearea', function(e) {
@@ -129,7 +128,6 @@ require_once("./session.php");
                         }
                     });
                 }, 300);
-                // 
 
             });
             $(document).on('click', '#send', function(e) {
@@ -147,7 +145,6 @@ require_once("./session.php");
                         success: function(data) {
                             var emoj = $(".emojionearea-editor").html("");
                             $(".userChat").html(data);
-                            // scrollToBottom();
                         }
                     });
                 }
@@ -158,14 +155,7 @@ require_once("./session.php");
             el.scrollTop = el.scrollHeight;
         }
     </script>
-    <script>
-        // function scrollDown() {
-        //     el.scrollTop = el.scrollHeight - el.scrollTop;
-        //     console.log(el.scrollTop);
-        // }
-        // scrollDown();
-        // scrollDown();
-    </script>
+
     <script>
         $(document).ready(function() {
             $(document).on("contextmenu", "img", function() {
