@@ -19,7 +19,7 @@ if (count($result) > 0) { ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>widespread</title>
-    <link rel="stylesheet" href="./style.css?v=<?php time(); ?>">
+    <link rel="stylesheet" href="./style.css?v=<?= time() ?>">
     <link rel="icon" type="image/x-icon" href="./logo.ico?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
@@ -104,6 +104,28 @@ if (count($result) > 0) { ?>
                 e.preventDefault();
                 $("#unfollow_pop").hide();
             });
+            setInterval(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "../php_files/birth_date.php",
+                    success: function(data) {
+                        if (data == 1) {
+                            window.location.href = "../birthday/";
+                        }
+                    }
+                });
+            }, 2000);
+            $(".logo").click(function(e) {
+                e.preventDefault();
+                window.location.href = "./"
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
         });
     </script>
 </body>

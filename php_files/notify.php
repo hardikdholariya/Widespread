@@ -14,7 +14,17 @@ if (count($result) > 0) {
                 <div class="notification_pop notify_like">
                     <div class="like">
                         <div class="userImg">
-                            <img src="./users/<?= $row1['username'] ?>/profileImg/<?= $row1['profileImg'] ?>" alt="User Profile" id="foo">
+                            <?php
+                            if (!empty($row['profileImg'])) {
+                            ?>
+                                <img src="./users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
+                            <?php
+                            } else { ?>
+                                <img src="./img/icon/user.jpg" alt="User Profile" id="foo">
+                            <?php
+                            }
+                            ?>
+
                         </div>
                         <div class="userDetail">
                             <div class="ues">
@@ -38,7 +48,16 @@ if (count($result) > 0) {
                 <div class="notification_pop notify_comment">
                     <div class="comment">
                         <div class="userImg">
-                            <img src="./users/<?= $row2['username'] ?>/profileImg/<?= $row2['profileImg'] ?>" alt="User Profile" id="foo">
+                            <?php
+                            if (!empty($row['profileImg'])) {
+                            ?>
+                                <img src="./users/<?= $row['username'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
+                            <?php
+                            } else { ?>
+                                <img src="./img/icon/user.jpg" alt="User Profile" id="foo">
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="userDetail">
                             <div class="ues">

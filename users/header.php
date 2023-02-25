@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../header.css?v=<?php time() ?>">
+    <link rel="stylesheet" href="../header.css?v=<?= time() ?>">
     <link rel="icon" type="image/x-icon" href="./../../img/logo.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Padauk&family=Passion+One&display=swap" rel="stylesheet">
@@ -151,6 +151,24 @@
             right: 0;
             padding: 15px;
         }
+
+        @media only screen and (max-width: 768px) {
+            .nva_bar header {
+                width: 625px;
+            }
+        }
+
+        @media only screen and (max-width: 425px) {
+            .nva_bar header {
+                width: 366px;
+            }
+        }
+
+        @media only screen and (max-width: 320px) {
+            .nva_bar header {
+                width: 289px;
+            }
+        }
     </style>
 </head>
 
@@ -160,7 +178,7 @@
     <div class="img"></div>
     <div class="nva_bar">
         <header>
-            <div class="logo">
+            <div class="logo" style="cursor: pointer;">
                 <p>Widespread</p>
             </div>
             <div class="search">
@@ -290,6 +308,10 @@ $loc = basename($_SERVER['REQUEST_URI'], '.php');
         });
         $(".searchClose").click(function(e) {
             $(".searchItem").hide();
+        });
+        $(".logo").click(function(e) {
+            e.preventDefault();
+            window.location.href = "../../"
         });
     });
 </script>

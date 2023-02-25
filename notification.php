@@ -49,6 +49,13 @@ if (count($res) > 0) {
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
+        });
+    </script>
 </body>
 
 

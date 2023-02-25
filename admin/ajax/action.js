@@ -30,7 +30,6 @@ $(document).ready(function() {
                     id
                 },
                 success: function(data) {
-                    console.log(data);
                     userLoad();
                     recentLoad();
                 }
@@ -53,5 +52,20 @@ $(document).ready(function() {
     $("#logOut").click(function(e) {
         e.preventDefault();
         window.location.href = "./logout.php";
+    });
+
+    $("#editProfile").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "./php_files/updateProfile.php",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(data) {
+                console.log(data);
+            }
+        });
     });
 });

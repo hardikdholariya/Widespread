@@ -162,3 +162,58 @@
     width: 25px;
     display: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .edit_profile {
+        width: 633px;
+    }
+    .edit_profile .changeFrom {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .edit_profile {
+        flex-direction: column;
+    }
+    .edit_profile {
+        width: 355px;
+    }
+    .edit_profile .edit_link {
+        display: flex;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid;
+    }
+    .edit_profile .edit_link .eProfile,
+    .edit_profile .edit_link .cPassword {
+        font-size: 16px;
+        border-left: 1px solid;
+    }
+    .edit_profile .changeFrom {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .edit_profile {
+        flex-direction: column;
+    }
+    .edit_profile {
+        width: 289px;
+    }
+    .edit_profile .edit_link {
+        display: flex;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid;
+    }
+    .edit_profile .edit_link .eProfile,
+    .edit_profile .edit_link .cPassword {
+        font-size: 16px;
+        border-left: 1px solid;
+    }
+    .edit_profile .changeFrom {
+        width: 100%;
+    }
+}

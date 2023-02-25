@@ -43,11 +43,7 @@ require_once("./header.php");
         ?>
         <div id="posts" style='z-index: 1;'>
         </div>
-
-
-
         <div class="notify_pop">
-
         </div>
 
     </section>
@@ -82,7 +78,6 @@ require_once("./header.php");
                     type: "POST",
                     url: "./php_files/birth_date.php",
                     success: function(data) {
-                        console.log(data);
                         if (data == 1) {
                             window.location.href = "./birthday/";
                         }
@@ -94,6 +89,13 @@ require_once("./header.php");
     <script src="./js/emojionearea.js"></script>
     <script src="./ajax/script.js?v=<?php echo time(); ?>"></script>
     <script src="./js/action.js?v=<?php echo time(); ?>"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).on("contextmenu", "img", function() {
+                return false;
+            })
+        });
+    </script>
 </body>
 
 </html>

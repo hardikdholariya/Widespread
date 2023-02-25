@@ -431,8 +431,8 @@ $(document).ready(function() {
 
     $(document).on('animationend', ".heart", function() {
         $(this).toggleClass('is_animating');
-        $(".bxs-heart").addClass('animate__animated animate__rubberBand');
-        $(".bxs-heart").css('color', '#000');
+        $(".likeUnIndex").addClass('animate__animated animate__rubberBand');
+        $(".likeUnIndex").css('color', '#000');
         $(this).hide();
         console.log(this);
         likeUsername = $(this).data('id');
@@ -489,8 +489,8 @@ $(document).ready(function() {
 
     $(document).on('click', '.likeUIndex', function(e) {
         e.preventDefault();
-        $(".bxs-heart").addClass('animate__animated animate__rubberBand');
-        $(".bxs-heart").css('color', '#000');
+        $(".lms .bxs-heart").addClass('animate__animated animate__rubberBand');
+        $(".lms .bxs-heart").css('color', '#000');
         likeUsername = $(this).data('id');
         postImg = $(this).data('imgId');
 
@@ -528,8 +528,8 @@ $(document).ready(function() {
 
     $(document).on('click', '.likeU', function(e) {
         e.preventDefault();
-        $(".bxs-heart").addClass('animate__animated animate__rubberBand');
-        $(".bxs-heart").css('color', '#000');
+        $(".lms .bxs-heart").addClass('animate__animated animate__rubberBand');
+        $(".lms .bxs-heart").css('color', '#000');
         likeUsername = $(this).data('id');
         setTimeout(function() {
             $.ajax({

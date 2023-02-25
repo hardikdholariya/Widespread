@@ -106,6 +106,11 @@ body::after {
 h4,
 h5 {
     margin: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #fff;
 }
 
 h4 {
@@ -199,4 +204,46 @@ h5 {
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .followingList,
+    .followingY h3 {
+        width: 616px;
+    }
+    h4,
+    h5 {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .followingList,
+    .followingY h3 {
+        width: 364px;
+    }
+    h4,
+    h5 {
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .followingList,
+    .followingY h3 {
+        width: 300px;
+    }
+    h4,
+    h5 {
+        width: 100px;
+    }
+    #unfollow_pop #upop {
+        width: 295px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .suggestions {
+        width: 614px;
+    }
 }

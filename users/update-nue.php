@@ -50,11 +50,49 @@ if (count($errors) == 0) {
             $followers_updateTbl = $row['following'] . "followers";
             $data->update($followers_updateTbl, ['followers' => $cUsername], "followers='{$username}'");
         }
-        foreach ($result_t2 as $row) {
-            $following_updateTbl = $row['followers'] . "following";
+        foreach ($result_t2 as $row1) {
+            $following_updateTbl = $row1['followers'] . "following";
             $data->update($following_updateTbl, ['following' => $cUsername], "following='{$username}'");
         }
+        $data->select('conversations', 'user_1,user_2');
+        $result = $data->getResult();
+        foreach ($result as $row2) {
+            if ($row2['user_1'] == $username) {
+                $data->update('conversations', ['user_1' => $cUsername], "user_1='{$username}'");
+            } else if ($row2['user_2'] == $username) {
+                $data->update('conversations', ['user_2' => $cUsername], "user_2='{$username}'");
+            }
+        }
+        $data->select('message', 'incoming_msg_id,outgoing_msg_id');
+        $result2 = $data->getResult();
+        foreach ($result2 as $row3) {
+            if ($row3['incoming_msg_id'] == $username) {
+                $data->update('message', ['incoming_msg_id' => $cUsername], "incoming_msg_id='{$username}'");
+            } else if ($row3['outgoing_msg_id'] == $username) {
+                $data->update('message', ['outgoing_msg_id' => $cUsername], "outgoing_msg_id='{$username}'");
+            }
+        }
+        $data->select('postcomment', 'usernames');
+        $result3 = $data->getResult();
+        foreach ($result3 as $row4) {
+            $data->update('postcomment', ['usernames' => $cUsername], "usernames='{$username}'");
+        }
 
+        $data->select('postlike', 'likes');
+        $result4 = $data->getResult();
+        foreach ($result2 as $row5) {
+            $data->update('postlike', ['likes' => $cUsername], "likes='{$username}'");
+        }
+        $data->select('userpost', 'usernames');
+        $result5 = $data->getResult();
+        foreach ($result2 as $row6) {
+            $data->update('userpost', ['usernames' => $cUsername], "usernames='{$username}'");
+        }
+        $data->select('userstroy', 'postStoryUsername');
+        $result6 = $data->getResult();
+        foreach ($result2 as $row7) {
+            $data->update('userstroy', ['postStoryUsername' => $cUsername], "postStoryUsername='{$username}'");
+        }
 
         mkdir($cUsername);
         $folder = $cUsername;

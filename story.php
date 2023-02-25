@@ -120,10 +120,7 @@
                 }
             });
             $(".storyClose").click(function(e) {
-                // e.preventDefault();
-                $(".storyPop").hide();
-                $('.storyPopUser').hide();
-                $("#storyImg").fadeIn("slow").attr('src', '');
+                window.location = "./";
             });
             $(document).on('click', '.userStoryClose', function(e) {
                 e.preventDefault();
@@ -176,7 +173,6 @@
             }, 2000);
         });
     </script>
-    <!-- <script src="./js/slide-stories.js"></script> -->
 
 </body>
 

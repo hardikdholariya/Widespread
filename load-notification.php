@@ -29,7 +29,7 @@ if (count($result) > 0) {
                         <img src="./users/<?= $row['likes'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
                     <?php
                     } else { ?>
-                        <img src="./users/<?= $row['likes'] ?>/profileImg/<?= $row['profileImg'] ?>" alt="User Profile" id="foo">
+                        <img src="./img/icon/user.jpg" alt="User Profile" id="foo">
                     <?php
                     }
                     ?>
@@ -38,7 +38,7 @@ if (count($result) > 0) {
                 <div class="userDetail">
                     <div class="ues">
                         <div class="username">
-                            <h4 class="username_ffp"><?= $row['likes'] ?></h4><span>like your post</span>
+                            <h4 class="username_ffp" style="cursor: auto;"><?= $row['likes'] ?></h4><span>like your post</span>
                         </div>
                     </div>
 
@@ -72,12 +72,23 @@ if (count($result1) > 0) {
         ?>
             <div class="comment">
                 <div class="userImg">
-                    <img src="./users/<?= $row2['usernames'] ?>/profileImg/<?= $row2['profileImg'] ?>" alt="User Profile" id="foo">
+                    <?php
+
+                    if (!empty($row2['profileImg'])) {
+                    ?>
+                        <img src="./users/<?= $row2['usernames'] ?>/profileImg/<?= $row2['profileImg'] ?>" alt="User Profile" id="foo">
+                    <?php
+                    } else { ?>
+                        <img src="./img/icon/user.jpg" alt="User Profile" id="foo">
+                    <?php
+                    }
+                    ?>
+
                 </div>
                 <div class="userDetail">
                     <div class="ues">
                         <div class="username">
-                            <h4 class="username_ffp"><?= $row2['usernames'] ?></h4><span>Comment: <?= $row2['comment'] ?> </span>
+                            <h4 class="username_ffp" style="cursor: auto;"><?= $row2['usernames'] ?></h4><span>Comment: <?= $row2['comment'] ?> </span>
                         </div>
                     </div>
 

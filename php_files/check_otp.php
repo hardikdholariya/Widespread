@@ -20,7 +20,6 @@ if (isset($_POST["otp"])) {
 			$sql1 =  "CREATE TABLE `$following` (
 				`id` int(50) UNSIGNED AUTO_INCREMENT NOT NULL,
 				`following` varchar(200) NOT NULL,
-				`openStory` varchar(200) NOT NULL,
 				PRIMARY KEY(id),
 				UNIQUE(`following`)
 			  )";
@@ -70,7 +69,6 @@ if (isset($_POST["otp"])) {
 				fclose($ffp);
 			}
 		}
-		// }
 		echo "valid";
 	} else {
 

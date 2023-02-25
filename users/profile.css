@@ -17,6 +17,7 @@ p {
     justify-content: center;
     align-items: center;
     color: #fff;
+    width: 100%;
 }
 
 .profile {
@@ -29,7 +30,7 @@ p {
 .profileDetail {
     width: 900px;
     max-width: 800px;
-    min-width: 665px;
+    min-width: 200px;
     height: 253px;
     border-radius: 20px;
     background: linear-gradient(316deg, #0059ffb8, #df00cdd9);
@@ -40,7 +41,6 @@ p {
 
 .profileDetail .userimg {
     height: 150px;
-    margin-right: 75px;
     cursor: pointer;
 }
 
@@ -152,7 +152,7 @@ h3 {
 .profile .postIcon {
     width: 900px;
     max-width: 800px;
-    min-width: 665px;
+    min-width: 200px;
     height: 50px;
     border-radius: 10px;
     background: linear-gradient(316deg, #0059ffb8, #df00cdd9);
@@ -176,7 +176,7 @@ h3 {
     justify-content: space-between;
     width: 900px;
     max-width: 800px;
-    min-width: 665px;
+    min-width: 200px;
     margin-bottom: 100px;
 }
 
@@ -191,8 +191,8 @@ h3 {
 .profile .pImg img {
     object-fit: cover;
     object-position: center;
-    width: 245px;
-    height: 245px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
     background-color: #fff;
 }
@@ -506,4 +506,95 @@ h5 {
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .profileDetail {
+        width: 657px;
+    }
+    .profile .postIcon {
+        width: 657px;
+    }
+    .profile .postImg {
+        width: 657px;
+    }
+    .profile .pImg {
+        width: 215px;
+        height: 215px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .profileDetail {
+        width: 365px;
+        flex-direction: column;
+    }
+    .profileDetail .userimg {
+        margin: 0;
+        height: 100px;
+    }
+    .profileDetail .userimg img {
+        width: 100px;
+    }
+    .userDetail .ues {
+        justify-content: center;
+        margin: 10px auto;
+    }
+    .ues .username h2 {
+        font-size: 20px;
+    }
+    .userFullName h3 {
+        text-align: center;
+        padding: 5px;
+    }
+    .ues .editProfile button {
+        height: 33px;
+        width: 84px;
+        font-size: 13px;
+    }
+    .userDetail .pff {
+        justify-content: space-evenly;
+    }
+    .pff .imgPost,
+    .pff .followers,
+    .pff .following {
+        margin: 0;
+        flex-direction: column;
+    }
+    .pff .imgPost span,
+    .pff .followers span,
+    .pff .following span {
+        margin: 0px;
+        text-align: center;
+    }
+    .profile .postImg {
+        width: 365px;
+    }
+    .profile .pImg {
+        width: 118px;
+        height: 118px;
+    }
+    .profile .postIcon {
+        width: 365px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .profileDetail {
+        width: 300px;
+        flex-direction: column;
+    }
+    .profile .postImg {
+        width: 300px;
+    }
+    .profile .pImg {
+        width: 98px;
+        height: 98px;
+    }
+    .profile .postIcon {
+        width: 300px;
+    }
+    .setting_menu .setting_box {
+        width: 255px;
+    }
 }
